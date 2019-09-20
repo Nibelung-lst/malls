@@ -7,5 +7,4 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%response.sendRedirect("page/back/login.jsp");%>
-
+<%response.sendRedirect("/page/back/login.jsp");%>

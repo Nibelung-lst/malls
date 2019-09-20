@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
     public List<User> list() {
         UserExample example = new UserExample();
 
-        List<User> users = userMapper.selectByExample(example);
+        List<User> users = userMapper.selectByExampleNoPassword(example);
 
         return users;
     }

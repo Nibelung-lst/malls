@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2019-09-18 15:47:13
+Date: 2019-09-20 10:24:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,11 +39,11 @@ INSERT INTO `t_admin` VALUES ('17', 'Nibelung', '159487');
 DROP TABLE IF EXISTS `t_category`;
 CREATE TABLE `t_category` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `create_name` varchar(255) DEFAULT NULL,
-  `create_time` date DEFAULT NULL,
-  `final_modification_time` date DEFAULT NULL,
-  `final_change_man` varchar(255) DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '分类名',
+  `create_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '创建人名',
+  `create_time` date DEFAULT NULL COMMENT '创建时间',
+  `final_modification_time` date DEFAULT NULL COMMENT '最后修改时间',
+  `final_change_man` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '最后修改人',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
@@ -65,16 +65,16 @@ INSERT INTO `t_category` VALUES ('20', '测试分类20', 'Nibelung', '2019-09-12
 DROP TABLE IF EXISTS `t_goods`;
 CREATE TABLE `t_goods` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `original_price` decimal(10,2) DEFAULT NULL,
-  `real_price` decimal(10,2) DEFAULT NULL,
-  `represent` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `category_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `creater` varchar(255) DEFAULT NULL,
-  `create_date` date DEFAULT NULL,
-  `final_changer` varchar(255) DEFAULT NULL,
-  `final_change_time` date DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '商品名',
+  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '商品图片地址',
+  `original_price` decimal(10,2) DEFAULT NULL COMMENT '初始价格',
+  `real_price` decimal(10,2) DEFAULT NULL COMMENT '原价',
+  `representf` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '描述',
+  `category_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类名',
+  `creater` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '创建者',
+  `create_date` date DEFAULT NULL COMMENT '创建时间',
+  `final_changer` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '最后修改人',
+  `final_change_time` date DEFAULT NULL COMMENT '最后修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
@@ -96,15 +96,15 @@ INSERT INTO `t_goods` VALUES ('9', '测试商品9', '367f9608-0a0c-4fa4-b41a-450
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `order_ID` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `receiver` varchar(255) DEFAULT NULL,
-  `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `price` decimal(10,2) DEFAULT NULL,
-  `creator_time` date DEFAULT NULL,
-  `finsh_time` date DEFAULT NULL,
-  `status` varchar(255) DEFAULT NULL,
-  `user_name` varchar(255) DEFAULT NULL,
+  `order_ID` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '订单编号',
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '地址',
+  `receiver` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '接收人',
+  `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '电话',
+  `price` decimal(10,2) DEFAULT NULL COMMENT '订单总额',
+  `creator_time` date DEFAULT NULL COMMENT '创建时间',
+  `finsh_time` date DEFAULT NULL COMMENT '完成时间',
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '状态',
+  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '会员名',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -120,9 +120,9 @@ INSERT INTO `t_order` VALUES ('2', '7937cd21-c3bb-4739-829b-a6eb1ca65349', '广�
 DROP TABLE IF EXISTS `t_order_detail`;
 CREATE TABLE `t_order_detail` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `order_id` int(10) DEFAULT NULL,
-  `goods_id` int(10) DEFAULT NULL,
-  `number` int(10) DEFAULT NULL,
+  `order_id` int(10) DEFAULT NULL COMMENT '订单ID',
+  `goods_id` int(10) DEFAULT NULL COMMENT '商品ID',
+  `number` int(10) DEFAULT NULL COMMENT '数量',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -139,11 +139,11 @@ INSERT INTO `t_order_detail` VALUES ('3', '2', '4', '1');
 DROP TABLE IF EXISTS `t_point`;
 CREATE TABLE `t_point` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_id` int(10) DEFAULT NULL,
-  `point` int(10) DEFAULT NULL,
-  `total_point` int(10) DEFAULT NULL,
-  `order_id` int(10) DEFAULT NULL,
-  `create_time` date DEFAULT NULL,
+  `user_id` int(10) DEFAULT NULL COMMENT '用户ID',
+  `point` int(10) DEFAULT NULL COMMENT '积分',
+  `total_point` int(10) DEFAULT NULL COMMENT '总积分',
+  `order_id` int(10) DEFAULT NULL COMMENT '订单ID',
+  `create_time` date DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -158,16 +158,16 @@ INSERT INTO `t_point` VALUES ('1', '1', null, null, '1', '2019-09-18');
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `real_name` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `sex` tinyint(1) DEFAULT NULL,
-  `telephone` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
-  `point` int(10) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
+  `real_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '真实姓名',
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '密码',
+  `sex` tinyint(1) DEFAULT NULL COMMENT '性别',
+  `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '电话',
+  `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '地址',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '邮箱',
+  `birthday` date DEFAULT NULL COMMENT '生日',
+  `point` int(10) DEFAULT NULL COMMENT '积分',
+  `status` tinyint(1) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 

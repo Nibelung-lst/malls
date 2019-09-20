@@ -33,7 +33,7 @@ public class AdminServiceImpl implements AdminService {
         AdminExample example = new AdminExample();
         //按 id 降序排序
         //使用list接受
-        List<Admin> admins = adminMapper.selectByExample(example);
+        List<Admin> admins = adminMapper.selectByExampleNoPassword(example);
 
         return admins;
     }

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lst.malls.mapper.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.lst.malls.pojo.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="order_ID" property="order_ID" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="receiver" property="receiver" jdbcType="VARCHAR" />
+    <result column="telephone" property="telephone" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="creator_time" property="creator_time" jdbcType="DATE" />
+    <result column="finsh_time" property="finsh_time" jdbcType="DATE" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="user_name" property="user_name" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, order_ID, address, receiver, telephone, price, creator_time, finsh_time, status, 
+    user_name
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.OrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from t_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lst.malls.pojo.Order" useGeneratedKeys="true" keyProperty="id" >
+    insert into t_order (order_ID, address, receiver, 
+      telephone, price, creator_time, 
+      finsh_time, status, user_name
+      )
+    values (#{order_ID,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{creator_time,jdbcType=DATE}, 
+      #{finsh_time,jdbcType=DATE}, #{status,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lst.malls.pojo.Order" useGeneratedKeys="true" keyProperty="id" >
+    insert into t_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="order_ID != null" >
+        order_ID,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="receiver != null" >
+        receiver,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="creator_time != null" >
+        creator_time,
+      </if>
+      <if test="finsh_time != null" >
+        finsh_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="user_name != null" >
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="order_ID != null" >
+        #{order_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null" >
+        #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="creator_time != null" >
+        #{creator_time,jdbcType=DATE},
+      </if>
+      <if test="finsh_time != null" >
+        #{finsh_time,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null" >
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.Order" >
+    update t_order
+    <set >
+      <if test="order_ID != null" >
+        order_ID = #{order_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="receiver != null" >
+        receiver = #{receiver,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="creator_time != null" >
+        creator_time = #{creator_time,jdbcType=DATE},
+      </if>
+      <if test="finsh_time != null" >
+        finsh_time = #{finsh_time,jdbcType=DATE},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null" >
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.Order" >
+    update t_order
+    set order_ID = #{order_ID,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      receiver = #{receiver,jdbcType=VARCHAR},
+      telephone = #{telephone,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      creator_time = #{creator_time,jdbcType=DATE},
+      finsh_time = #{finsh_time,jdbcType=DATE},
+      status = #{status,jdbcType=VARCHAR},
+      user_name = #{user_name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
