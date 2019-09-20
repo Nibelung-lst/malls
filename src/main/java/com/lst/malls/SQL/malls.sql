@@ -69,7 +69,7 @@ CREATE TABLE `t_goods` (
   `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '商品图片地址',
   `original_price` decimal(10,2) DEFAULT NULL COMMENT '初始价格',
   `real_price` decimal(10,2) DEFAULT NULL COMMENT '原价',
-  `representf` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '描述',
+  `represent` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '描述',
   `category_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '分类名',
   `creater` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '创建者',
   `create_date` date DEFAULT NULL COMMENT '创建时间',
