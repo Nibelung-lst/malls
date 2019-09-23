@@ -41,9 +41,9 @@ public class GoodsServiceImpl implements GoodsService {
      * @return
      */
     @Override
-    public List<Goods> listCategory(String category_name) {
+    public List<Goods> listCategory(String categoryName) {
 
-        List<Goods> goods =goodsMapper.selectByExampleWithCategory(category_name);
+        List<Goods> goods =goodsMapper.selectByExampleWithCategory(categoryName);
 
         return goods;
     }

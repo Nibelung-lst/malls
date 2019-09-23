@@ -31,7 +31,7 @@ public class AdminController {
      * @return
      */
     @RequestMapping("admin_list")
-    public String List(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    public String list(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
 
         PageHelper.startPage(pn,5);
         List<Admin> admins = adminService.list();

@@ -21,10 +21,10 @@ public interface GoodsService {
 
     /**
      * 展示相应分类下的商品
-     * @param category_name
+     * @param categoryName
      * @return
      */
-    List<Goods> listCategory(String category_name);
+    List<Goods> listCategory(String categoryName);
 
     /**
      * 添加商品
