@@ -111,11 +111,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/Goods_Category_list?pn=1&category_name=<%=session.getAttribute("Category")%>">首页</a> </li>
+                    <li><a href="/back/Goods_Category_list?pn=1&categoryName=<%=session.getAttribute("Category")%>">首页</a> </li>
 
                     <c:if test="${GoodPageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/Goods_Category_list?pn=${GoodPageInfo.pageNum-1}&category_name=<%=session.getAttribute("Category")%>" aria-label="Previous">
+                            <a href="/back/Goods_Category_list?pn=${GoodPageInfo.pageNum-1}&categoryName=<%=session.getAttribute("Category")%>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -126,20 +126,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != GoodPageInfo.pageNum}">
-                            <li ><a href="/back/Goods_Category_list?pn=${pageNums}&category_name=<%=session.getAttribute("Category")%>" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/Goods_Category_list?pn=${pageNums}&categoryName=<%=session.getAttribute("Category")%>" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${CategoryPageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/Goods_Category_list?pn=${GoodPageInfo.pageNum+1}&category_name=<%=session.getAttribute("Category")%>" aria-label="Next">
+                            <a href="/back/Goods_Category_list?pn=${GoodPageInfo.pageNum+1}&categoryName=<%=session.getAttribute("Category")%>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/Goods_Category_list?pn=${GoodPageInfo.pages}&category_name=<%=session.getAttribute("Category")%>">末页</a> </li>
+                    <li><a href="/back/Goods_Category_list?pn=${GoodPageInfo.pages}&categoryName=<%=session.getAttribute("Category")%>">末页</a> </li>
 
                 </ul>
             </nav>
