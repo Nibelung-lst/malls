@@ -21,4 +21,18 @@ public interface UserService {
     List<User> list();
 
     void change(boolean change, User user);
+
+    User get(String name,String password);
+
+    /**
+     * 注册
+     * */
+
+    void add(User user);
+
+    /**
+     * 查重
+     */
+    boolean exist(String name);
+
 }

@@ -43,4 +43,39 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public User get(String name, String password) {
+        UserExample example = new UserExample();
+
+        example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
+
+        List<User> admins = userMapper.selectByExample(example);
+
+        if (admins.isEmpty()){
+            return null;
+        }
+
+
+        return admins.get(0);
+    }
+
+    @Override
+    public void add(User user) {
+        userMapper.insert(user);
+    }
+
+    @Override
+    public boolean exist(String name) {
+        UserExample example = new UserExample();
+        example.createCriteria().andNameEqualTo(name);
+        List<User> users = userMapper.selectByExample(example);
+
+        if (users.isEmpty()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

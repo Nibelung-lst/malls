@@ -1,14 +1,6 @@
 
-<html lang="en">
-<script src="../../js/jquery/jquery.min.js"></script>
-<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false"%>
 
 <script>
     function showProductsAsideCategorys(cid){
@@ -60,13 +52,15 @@
         $("div.productsAsideCategorys").css("left",left-20);
 
     });
+
+
 </script>
 <div class="categoryWithCarousel">
 
     <div class="headbar show1">
         <div class="head ">
 
-            <span style="margin-left:50px" class="glyphicon glyphicon-th-list"></span>
+            <span style="margin-left:50px" class="glyphicon glyphicon-th-list" onclick=""></span>
             <span style="margin-left:50px" >商品分类</span>
 
         </div>
@@ -89,7 +83,7 @@
             <div cid="${c.id}" class="eachCategory">
                 <span class="glyphicon glyphicon-link"></span>
                 <a href="forecategory?cid=${c.id}">
-                    ${c.name}
+                        ${c.name}
                 </a>
             </div>
         </c:forEach>
@@ -128,4 +122,4 @@
 
 
 </div>
-</html>
+

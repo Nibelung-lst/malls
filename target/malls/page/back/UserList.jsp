@@ -67,8 +67,11 @@
                                     <c:when test="${user.sex}">
                                         男
                                     </c:when>
-                                <c:otherwise>
+                                    <c:when test="${!user.sex}">
                                     女
+                                    </c:when>
+                                <c:otherwise>
+                                    error
                                 </c:otherwise>
                                 </c:choose>
                             </td>

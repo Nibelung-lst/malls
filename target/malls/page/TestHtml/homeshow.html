@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>商城登录</title>
+    <link href="../../css/login/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- -->
+    <script>var __links = document.querySelectorAll('a');function __linkClick(e) { parent.window.postMessage(this.href, '*');} ;for (var i = 0, l = __links.length; i < l; i++) {if ( __links[i].getAttribute('data-t') == '_blank' ) { __links[i].addEventListener('click', __linkClick, false);}}</script>
+    <script src="../../js/jquery/jquery.min.js"></script>
+
+    <script>
+        $(document).read(function () {
+            $("#ReButton").click(function () {
+                $("#Register").slideToggle("slow");
+
+            });
+        });
+
+
+    </script>
 </head>
 <body>
+<!-- contact-form -->
+<div class="message warning">
+    <div class="inset">
+        <div class="login-head">
+            <h1>注册</h1>
+            <div class="alert-close"> </div>
+        </div>
+        <form action="/fore/Fore_L" method="post">
+            <li>
+                <span style="font-size:20px;color: #BBBBBB">账号</span> <input id="name" name="name" type="text" class="text" value="账号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}">
+            </li>
+            <div class="clear"> </div>
+            <li>
+               <span style="font-size:20px;color: #BBBBBB">密码</span><input id="password" name="password" type="password" value="密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'password';}">
+            </li>
+            <li id="Register" style="display:none">
+                <span style="font-size:20px;color: #BBBBBB">电话</span><input id="telephone" name="telephone" type="text" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'telephone';}">
+            </li>
+               <input id="status" name="status" type="hidden" value="1" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'status';}">
+            <div class="clear"> </div>
+            <div class="submit">
+                <input type="submit" onclick="myFunction()" value="注册" >
+                <input id="ReButton" type="button" value="Register">
+                <div class="clear">  </div>
+            </div>
 
+        </form>
+    </div>
+</div>
+</div>
+<div class="clear"> </div>
+<!--- footer --->
+<div class="footer">
+    <p>Nibelung &copy; 2019.</p>
+</div>
 </body>
 </html>
