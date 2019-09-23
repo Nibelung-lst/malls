@@ -25,7 +25,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     /**
-     * 查询Category表里的账户数据
+     * 查询Category表里的分类数据
      *
      * @return admin
      */

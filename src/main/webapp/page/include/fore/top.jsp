@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../../css/forehome/style.css" />
 
 <nav class="top ">
-    <a href="../../page/fore/Fore.jsp">
+    <a href="../../index.jsp">
         <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-home redColor"></span>
         商城首页
     </a>

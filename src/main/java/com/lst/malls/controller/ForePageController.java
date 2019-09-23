@@ -1,5 +1,6 @@
 package com.lst.malls.controller;
 
+import com.lst.malls.pojo.Category;
 import com.lst.malls.pojo.User;
 import com.lst.malls.service.CategoryService;
 import com.lst.malls.service.UserService;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @Author :Nibelung
@@ -25,7 +27,14 @@ public class ForePageController {
     @Autowired
     UserService userService;
 
-    /**后台管理登录*/
+    /**
+     * 前台登录
+     * @param name
+     * @param password
+     * @param session
+     * @param model
+     * @return
+     */
     @RequestMapping("Fore_Login")
     public String login(String name, String password, HttpSession session,Model model)  {
         //用户名或者密码为空的话，则跳转到登录错误界面
@@ -72,7 +81,7 @@ public class ForePageController {
      */
     @RequestMapping("Fore_Register")
     public String register(User user,Model model,String name,String sexCheck){
-        String a = "1",b="0";
+        String a = "1",b = "0";
         if (user == null){
             return "static_page/Error";
         }
@@ -91,5 +100,17 @@ public class ForePageController {
             model.addAttribute("RegisterSucceed", true);
             return "fore/ForeRegister";
 
+    }
+
+    /**
+     * 获取分类返回到商城主页面
+     * @param model
+     * @return
+     */
+    @RequestMapping("Fore_Category_List")
+    public String categoryLis(Model model){
+        List<Category> categories = categoryService.list();
+        model.addAttribute("ForeCategory",categories);
+        return "fore/Fore";
     }
 }

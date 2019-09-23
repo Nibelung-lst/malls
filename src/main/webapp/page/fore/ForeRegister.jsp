@@ -135,7 +135,7 @@
             </div>
 
         </form>
-        <div class="ReButton"><span class="text1" style="color: #BBBBBB">没有账号？点击这里注册</span></div>
+        <div class="ReButton" style="display: inline-block;cursor: pointer"><span class="text1" style="color: #BBBBBB">没有账号？点击这里注册</span></div>
     </div>
 </div>
 </div>

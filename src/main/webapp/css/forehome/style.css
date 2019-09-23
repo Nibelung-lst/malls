@@ -499,6 +499,8 @@ table.categorySortTable td:hover {
 }
 
 table.categorySortBarTable span.glyphicon {
+    cursor: pointer;
+    display: inline-block;
     font-size: 10px;
 }
 

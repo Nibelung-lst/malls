@@ -44,7 +44,6 @@ public class GoodsController {
     @RequestMapping("Goods_Category_list")
     public String listCategory(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model, String categoryName, HttpSession session){
 
-        System.out.println(categoryName);
         PageHelper.startPage(pn,5);
         List<Goods> goods = goodsService.listCategory(categoryName);
         PageInfo page = new PageInfo(goods,5);

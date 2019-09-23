@@ -7,4 +7,4 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%response.sendRedirect("/page/fore/Fore.jsp");%>
+<%response.sendRedirect("/fore/Fore_Category_List");%>

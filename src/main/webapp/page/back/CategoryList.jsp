@@ -71,7 +71,7 @@ document.forms[0].submit();
                         <tr>
                             <th>${category.id}</th>
                             <th>${category.name}</th>
-                            <td><a href="/back/Goods_Category_list?category_name=${category.name}">该分类下的商品</a></td>
+                            <td><a href="/back/Goods_Category_list?categoryName=${category.name}">该分类下的商品</a></td>
                             <th>${category.create_name}</th>
                             <th><fmt:formatDate type="date" value="${category.create_time}" /></th>
                             <th>${category.final_change_man}</th>

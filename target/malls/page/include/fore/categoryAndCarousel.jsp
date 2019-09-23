@@ -54,18 +54,31 @@
     });
 
 
+    $(function () {
+        $("#CategoryButton").click(function () {
+            $(".categoryMenu").fadeToggle("");
+        })
+
+
+    })
+
 </script>
 <div class="categoryWithCarousel">
 
-    <div class="headbar show1">
-        <div class="head ">
-
-            <span style="margin-left:50px" class="glyphicon glyphicon-th-list" onclick=""></span>
-            <span style="margin-left:50px" >商品分类</span>
-
+    <div class="headbar show1" >
+        <div class="head " style="display: inline-block;cursor: pointer">
+            <span style="margin-left:50px" id="CategoryButton">商品分类</span>
         </div>
 
+    </div>
 
+    <div class="categoryMenu" style="margin-top: 37px; display: none">
+        <c:forEach items="${ForeCategory}" var="category">
+            <div  class="eachCategory" >
+              <a href="/fore/CategoryGoods?categoryName=${category.name}">${category.name}</a>
+            </div>
+        </c:forEach>
+    </div>
 
     <div id="carousel-of-product"  class="carousel-of-product carousel slide1" data-ride="carousel">
         <!-- Indicators -->
