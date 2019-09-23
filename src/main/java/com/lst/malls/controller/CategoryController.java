@@ -101,7 +101,6 @@ public class CategoryController {
      * @param model
      * @return
      */
-
     @RequestMapping("category_updata")
     public String update(Category category,String name,Model model){
         if (category == null){
