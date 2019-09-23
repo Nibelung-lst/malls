@@ -20,9 +20,10 @@ public interface OrderService {
      */
     List<Order> list();
 
+
     /**
-     *
-     *更新分类
+     * 更新订单
+     * @param order
      */
     void update(Order order);
 

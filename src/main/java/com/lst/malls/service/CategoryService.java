@@ -16,16 +16,15 @@ import java.util.List;
 public interface CategoryService {
 
     /**
-     * 查询Admin表里的账户数据
-     *
-     * return: List<Admin>
+     * 分类查询
+     * @return
      */
     List<Category> list();
 
     /**
      * 添加分类
-     * */
-
+     * @param category
+     */
     void add(Category category);
 
 
@@ -36,14 +35,14 @@ public interface CategoryService {
 
 
     /**
-     *
-     * 删除分类By id
+     * 按id删除
+     * @param id
      */
     void delete(Integer id);
 
     /**
-     *
-     *更新分类
+     * 分类更新
+     * @param category
      */
     void update(Category category);
 }

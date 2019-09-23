@@ -33,6 +33,14 @@ public class GoodsController {
     @Autowired
     GoodsService goodsService;
 
+    /**
+     * 指定分类下的商品展示
+     * @param pn
+     * @param model
+     * @param category_name
+     * @param session
+     * @return
+     */
     @RequestMapping("Goods_Category_list")
     public String ListCategory(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model, String category_name, HttpSession session){
 
@@ -120,7 +128,6 @@ public class GoodsController {
      * @param
      * @return
      */
-
     @RequestMapping("goods_updata")
     public String update(Goods goods,String name,Model model,MultipartFile file) throws IOException {
         if (goods == null){

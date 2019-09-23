@@ -66,7 +66,6 @@ public class AdminServiceImpl implements AdminService {
      *添加管理员账户
      * @param admin
      */
-
     @Override
     public void add(Admin admin){
         
@@ -77,7 +76,6 @@ public class AdminServiceImpl implements AdminService {
      * 删除管理员账户by id
      * @param id
      */
-
     @Override
     public void delete(Integer id) {
         adminMapper.deleteByPrimaryKey(id);
@@ -87,7 +85,6 @@ public class AdminServiceImpl implements AdminService {
      * 更新管理员
      * @param admin
      */
-
     @Override
     public void update(Admin admin) {
         adminMapper.updateByPrimaryKeySelective(admin);

@@ -19,7 +19,15 @@ public interface PointService {
      */
     List<Point> list();
 
+    /**
+     * 查找积分
+     * @param points
+     */
     void search(List<Point> points);
 
+    /**
+     * 查找积分
+     * @param point
+     */
     void search(Point point);
 }

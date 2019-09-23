@@ -36,6 +36,10 @@ public class GoodsServiceImpl implements GoodsService {
         return goods;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Goods> listCategory(String category_name) {
 
@@ -44,11 +48,19 @@ public class GoodsServiceImpl implements GoodsService {
         return goods;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void add(Goods goods) {
         goodsMapper.insert(goods);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void delete(Integer id) {
         goodsMapper.deleteByPrimaryKey(id);
@@ -73,6 +85,10 @@ public class GoodsServiceImpl implements GoodsService {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void update(Goods goods) {
         goodsMapper.updateByPrimaryKeySelective(goods);
@@ -80,6 +96,10 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Goods get(Integer id) {
         Goods goods =goodsMapper.selectByPrimaryKey(id);

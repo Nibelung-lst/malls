@@ -35,7 +35,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
 
     @Override
-    /**遍历每个订单然后将每个订单对象传入到fill对象里。*/
+    /**
+     *
+     * @return
+     */
     public void searchOrderDetail(List<Order> orders) {
         for (Order order : orders){
             searchOrderDetail(order);
@@ -43,7 +46,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     }
 
-    /**传入一个订单对象找出符合的商品*/
+    /**
+     *
+     * @return
+     */
     @Override
     public void searchOrderDetail(Order order) {
         OrderDetailExample example = new OrderDetailExample();
@@ -76,13 +82,19 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     }
 
-    /**遍历每张订单详情表**/
+    /**
+     *
+     * @return
+     */
     public void searchGoods(List<OrderDetail> orderDetails){
         for (OrderDetail orderDetail:orderDetails){
             searchGoods(orderDetail);
         }
     }
-    /**将每一张订单详情表通过商品id查出相应的商品信息*/
+    /**
+     *
+     * @return
+     */
     private void searchGoods(OrderDetail orderDetail){
         //通过主键进行查询
         Goods goods = goodsService.get(orderDetail.getGoods_id());

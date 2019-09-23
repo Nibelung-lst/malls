@@ -39,6 +39,10 @@ public class CategoryServiceImpl implements CategoryService {
         return categories;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void add(Category category) {
         categoryMapper.insert(category);
@@ -64,6 +68,10 @@ public class CategoryServiceImpl implements CategoryService {
         return false;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void delete(Integer id) {
         categoryMapper.deleteByPrimaryKey(id);

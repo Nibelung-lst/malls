@@ -87,7 +87,6 @@ public class AdminController {
      * @param model
      * @return
      */
-
     @RequestMapping("admin_update")
     public String update(Admin admin,String name,Model model){
         if (admin == null){

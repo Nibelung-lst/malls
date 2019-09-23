@@ -22,6 +22,10 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<User> list() {
         UserExample example = new UserExample();
@@ -31,6 +35,11 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
+    /**
+     *
+     * @param change
+     * @param user
+     */
     @Override
     public void change(boolean change,User user){
         if (change){
@@ -43,6 +52,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     *
+     * @param name
+     * @param password
+     * @return
+     */
     @Override
     public User get(String name, String password) {
         UserExample example = new UserExample();
@@ -59,11 +74,20 @@ public class UserServiceImpl implements UserService {
         return admins.get(0);
     }
 
+    /**
+     *
+     * @param user
+     */
     @Override
     public void add(User user) {
         userMapper.insert(user);
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     @Override
     public boolean exist(String name) {
         UserExample example = new UserExample();

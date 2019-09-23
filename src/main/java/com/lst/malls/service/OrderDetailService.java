@@ -13,7 +13,15 @@ import java.util.List;
  */
 public interface OrderDetailService {
 
+    /**
+     * 查询要查询订单详情的订单
+     * @param os
+     */
     void  searchOrderDetail(List<Order> os);
 
+    /**
+     * 找出相应订单下的商品
+     * @param o
+     */
     void searchOrderDetail(Order o);
 }

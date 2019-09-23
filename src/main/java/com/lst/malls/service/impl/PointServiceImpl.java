@@ -25,6 +25,10 @@ public class PointServiceImpl implements PointService {
     @Autowired
     UserMapper userMapper;
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Point> list() {
         PointExample example = new PointExample();
@@ -32,6 +36,10 @@ public class PointServiceImpl implements PointService {
         return points;
         }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void search(List<Point> points){
         for (Point point:points){
@@ -39,6 +47,10 @@ public class PointServiceImpl implements PointService {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public void search(Point point){
         User user = userMapper.selectByPrimaryKey(point.getUser_id());

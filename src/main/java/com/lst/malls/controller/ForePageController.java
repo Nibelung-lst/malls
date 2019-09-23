@@ -25,12 +25,6 @@ public class ForePageController {
     @Autowired
     UserService userService;
 
-
-    /***
-     *
-     */
-
-
     /**后台管理登录*/
     @RequestMapping("Fore_Login")
     public String login(String name, String password, HttpSession session,Model model)  {
@@ -56,6 +50,11 @@ public class ForePageController {
         return "fore/fore";
     }
 
+    /**
+     * 脱出登录
+     * @param session
+     * @return
+     */
     @RequestMapping("Fore_LoginOut")
     public String loginout(HttpSession session){
         session.removeAttribute("ForeLoginError");
@@ -63,8 +62,17 @@ public class ForePageController {
         return "fore/fore";
     }
 
+    /**
+     * 注册
+     * @param user
+     * @param model
+     * @param name
+     * @param SexCheck
+     * @return
+     */
     @RequestMapping("Fore_Register")
-    public String Register(User user,Model model,String name,String sexcheck){
+    public String Register(User user,Model model,String name,String SexCheck){
+        String a = "1",b="0";
         if (user == null){
             return "static_page/Error";
         }
@@ -73,10 +81,10 @@ public class ForePageController {
             model.addAttribute("UserExist",true);
             return "fore/ForeRegister";
         }
-        if ("1".equals(sexcheck)){
+        if (a.equals(SexCheck)){
             user.setSex(true);
         }
-        if ("0".equals(sexcheck)){
+        if (b.equals(SexCheck)){
             user.setSex(false);
         }
             userService.add(user);
@@ -84,9 +92,4 @@ public class ForePageController {
             return "fore/ForeRegister";
 
     }
-
-
-
-
-
 }

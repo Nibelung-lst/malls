@@ -20,32 +20,35 @@ public interface GoodsService {
 
 
     /**
-     * 展示
+     * 展示相应分类下的商品
+     * @param category_name
      * @return
      */
     List<Goods> listCategory(String category_name);
 
     /**
-     * 添加分类
-     * */
-
+     * 添加商品
+     * @param goods
+     */
     void add(Goods goods);
 
 
     /**
-     * 查重
+     * 商品名字查重
+     * @param name
+     * @return
      */
     boolean exist(String name);
 
     /**
-     *
-     * 删除分类By id
+     * 根据主键进行删除
+     * @param id
      */
     void delete(Integer id);
 
     /**
-     *
-     *更新分类
+     * 更新商品
+     * @param goods
      */
     void update(Goods goods);
 
