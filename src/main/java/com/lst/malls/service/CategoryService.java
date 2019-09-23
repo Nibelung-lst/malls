@@ -30,6 +30,8 @@ public interface CategoryService {
 
     /**
      * 查重
+     * @param name
+     * @return
      */
     boolean exist(String name);
 

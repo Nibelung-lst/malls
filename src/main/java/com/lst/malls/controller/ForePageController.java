@@ -67,11 +67,11 @@ public class ForePageController {
      * @param user
      * @param model
      * @param name
-     * @param SexCheck
+     * @param sexCheck
      * @return
      */
     @RequestMapping("Fore_Register")
-    public String Register(User user,Model model,String name,String SexCheck){
+    public String register(User user,Model model,String name,String sexCheck){
         String a = "1",b="0";
         if (user == null){
             return "static_page/Error";
@@ -81,10 +81,10 @@ public class ForePageController {
             model.addAttribute("UserExist",true);
             return "fore/ForeRegister";
         }
-        if (a.equals(SexCheck)){
+        if (a.equals(sexCheck)){
             user.setSex(true);
         }
-        if (b.equals(SexCheck)){
+        if (b.equals(sexCheck)){
             user.setSex(false);
         }
             userService.add(user);

@@ -37,25 +37,25 @@ public class GoodsController {
      * 指定分类下的商品展示
      * @param pn
      * @param model
-     * @param category_name
+     * @param categoryName
      * @param session
      * @return
      */
     @RequestMapping("Goods_Category_list")
-    public String ListCategory(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model, String category_name, HttpSession session){
+    public String listCategory(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model, String categoryName, HttpSession session){
 
-        System.out.println(category_name);
+        System.out.println(categoryName);
         PageHelper.startPage(pn,5);
-        List<Goods> goods = goodsService.listCategory(category_name);
+        List<Goods> goods = goodsService.listCategory(categoryName);
         PageInfo page = new PageInfo(goods,5);
         model.addAttribute("GoodPageInfo",page);
-        session.setAttribute("Category",category_name);
+        session.setAttribute("Category",categoryName);
         return "back/GoodsCategoryList";
     }
 
 
     @RequestMapping("Goods_list")
-    public String List(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    public String list(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
 
         PageHelper.startPage(pn,5);
         List<Goods> goods = goodsService.list();
@@ -72,7 +72,7 @@ public class GoodsController {
      * @return
      */
     @RequestMapping("goods_add")
-    public String add(Goods goods, String name, Model model, MultipartFile file, ModelMap map) throws IOException {
+    public String add(Goods goods, String name, Model model, MultipartFile file) throws IOException {
         if (goods == null)
         {
             return "static_page/Error";
