@@ -36,7 +36,7 @@ public class CategoryController {
      * @return
      */
     @RequestMapping("category_list")
-    public String List(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    public String list(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
 
 
          //设置起始页，每页展示5条数据
