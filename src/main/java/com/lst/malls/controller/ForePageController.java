@@ -57,6 +57,7 @@ public class ForePageController {
         //用户名和密码正确，向前端传参，并跳转到后台管理系统页面
         session.setAttribute("user",user);
         return "fore/Fore";
+
     }
 
     /**

@@ -4,10 +4,7 @@ import com.lst.malls.pojo.Goods;
 import com.lst.malls.pojo.Order;
 import com.lst.malls.pojo.OrderDetail;
 import com.lst.malls.pojo.User;
-import com.lst.malls.service.CategoryService;
-import com.lst.malls.service.GoodsService;
-import com.lst.malls.service.OrderDetailService;
-import com.lst.malls.service.OrderService;
+import com.lst.malls.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +40,9 @@ public class GoodsPayController {
 
     @Autowired
     OrderDetailService orderDetailService;
+
+    @Autowired
+    ForeService foreService;
 
     /**
      * 前台通过分类显示相应的商品
@@ -86,16 +86,13 @@ public class GoodsPayController {
 
         //存入相应的订单详情
         Goods goods = goodsService.get(id);
-        OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setNumber(num);
-        orderDetail.setGoods_id(id);
-        orderDetail.setGoods(goods);
+
+        OrderDetail orderDetail = foreService.puyNow(id,num,goods);
 
         orderDetails.add(orderDetail);
 
         //计算订单总额
         BigDecimal price = goods.getReal_price().multiply(BigDecimal.valueOf(num));
-
 
         session.setAttribute("order",orderDetails);
         model.addAttribute("price",price);
@@ -107,12 +104,6 @@ public class GoodsPayController {
     public String shoopingCar(){
         return "static_page/Error";
     }
-
-    @RequestMapping("balance")
-    public String balance(){
-        return "static_page/Error";
-    }
-
 
     /**
      * 创建订单
@@ -127,28 +118,18 @@ public class GoodsPayController {
             return "fore/ForeRegister";
         }
 
-        //生成订单号
-        DateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
-        String timeStr = sdf.format(new Date());
-        // 17位时间+用户id
-        Long i = Long.valueOf(timeStr + user.getId());
-
         List<OrderDetail> orderDetails =(List<OrderDetail>)session.getAttribute("order");
-        order.setOrderDetails(orderDetails);
-
-        for (OrderDetail o:orderDetails) {
-            o.setOrder_id(i);
-            orderDetailService.add(o);
-        }
- 
-        //将订单ID和创建时间存入到订单中
-        order.setOrder_ID(i);
-        order.setCreator_time(new Date());
-        orderService.add(order);
+        Order order1 = foreService.creatOrder(order,orderDetails,user);
+        orderService.add(order1);
 
         return "fore/PayConfirm";
     }
 
+    @RequestMapping("balance")
+    public String balance(Order order){
+        orderService.update(order);
+        return "fore/Error";
+    }
 
 
 }

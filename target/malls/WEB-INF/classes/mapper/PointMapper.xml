@@ -6,7 +6,7 @@
     <result column="user_id" property="user_id" jdbcType="INTEGER" />
     <result column="point" property="point" jdbcType="INTEGER" />
     <result column="total_point" property="total_point" jdbcType="INTEGER" />
-    <result column="order_id" property="order_id" jdbcType="INTEGER" />
+    <result column="order_id" property="order_id" jdbcType="BIGINT" />
     <result column="create_time" property="create_time" jdbcType="DATE" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -70,7 +70,7 @@
     insert into t_point (user_id, point, total_point, 
       order_id, create_time)
     values (#{user_id,jdbcType=INTEGER}, #{point,jdbcType=INTEGER}, #{total_point,jdbcType=INTEGER}, 
-      #{order_id,jdbcType=INTEGER}, #{create_time,jdbcType=DATE})
+      #{order_id,jdbcType=BIGINT}, #{create_time,jdbcType=DATE})
   </insert>
   <insert id="insertSelective" parameterType="com.lst.malls.pojo.Point" useGeneratedKeys="true" keyProperty="id" >
     insert into t_point
@@ -102,7 +102,7 @@
         #{total_point,jdbcType=INTEGER},
       </if>
       <if test="order_id != null" >
-        #{order_id,jdbcType=INTEGER},
+        #{order_id,jdbcType=BIGINT},
       </if>
       <if test="create_time != null" >
         #{create_time,jdbcType=DATE},
@@ -122,7 +122,7 @@
         total_point = #{total_point,jdbcType=INTEGER},
       </if>
       <if test="order_id != null" >
-        order_id = #{order_id,jdbcType=INTEGER},
+        order_id = #{order_id,jdbcType=BIGINT},
       </if>
       <if test="create_time != null" >
         create_time = #{create_time,jdbcType=DATE},
@@ -135,7 +135,7 @@
     set user_id = #{user_id,jdbcType=INTEGER},
       point = #{point,jdbcType=INTEGER},
       total_point = #{total_point,jdbcType=INTEGER},
-      order_id = #{order_id,jdbcType=INTEGER},
+      order_id = #{order_id,jdbcType=BIGINT},
       create_time = #{create_time,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
   </update>
