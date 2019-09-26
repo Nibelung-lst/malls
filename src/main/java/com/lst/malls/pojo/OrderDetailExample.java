@@ -174,52 +174,52 @@ public class OrderDetailExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idEqualTo(Integer value) {
+        public Criteria andOrder_idEqualTo(Long value) {
             addCriterion("order_id =", value, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idNotEqualTo(Integer value) {
+        public Criteria andOrder_idNotEqualTo(Long value) {
             addCriterion("order_id <>", value, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idGreaterThan(Integer value) {
+        public Criteria andOrder_idGreaterThan(Long value) {
             addCriterion("order_id >", value, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOrder_idGreaterThanOrEqualTo(Long value) {
             addCriterion("order_id >=", value, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idLessThan(Integer value) {
+        public Criteria andOrder_idLessThan(Long value) {
             addCriterion("order_id <", value, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idLessThanOrEqualTo(Integer value) {
+        public Criteria andOrder_idLessThanOrEqualTo(Long value) {
             addCriterion("order_id <=", value, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idIn(List<Integer> values) {
+        public Criteria andOrder_idIn(List<Long> values) {
             addCriterion("order_id in", values, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idNotIn(List<Integer> values) {
+        public Criteria andOrder_idNotIn(List<Long> values) {
             addCriterion("order_id not in", values, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idBetween(Integer value1, Integer value2) {
+        public Criteria andOrder_idBetween(Long value1, Long value2) {
             addCriterion("order_id between", value1, value2, "order_id");
             return (Criteria) this;
         }
 
-        public Criteria andOrder_idNotBetween(Integer value1, Integer value2) {
+        public Criteria andOrder_idNotBetween(Long value1, Long value2) {
             addCriterion("order_id not between", value1, value2, "order_id");
             return (Criteria) this;
         }

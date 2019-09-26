@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @Author :Nibelung
@@ -54,7 +53,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     public void searchOrderDetail(Order order) {
         OrderDetailExample example = new OrderDetailExample();
         //通过传进来的订单对象里的订单id到订单详情里找id，select * from orderDetail where order.id = order_id
-        example.createCriteria().andOrder_idEqualTo(order.getId());
+        example.createCriteria().andOrder_idEqualTo(order.getOrder_ID());
         List<OrderDetail> orderDetails = orderDetailMapper.selectByExample(example);
 
         //将找出来的所以订单详情orderDetails传递到setGoods方法进行下一步查询;
@@ -81,6 +80,12 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         order.setOrderDetails(orderDetails);
 
     }
+
+    @Override
+    public void add(OrderDetail orderDetail) {
+        orderDetailMapper.insert(orderDetail);
+    }
+
 
     /**
      *

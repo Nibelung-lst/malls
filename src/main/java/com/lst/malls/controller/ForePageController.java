@@ -55,8 +55,8 @@ public class ForePageController {
         }
 
         //用户名和密码正确，向前端传参，并跳转到后台管理系统页面
-        session.setAttribute("user",user.getName());
-        return "fore/fore";
+        session.setAttribute("user",user);
+        return "fore/Fore";
     }
 
     /**
@@ -68,7 +68,7 @@ public class ForePageController {
     public String loginout(HttpSession session){
         session.removeAttribute("ForeLoginError");
         session.removeAttribute("user");
-        return "fore/fore";
+        return "fore/Fore";
     }
 
     /**
@@ -104,13 +104,13 @@ public class ForePageController {
 
     /**
      * 获取分类返回到商城主页面
-     * @param model
+     * @param session
      * @return
      */
     @RequestMapping("Fore_Category_List")
-    public String categoryLis(Model model){
+    public String categoryLis(HttpSession session){
         List<Category> categories = categoryService.list();
-        model.addAttribute("ForeCategory",categories);
+        session.setAttribute("ForeCategory",categories);
         return "fore/Fore";
     }
 }

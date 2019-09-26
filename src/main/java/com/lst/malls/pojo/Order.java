@@ -7,7 +7,7 @@ import java.util.List;
 public class Order {
     private Integer id;
 
-    private String order_ID;
+    private Long order_ID;
 
     private String address;
 
@@ -35,8 +35,9 @@ public class Order {
     public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
+    /**------------------------------------*/
 
-   /**------------------------------------*/
+
     public Integer getId() {
         return id;
     }
@@ -45,12 +46,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getOrder_ID() {
+    public Long getOrder_ID() {
         return order_ID;
     }
 
-    public void setOrder_ID(String order_ID) {
-        this.order_ID = order_ID == null ? null : order_ID.trim();
+    public void setOrder_ID(Long order_ID) {
+        this.order_ID = order_ID;
     }
 
     public String getAddress() {

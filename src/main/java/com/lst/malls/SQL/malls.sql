@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2019-09-20 10:24:55
+Date: 2019-09-26 10:21:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -91,12 +91,31 @@ INSERT INTO `t_goods` VALUES ('7', '测试商品7', null, '1223.00', '323.00', '
 INSERT INTO `t_goods` VALUES ('9', '测试商品9', '367f9608-0a0c-4fa4-b41a-4508f6c9833c3.jpg', '10.00', '100.00', '无', '测试分类1', 'Nibelung', '2019-09-16', null, null);
 
 -- ----------------------------
+-- Table structure for t_imageurl
+-- ----------------------------
+DROP TABLE IF EXISTS `t_imageurl`;
+CREATE TABLE `t_imageurl` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `goods_name` varchar(255) DEFAULT NULL,
+  `imgURL` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_imageurl
+-- ----------------------------
+INSERT INTO `t_imageurl` VALUES ('2', '测试商品1', '80cc7111-bbbe-4671-ad1b-578e818065b93.jpg');
+INSERT INTO `t_imageurl` VALUES ('3', '测试商品4', '945f894c-0a99-4426-a70a-ad8693e69fe13.jpg');
+INSERT INTO `t_imageurl` VALUES ('4', '测试商品4', '890decce-d8c7-4c8b-85f3-30fe10fa9aa93.jpg');
+INSERT INTO `t_imageurl` VALUES ('5', '测试商品4', 'df51b464-f3f8-4315-a1de-4dd739bc68c33.jpg');
+
+-- ----------------------------
 -- Table structure for t_order
 -- ----------------------------
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `order_ID` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '订单编号',
+  `order_ID` bigint(255) DEFAULT NULL COMMENT '订单编号',
   `address` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '地址',
   `receiver` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '接收人',
   `telephone` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '电话',
@@ -106,13 +125,16 @@ CREATE TABLE `t_order` (
   `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '状态',
   `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '会员名',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
-INSERT INTO `t_order` VALUES ('1', 'b12a277d-030c-4ece-a9c0-ebd5a05faf56', '厦门', '厂长', '7777', '58.00', '2019-09-16', '2019-09-16', '未签收', '');
-INSERT INTO `t_order` VALUES ('2', '7937cd21-c3bb-4739-829b-a6eb1ca65349', '广东', '枣子哥', '111', '1.00', '2019-09-16', null, '送货中', null);
+INSERT INTO `t_order` VALUES ('1', '123456789', '厦门', '厂长', '7777', '58.00', '2019-09-16', '2019-09-16', '未签收', '');
+INSERT INTO `t_order` VALUES ('2', '1234567890', '广东', '枣子哥', '111', '1.00', '2019-09-16', null, '送货中', null);
+INSERT INTO `t_order` VALUES ('3', '201909260905534681', '厦门', '侯国玉', '12345678901', '4.00', '2019-09-26', null, '待付款', 'otto');
+INSERT INTO `t_order` VALUES ('4', '201909260927504691', '厦门', '侯国玉', '12345678900', '3.00', '2019-09-26', null, '代发货', 'otto');
+INSERT INTO `t_order` VALUES ('5', '201909260929405281', '厦门', '侯国玉', '12312312123231', '92.00', '2019-09-26', null, '代发货', 'otto');
 
 -- ----------------------------
 -- Table structure for t_order_detail
@@ -120,18 +142,21 @@ INSERT INTO `t_order` VALUES ('2', '7937cd21-c3bb-4739-829b-a6eb1ca65349', '广�
 DROP TABLE IF EXISTS `t_order_detail`;
 CREATE TABLE `t_order_detail` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `order_id` int(10) DEFAULT NULL COMMENT '订单ID',
+  `order_id` bigint(255) DEFAULT NULL COMMENT '订单ID',
   `goods_id` int(10) DEFAULT NULL COMMENT '商品ID',
   `number` int(10) DEFAULT NULL COMMENT '数量',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_order_detail
 -- ----------------------------
-INSERT INTO `t_order_detail` VALUES ('1', '1', '4', '12');
-INSERT INTO `t_order_detail` VALUES ('2', '1', '5', '2');
-INSERT INTO `t_order_detail` VALUES ('3', '2', '4', '1');
+INSERT INTO `t_order_detail` VALUES ('1', '123456789', '4', '12');
+INSERT INTO `t_order_detail` VALUES ('2', '123456789', '5', '2');
+INSERT INTO `t_order_detail` VALUES ('3', '1234567890', '4', '1');
+INSERT INTO `t_order_detail` VALUES ('4', '201909260905534681', '4', '4');
+INSERT INTO `t_order_detail` VALUES ('5', '201909260927504691', '4', '3');
+INSERT INTO `t_order_detail` VALUES ('6', '201909260929405281', '5', '4');
 
 -- ----------------------------
 -- Table structure for t_point
@@ -142,7 +167,7 @@ CREATE TABLE `t_point` (
   `user_id` int(10) DEFAULT NULL COMMENT '用户ID',
   `point` int(10) DEFAULT NULL COMMENT '积分',
   `total_point` int(10) DEFAULT NULL COMMENT '总积分',
-  `order_id` int(10) DEFAULT NULL COMMENT '订单ID',
+  `order_id` bigint(255) DEFAULT NULL COMMENT '订单ID',
   `create_time` date DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -169,7 +194,7 @@ CREATE TABLE `t_user` (
   `point` int(10) DEFAULT NULL COMMENT '积分',
   `status` tinyint(1) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_user
@@ -178,3 +203,10 @@ INSERT INTO `t_user` VALUES ('1', 'otto', '侯国玉', '123456', '1', '123213213
 INSERT INTO `t_user` VALUES ('2', 'BZZB', '梁志斌', '123456', '1', '123132133', '日本', '12321', '1984-06-14', '0', '1');
 INSERT INTO `t_user` VALUES ('3', 'NMSL', '孙笑川', '123456', '1', '123213213', '日本', '12312', '1980-10-18', '0', '1');
 INSERT INTO `t_user` VALUES ('4', 'dragon', '许昊龙', '123456', '1', '123123213', '福州', '12321', '1998-06-10', '0', '1');
+INSERT INTO `t_user` VALUES ('5', 'aass3265', null, '123456', '1', '12345678', null, null, null, null, '1');
+INSERT INTO `t_user` VALUES ('6', 'as12345', null, '12345678', '1', '12345678', null, null, null, null, '1');
+INSERT INTO `t_user` VALUES ('25', 'Nibelung', null, '123456', '1', '1232132', null, null, null, null, '1');
+INSERT INTO `t_user` VALUES ('28', 'asdasd', null, '123123', '1', '123213', null, null, null, null, '1');
+INSERT INTO `t_user` VALUES ('29', '55open', null, '123456', '1', '43967777', null, null, null, null, '0');
+INSERT INTO `t_user` VALUES ('30', 'dogdog', null, '123456', '1', '1233123', null, null, null, null, '1');
+INSERT INTO `t_user` VALUES ('31', 'hahaha', null, '123456', '0', '12345', null, null, null, null, '1');

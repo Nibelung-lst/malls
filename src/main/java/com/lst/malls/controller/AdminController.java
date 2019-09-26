@@ -64,7 +64,7 @@ public class AdminController {
      */
     @RequestMapping("admin_add")
     public String add(Admin admin,String name,Model model){
-        if (null == admin||admin.equals(""))
+        if (null == admin)
         {
             return "static_page/Error";
         }

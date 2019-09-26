@@ -2,6 +2,7 @@ package com.lst.malls.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public class Goods {
     private Integer id;
@@ -25,6 +26,38 @@ public class Goods {
     private String final_changer;
 
     private Date final_change_time;
+
+    /**
+     * 非数据库字段
+     * @return
+     */
+    private Integer num;
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    private List<ImageURL> imageUrls;
+
+    public List<ImageURL> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<ImageURL> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public BigDecimal getOriginal_price() {
+        return original_price;
+    }
+
+    public void setOriginal_price(BigDecimal original_price) {
+        this.original_price = original_price;
+    }
 
     public Integer getId() {
         return id;
@@ -50,13 +83,6 @@ public class Goods {
         this.image = image == null ? null : image.trim();
     }
 
-    public BigDecimal getoriginal_price() {
-        return original_price;
-    }
-
-    public void setoriginal_price(BigDecimal original_price) {
-        this.original_price = original_price;
-    }
 
     public BigDecimal getReal_price() {
         return real_price;

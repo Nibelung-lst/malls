@@ -1,6 +1,7 @@
 package com.lst.malls.service;
 
 import com.lst.malls.pojo.Order;
+import com.lst.malls.pojo.OrderDetail;
 
 import java.util.List;
 
@@ -24,4 +25,13 @@ public interface OrderDetailService {
      * @param o
      */
     void searchOrderDetail(Order o);
+
+
+    /**
+     * 添加订单详情
+     * @param orderDetail
+     */
+    void add(OrderDetail orderDetail);
+
+
 }

@@ -18,7 +18,7 @@
     </a>
 
     <c:if test="${!empty user}">
-        <a href="#"><%=session.getAttribute("user")%></a>
+        <a href="#">${user.name}</a>
         <a href="/fore/Fore_LoginOut">退出</a>
     </c:if>
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.lst.malls.mapper.OrderMapper" >
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.Order" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="order_ID" property="order_ID" jdbcType="VARCHAR" />
+    <result column="order_ID" property="order_ID" jdbcType="BIGINT" />
     <result column="address" property="address" jdbcType="VARCHAR" />
     <result column="receiver" property="receiver" jdbcType="VARCHAR" />
     <result column="telephone" property="telephone" jdbcType="VARCHAR" />
@@ -76,7 +76,7 @@
       telephone, price, creator_time, 
       finsh_time, status, user_name
       )
-    values (#{order_ID,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, 
+    values (#{order_ID,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, #{receiver,jdbcType=VARCHAR}, 
       #{telephone,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{creator_time,jdbcType=DATE}, 
       #{finsh_time,jdbcType=DATE}, #{status,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR}
       )
@@ -114,7 +114,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="order_ID != null" >
-        #{order_ID,jdbcType=VARCHAR},
+        #{order_ID,jdbcType=BIGINT},
       </if>
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
@@ -146,7 +146,7 @@
     update t_order
     <set >
       <if test="order_ID != null" >
-        order_ID = #{order_ID,jdbcType=VARCHAR},
+        order_ID = #{order_ID,jdbcType=BIGINT},
       </if>
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
@@ -177,7 +177,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.Order" >
     update t_order
-    set order_ID = #{order_ID,jdbcType=VARCHAR},
+    set order_ID = #{order_ID,jdbcType=BIGINT},
       address = #{address,jdbcType=VARCHAR},
       receiver = #{receiver,jdbcType=VARCHAR},
       telephone = #{telephone,jdbcType=VARCHAR},

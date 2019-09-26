@@ -3,7 +3,9 @@ package com.lst.malls.service.impl;
 import com.lst.malls.mapper.GoodsMapper;
 import com.lst.malls.pojo.Goods;
 import com.lst.malls.pojo.GoodsExample;
+import com.lst.malls.pojo.ImageURL;
 import com.lst.malls.service.GoodsService;
+import com.lst.malls.service.ImageUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,8 @@ import java.util.List;
 public class GoodsServiceImpl implements GoodsService {
     @Autowired
     GoodsMapper goodsMapper;
+    @Autowired
+    ImageUrlService imageUrlService;
 
     /**
      * 查询Admin表里的账户数据
@@ -103,6 +107,19 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Goods get(Integer id) {
         Goods goods =goodsMapper.selectByPrimaryKey(id);
+        return goods;
+    }
+
+    /**
+     * 通过商品名查询商品
+     * @param goodName
+     * @return
+     */
+    @Override
+    public Goods getByName(String goodName) {
+        List<ImageURL> imageUrls = imageUrlService.get(goodName);
+        Goods goods = goodsMapper.selectByName(goodName);
+        goods.setImageUrls(imageUrls);
         return goods;
     }
 

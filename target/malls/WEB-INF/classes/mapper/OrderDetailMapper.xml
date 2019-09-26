@@ -3,7 +3,7 @@
 <mapper namespace="com.lst.malls.mapper.OrderDetailMapper" >
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.OrderDetail" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="order_id" property="order_id" jdbcType="INTEGER" />
+    <result column="order_id" property="order_id" jdbcType="BIGINT" />
     <result column="goods_id" property="goods_id" jdbcType="INTEGER" />
     <result column="number" property="number" jdbcType="INTEGER" />
   </resultMap>
@@ -67,7 +67,7 @@
   <insert id="insert" parameterType="com.lst.malls.pojo.OrderDetail" useGeneratedKeys="true" keyProperty="id" >
     insert into t_order_detail (order_id, goods_id, number
       )
-    values (#{order_id,jdbcType=INTEGER}, #{goods_id,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}
+    values (#{order_id,jdbcType=BIGINT}, #{goods_id,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.lst.malls.pojo.OrderDetail" useGeneratedKeys="true" keyProperty="id" >
@@ -85,7 +85,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="order_id != null" >
-        #{order_id,jdbcType=INTEGER},
+        #{order_id,jdbcType=BIGINT},
       </if>
       <if test="goods_id != null" >
         #{goods_id,jdbcType=INTEGER},
@@ -99,7 +99,7 @@
     update t_order_detail
     <set >
       <if test="order_id != null" >
-        order_id = #{order_id,jdbcType=INTEGER},
+        order_id = #{order_id,jdbcType=BIGINT},
       </if>
       <if test="goods_id != null" >
         goods_id = #{goods_id,jdbcType=INTEGER},
@@ -112,7 +112,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.OrderDetail" >
     update t_order_detail
-    set order_id = #{order_id,jdbcType=INTEGER},
+    set order_id = #{order_id,jdbcType=BIGINT},
       goods_id = #{goods_id,jdbcType=INTEGER},
       number = #{number,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}

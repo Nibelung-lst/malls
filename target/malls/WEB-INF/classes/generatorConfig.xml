@@ -47,7 +47,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="t_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
+        <table tableName="t_order" domainObjectName="Order" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="my.isgen.usekeys" value="true"/>
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="JDBC"/>

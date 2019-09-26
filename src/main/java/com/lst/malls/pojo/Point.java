@@ -11,31 +11,24 @@ public class Point {
 
     private Integer total_point;
 
-    private Integer order_id;
+    private Long order_id;
 
     private Date create_time;
-
     /**非数据库实体类----------------------------------------*/
     private User user;
-
     public User getUser() {
         return user;
     }
-
     public void setUser(User user) {
         this.user = user;
     }
-
     private Order order;
-
     public Order getOrder() {
         return order;
     }
-
     public void setOrder(Order order) {
         this.order = order;
     }
-
     /**---------------分割线-----------------------------------*/
 
     public Integer getId() {
@@ -70,11 +63,11 @@ public class Point {
         this.total_point = total_point;
     }
 
-    public Integer getOrder_id() {
+    public Long getOrder_id() {
         return order_id;
     }
 
-    public void setOrder_id(Integer order_id) {
+    public void setOrder_id(Long order_id) {
         this.order_id = order_id;
     }
 

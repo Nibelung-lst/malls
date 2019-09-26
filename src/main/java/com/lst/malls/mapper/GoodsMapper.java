@@ -21,4 +21,6 @@ public interface GoodsMapper {
     int updateByPrimaryKey(Goods record);
 
     List<Goods> selectByExampleWithCategory(String category_name);
+
+    Goods selectByName(String name);
 }

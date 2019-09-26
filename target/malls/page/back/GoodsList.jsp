@@ -30,7 +30,7 @@
         document.forms[0].elements[3].value = real_price;
         document.forms[0].elements[4].value = represent;
         document.forms[0].elements[5].value = category_name;
-        document.forms[0].action = '<c:url value="GoodsUpdata.jsp"/>';
+        document.forms[0].action = '<c:url value="/page/back/GoodsUpdata.jsp"/>';
         document.forms[0].submit();
     }
 

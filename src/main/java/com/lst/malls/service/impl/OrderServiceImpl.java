@@ -45,4 +45,9 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.updateByPrimaryKeySelective(order);
     }
 
+    @Override
+    public void add(Order order) {
+        orderMapper.insert(order);
+    }
+
 }

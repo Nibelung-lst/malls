@@ -3,7 +3,7 @@ package com.lst.malls.pojo;
 public class OrderDetail {
     private Integer id;
 
-    private Integer order_id;
+    private Long order_id;
 
     private Integer goods_id;
 
@@ -29,11 +29,11 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public Integer getOrder_id() {
+    public Long getOrder_id() {
         return order_id;
     }
 
-    public void setOrder_id(Integer order_id) {
+    public void setOrder_id(Long order_id) {
         this.order_id = order_id;
     }
 

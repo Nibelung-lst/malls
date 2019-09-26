@@ -27,4 +27,9 @@ public interface OrderService {
      */
     void update(Order order);
 
+    /**
+     *添加订单
+     */
+    void add(Order order);
+
 }

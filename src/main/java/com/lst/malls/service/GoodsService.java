@@ -59,4 +59,11 @@ public interface GoodsService {
      */
     Goods get(Integer id);
 
+    /**
+     * 通过商品名查询商品
+     * @param goodName
+     * @return
+     */
+    Goods getByName(String goodName);
+
 }
