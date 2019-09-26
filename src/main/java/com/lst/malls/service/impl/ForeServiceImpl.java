@@ -27,6 +27,13 @@ public class ForeServiceImpl implements ForeService {
     @Autowired
     OrderDetailService orderDetailService;
 
+    /**
+     * 立即购买
+     * @param id
+     * @param num
+     * @param goods
+     * @return
+     */
     @Override
     public OrderDetail puyNow(Integer id, Integer num, Goods goods) {
         OrderDetail orderDetail = new OrderDetail();
@@ -36,6 +43,13 @@ public class ForeServiceImpl implements ForeService {
         return orderDetail;
     }
 
+    /**
+     * 创建订单
+     * @param order
+     * @param orderDetails
+     * @param user
+     * @return
+     */
     @Override
     public Order creatOrder(Order order, List<OrderDetail> orderDetails, User user) {
         //生成订单号

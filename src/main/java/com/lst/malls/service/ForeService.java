@@ -17,8 +17,23 @@ import java.util.List;
 public interface ForeService {
 
 
+    /**
+     * 立即购买
+     * @param id
+     * @param num
+     * @param goods
+     * @return
+     */
     OrderDetail puyNow(Integer id, Integer num, Goods goods);
 
+
+    /**
+     * 创建订单
+     * @param order
+     * @param orderDetails
+     * @param user
+     * @return
+     */
     Order creatOrder(Order order,List<OrderDetail> orderDetails, User user);
 
 }
