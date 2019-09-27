@@ -103,7 +103,7 @@ div.carouselBackgroundDiv{
 }
 
 div.categoryWithCarousel div.headbar {
-    background-color: #DD2727;
+    background-color: #610B38;
 }
 
 div.carousel-of-product {
@@ -140,7 +140,7 @@ div.categoryWithCarousel div.productsAsideCategorys {
 }
 
 div.categoryWithCarousel div.eachCategory:hover {
-    background-color: white;
+    background-color: wheat;
 }
 
 div.categoryWithCarousel div.eachCategory span {
@@ -176,7 +176,7 @@ div.categoryWithCarousel div.rightMenu a {
 
 div.categoryWithCarousel div.head {
     width: 200px;
-    background-color: #C60A0A;
+    background-color: #610B38;
     height: 36px;
     line-height: 36px;
     font-size: 16px;
@@ -626,8 +626,8 @@ div.productUnit div.productInfo {
 
 img.simpleLogo {
     position: absolute;
-    left: 10px;
-    top: 50px;
+    left: 200px;
+    top: 30px;
     width: 140px;
 }
 

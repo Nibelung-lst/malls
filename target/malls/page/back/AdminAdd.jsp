@@ -41,7 +41,7 @@
             </div>
         </div>
         <hr>
-    <form action="/back/admin_add" method="post">
+    <form action="/back/adminAdd" method="post">
         <table class="addTable">
             <div class="input-group input-group-lg">
                 <span class="input-group-addon">用户名</span>

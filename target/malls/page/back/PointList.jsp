@@ -88,11 +88,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/point_list?pn=1">首页</a> </li>
+                    <li><a href="/back/pointList?pageNumber=1">首页</a> </li>
 
                     <c:if test="${PointPageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/point_list?pn=${PointPageInfo.pageNum-1}" aria-label="Previous">
+                            <a href="/back/pointList?pageNumber=${PointPageInfo.pageNum-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -103,20 +103,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != PointPageInfo.pageNum}">
-                            <li ><a href="/back/point_list?pn=${pageNums}" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/pointList?pageNumber=${pageNums}" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${UserPageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/point_list?pn=${PointPageInfo.pageNum+1}" aria-label="Next">
+                            <a href="/back/pointList?pageNumber=${PointPageInfo.pageNum+1}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/point_list?pn=${PointPageInfo.pages}">末页</a> </li>
+                    <li><a href="/back/pointList?pageNumber=${PointPageInfo.pages}">末页</a> </li>
 
                 </ul>
             </nav>

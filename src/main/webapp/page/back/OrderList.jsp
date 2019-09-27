@@ -138,11 +138,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/Order_list?pn=1">首页</a> </li>
+                    <li><a href="/back/orderList?pageNumber=1">首页</a> </li>
 
                     <c:if test="${OrderPageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/Order_list?pn=${OrderPageInfo.pageNum-1}" aria-label="Previous">
+                            <a href="/back/orderList?pageNumber=${OrderPageInfo.pageNum-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -153,20 +153,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != OrderPageInfo.pageNum}">
-                            <li ><a href="/back/Order_list?pn=${pageNums}" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/orderList?pageNumber=${pageNums}" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${OrderPageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/Order_list?pn=${OrderPageInfo.pageNum+1}" aria-label="Next">
+                            <a href="/back/orderList?pageNumber=${OrderPageInfo.pageNum+1}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/Order_list?pn=${OrderPageInfo.pages}">末页</a> </li>
+                    <li><a href="/back/orderList?pageNumber=${OrderPageInfo.pages}">末页</a> </li>
 
                 </ul>
             </nav>

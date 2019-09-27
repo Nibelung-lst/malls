@@ -24,7 +24,14 @@ public class ImageUrlController {
     @Autowired
     ImageUrlService imageUrlService;
 
-    @RequestMapping("image_add")
+    /**
+     * 添加附图
+     * @param imageUrl
+     * @param file
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping("imageAdd")
     public String imageAdd(ImageURL imageUrl,MultipartFile file) throws IOException {
         if(imageUrl == null){
             return "static_page/Error";

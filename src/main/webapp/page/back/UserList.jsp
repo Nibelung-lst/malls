@@ -89,8 +89,8 @@
                                 </c:otherwise>
                             </c:choose>
                             </th>
-                            <th><a class="label label-success" <c:if test="${!user.status}">href="/back/user_status?id=${user.id}&pn=${UserPageInfo.pageNum}&status=1"</c:if>>解冻</a>
-                                <a class="label label-danger" <c:if test="${user.status}"> href="/back/user_status?id=${user.id}&pn=${UserPageInfo.pageNum}&status=0"</c:if>>冻结</a>
+                            <th><a class="label label-success" <c:if test="${!user.status}">href="/back/userStatus?id=${user.id}&pageNumber=${UserPageInfo.pageNum}&status=1"</c:if>>解冻</a>
+                                <a class="label label-danger" <c:if test="${user.status}"> href="/back/userStatus?id=${user.id}&pageNumber=${UserPageInfo.pageNum}&status=0"</c:if>>冻结</a>
                             </th>
                         </tr>
                     </c:forEach>
@@ -117,11 +117,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/user_list?pn=1">首页</a> </li>
+                    <li><a href="/back/userList?pageNumber=1">首页</a> </li>
 
                     <c:if test="${UserPageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/user_list?pn=${UserPageInfo.pageNum-1}" aria-label="Previous">
+                            <a href="/back/userList?pageNumber=${UserPageInfo.pageNum-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -132,20 +132,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != UserPageInfo.pageNum}">
-                            <li ><a href="/back/user_list?pn=${pageNums}" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/userList?pageNumber=${pageNums}" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${UserPageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/user_list?pn=${UserPageInfo.pageNum+1}" aria-label="Next">
+                            <a href="/back/userList?pageNumber=${UserPageInfo.pageNum+1}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/user_list?pn=${UserPageInfo.pages}">末页</a> </li>
+                    <li><a href="/back/userList?pageNumber=${UserPageInfo.pages}">末页</a> </li>
 
                 </ul>
             </nav>

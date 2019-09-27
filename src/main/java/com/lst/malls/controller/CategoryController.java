@@ -31,16 +31,16 @@ public class CategoryController {
 
     /**
      * 分页展示，方法和AdminController里的一样
-     * @param pn
+     * @param pageNumber
      * @param model
      * @return
      */
-    @RequestMapping("category_list")
-    public String list(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    @RequestMapping("categoryList")
+    public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
 
          //设置起始页，每页展示5条数据
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         //讲category表下的数据传入到categories数组里
         java.util.List<Category> categories = categoryService.list();
         //使用pageInfo包装查询后的结果,只需要将pageInfo交给页面就行了
@@ -57,8 +57,8 @@ public class CategoryController {
      * @param model
      * @return
      */
-    @RequestMapping("category_add")
-    public String add(Category category,String name,Model model){
+    @RequestMapping("categoryAdd")
+    public String addCategory(Category category, String name, Model model){
         if (category == null)
         {
             return "static_page/Error";
@@ -80,35 +80,35 @@ public class CategoryController {
     /**
      * 删除分类
      * @param id
-     * @param pn
+     * @param pageNumber
      * @return
      */
-    @RequestMapping("category_delet")
-    public String delet(Integer id,Integer pn){
+    @RequestMapping("categoryDelete")
+    public String deleteCategory(Integer id, Integer pageNumber){
         if (id == null){
             return "static_page/Error";
         }
         categoryService.delete(id);
         //删除完成后返回到先前页数下的分类展示页面
-        return "redirect:/back/category_list?pn="+pn;
+        return "redirect:/back/categoryList?pageNumber="+ pageNumber;
     }
 
 
     /**
      * 修改分类，设置最后修改时间，分类名校验
      * @param category
-     * @param name
+     * @param pageName
      * @param model
      * @return
      */
-    @RequestMapping("category_updata")
-    public String update(Category category,String name,Model model){
+    @RequestMapping("categoryUpdate")
+    public String updateCategory(Category category, String pageName, Model model){
         if (category == null){
             return "static_page/Error";
         }
 
         //分类名校验
-        boolean checking = categoryService.exist(name);
+        boolean checking = categoryService.exist(pageName);
         if (!checking){
             model.addAttribute("CategoryUpdataExist",true);
             return "back/CategoryUpdata";

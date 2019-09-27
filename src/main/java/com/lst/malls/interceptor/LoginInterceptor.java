@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ * 后台登录拦截器
+ */
 public class LoginInterceptor implements HandlerInterceptor {
 
     @Override

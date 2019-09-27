@@ -60,14 +60,20 @@
 $(function () {
     $(".buyButton").click(function () {
         var num = $(".productNumberSetting").val();
-        location.href= $(".buyLink").attr('href','/fore/PuyNow?id=${commodity.id}&num='+num)
+        location.href= $(".buyLink").attr('href','/fore/puyNow?id=${commodity.id}&goodsNumbers='+num)
     });
 });
+    $(function () {
+        $(".addCartButton").click(function () {
+            var num = $(".productNumberSetting").val();
+            location.href= $(".addCartLink").attr('href','/fore/shoppingCarAdd?goodsId=${commodity.id}&goodsNumbers='+num)
+        });
+    });
 
 
 </script>
 <div style="background-color: red" >&nbsp;</div>
-<div >
+
 <div class="productPageDiv" style="background-color: white">
 
 
@@ -165,7 +171,7 @@ $(function () {
 
             <div class="buyDiv" >
                 <a class="buyLink" href=""> <button class="buyButton" data-toggle="modal" data-target="#myModal">立即购买</button></a>
-                <a href="#" class="addCartLink"><button class="addCartButton" id="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button></a>
+                <a href="" class="addCartLink"><button class="addCartButton" id="addCartButton"><span class="glyphicon glyphicon-shopping-cart"></span>加入购物车</button></a>
             </div>
 
         </div>

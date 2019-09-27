@@ -44,7 +44,7 @@
             </div>
         </div>
         <hr>
-        <form action="/back/category_add" method="post">
+        <form action="/back/categoryAdd" method="post">
             <table class="addTable">
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">分类名</label><span class="label label-danger">必须</span>

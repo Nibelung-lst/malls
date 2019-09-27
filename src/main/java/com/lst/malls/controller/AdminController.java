@@ -30,10 +30,10 @@ public class AdminController {
      * 分页处理
      * @return
      */
-    @RequestMapping("admin_list")
-    public String list(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    @RequestMapping("adminList")
+    public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         List<Admin> admins = adminService.list();
         PageInfo page = new PageInfo(admins,5);
         model.addAttribute("pageInfo",page);
@@ -45,14 +45,14 @@ public class AdminController {
      * @param id
      * @return
      */
-    @RequestMapping("admin_delet")
-    public String delet(Integer id){
+    @RequestMapping("adminDelete")
+    public String deleteAdmin(Integer id){
         if (id == null){
             return "static_page/Error";
         }
 
         adminService.delete(id);
-        return "redirect:/back/admin_list";
+        return "redirect:/back/adminList";
     }
 
     /**
@@ -62,8 +62,8 @@ public class AdminController {
      * @param model
      * @return
      */
-    @RequestMapping("admin_add")
-    public String add(Admin admin,String name,Model model){
+    @RequestMapping("adminAdd")
+    public String addAdmin(Admin admin, String name, Model model){
         if (null == admin)
         {
             return "static_page/Error";
@@ -87,8 +87,8 @@ public class AdminController {
      * @param model
      * @return
      */
-    @RequestMapping("admin_update")
-    public String update(Admin admin,String name,Model model){
+    @RequestMapping("adminUpdate")
+    public String updateAdmin(Admin admin, String name, Model model){
         if (admin == null){
             return "static_page/Error";
         }
@@ -96,17 +96,17 @@ public class AdminController {
         boolean checking = adminService.exist(name);
         if (!checking){
             model.addAttribute("checkExist",true);
-            return "redirect:/back/admin_list";
+            return "redirect:/back/adminList";
         }
 
         adminService.update(admin);
-        return "redirect:/back/admin_list";
+        return "redirect:/back/adminList";
 
     }
 
 
     /**后台管理登录*/
-    @RequestMapping("admin_login")
+    @RequestMapping("adminLogin")
     public String login(String name, String password, HttpSession session)  {
         //用户名或者密码为空的话，则跳转到登录错误界面
 

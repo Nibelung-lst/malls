@@ -25,7 +25,7 @@
 		<h1>登录</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form action="/back/admin_login" method="post">
+		<form action="/back/adminLogin" method="post">
 			<li>
 				<input id="name" name="name" type="text" class="text" value="账号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'name';}"><a href="#" class=" icon user"></a>
 			</li>

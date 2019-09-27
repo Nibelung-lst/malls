@@ -22,12 +22,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PointController {
     @Autowired
     PointService pointService;
-    @RequestMapping("point_list")
-    public String List(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+
+    /**
+     * 积分显示
+     * @param pageNumber
+     * @param model
+     * @return
+     */
+    @RequestMapping("pointList")
+    public String List(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
 
         //设置起始页，每页展示5条数据
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         //将user表下的数据传入到users数组里
         java.util.List<Point> points = pointService.list();
 

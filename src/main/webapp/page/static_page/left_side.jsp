@@ -32,14 +32,14 @@
         <li class="nav-item">
             <a href="javascript:;">账户管理</a>
             <ul>
-                <li><a href="/back/admin_list" target="right"><span>账户列表</span></a></li>
+                <li><a href="/back/adminList" target="right"><span>账户列表</span></a></li>
                 <li><a href="../back/AdminAdd.jsp" target="right"><span>添加账户</span></a></li>
             </ul>
         </li>
         <li class="nav-item">
             <a href="javascript:;">商品管理</a>
             <ul>
-                <li><a href="/back/Goods_list" target="right"><span>商品列表</span></a></li>
+                <li><a href="/back/goodsList" target="right"><span>商品列表</span></a></li>
                 <li><a href="../back/GoodsAdd.jsp" target="right"><span>添加商品</span></a></li>
                 <li><a href="../back/ImageAdd.jsp" target="right"><span>上传附图</span></a></li>
             </ul>
@@ -47,26 +47,26 @@
         <li class="nav-item">
             <a href="javascript:;">商品分类</a>
             <ul>
-                <li><a href="/back/category_list" target="right"><span>商品分类</span></a></li>
+                <li><a href="/back/categoryList" target="right"><span>商品分类</span></a></li>
                 <li><a href="../back/CategoryAdd.jsp" target="right"><span>添加分类</span></a></li>
             </ul>
         </li>
         <li class="nav-item">
             <a href="javascript:;">会员管理</a>
             <ul>
-                <li><a href="/back/user_list" target="right"><span>会员列表</span></a></li>
+                <li><a href="/back/userList" target="right"><span>会员列表</span></a></li>
             </ul>
         </li>
         <li class="nav-item">
             <a href="javascript:;">订单管理</a>
             <ul>
-                <li><a href="/back/Order_list" target="right"><span>订单列表</span></a></li>
+                <li><a href="/back/orderList" target="right"><span>订单列表</span></a></li>
             </ul>
         </li>
         <li class="nav-item">
             <a href="javascript:;">积分管理</a>
             <ul>
-                <li><a href="/back/point_list" target="right"><span>积分列表</span></a></li>
+                <li><a href="/back/pointList" target="right"><span>积分列表</span></a></li>
             </ul>
         </li>
 

@@ -26,14 +26,6 @@
 
 <script type="text/javascript">
 
-    function undate(id,name,password){
-
-        document.forms[0].elements[0].value = id;
-        document.forms[0].elements[1].value = name;
-        document.forms[0].elements[2].value = password;
-        document.forms[0].action = '<c:url value="../../page/back/AdminUpdata.jsp"/>';
-        document.forms[0].submit();
-    }
 
 </script>
 
@@ -65,7 +57,7 @@
                         <th>#</th>
                         <th>${admins.id}</th>
                         <th>${admins.name}</th>
-                        <td><a href="/back/admin_delet?id=${admins.id}"><span class="glyphicon glyphicon-trash"></span></a>
+                        <td><a href="/back/adminDelete?id=${admins.id}"><span class="glyphicon glyphicon-trash"></span></a>
                     </tr>
                 </c:forEach>
 
@@ -84,11 +76,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/admin_list?pn=1">首页</a> </li>
+                    <li><a href="/back/adminList?pageNumber=1">首页</a> </li>
 
                     <c:if test="${pageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/admin_list?pn=${pageInfo.pageNum-1}" aria-label="Previous">
+                            <a href="/back/adminList?pageNumber=${pageInfo.pageNum-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -99,20 +91,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != pageInfo.pageNum}">
-                            <li ><a href="/back/admin_list?pn=${pageNums}" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/adminList?pageNumber=${pageNums}" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${pageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/admin_list?pn=${pageInfo.pageNum+1}" aria-label="Next">
+                            <a href="/back/adminList?pageNumber=${pageInfo.pageNum+1}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/admin_list?pn=${pageInfo.pages}">末页</a> </li>
+                    <li><a href="/back/adminList?pageNumber=${pageInfo.pages}">末页</a> </li>
 
                 </ul>
             </nav>

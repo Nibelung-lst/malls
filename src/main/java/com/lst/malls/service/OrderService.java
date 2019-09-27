@@ -32,4 +32,9 @@ public interface OrderService {
      */
     void add(Order order);
 
+    /**
+     * 根据用户名查询ID
+     */
+    List<Order> searchByname(String userName);
+
 }

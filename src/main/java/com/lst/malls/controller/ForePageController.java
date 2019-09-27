@@ -1,9 +1,7 @@
 package com.lst.malls.controller;
 
-import com.lst.malls.pojo.Category;
-import com.lst.malls.pojo.User;
-import com.lst.malls.service.CategoryService;
-import com.lst.malls.service.UserService;
+import com.lst.malls.pojo.*;
+import com.lst.malls.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -26,6 +24,12 @@ public class ForePageController {
     CategoryService categoryService;
     @Autowired
     UserService userService;
+    @Autowired
+    GoodsService goodsService;
+    @Autowired
+    OrderService orderService;
+    @Autowired
+    OrderDetailService orderDetailService;
 
     /**
      * 前台登录
@@ -35,8 +39,8 @@ public class ForePageController {
      * @param model
      * @return
      */
-    @RequestMapping("Fore_Login")
-    public String login(String name, String password, HttpSession session,Model model)  {
+    @RequestMapping("foreLogin")
+    public String login(String name, String password, HttpSession session, Model model)  {
         //用户名或者密码为空的话，则跳转到登录错误界面
 
         if (name == null||password ==null){
@@ -65,8 +69,8 @@ public class ForePageController {
      * @param session
      * @return
      */
-    @RequestMapping("Fore_LoginOut")
-    public String loginout(HttpSession session){
+    @RequestMapping("foreLoginOut")
+    public String loginOut(HttpSession session){
         session.removeAttribute("ForeLoginError");
         session.removeAttribute("user");
         return "fore/Fore";
@@ -80,8 +84,8 @@ public class ForePageController {
      * @param sexCheck
      * @return
      */
-    @RequestMapping("Fore_Register")
-    public String register(User user,Model model,String name,String sexCheck){
+    @RequestMapping("foreRegister")
+    public String register(User user, Model model, String name, String sexCheck){
         String a = "1",b = "0";
         if (user == null){
             return "static_page/Error";
@@ -108,10 +112,26 @@ public class ForePageController {
      * @param session
      * @return
      */
-    @RequestMapping("Fore_Category_List")
-    public String categoryLis(HttpSession session){
+    @RequestMapping("foreCategoryList")
+    public String categoryList(HttpSession session){
         List<Category> categories = categoryService.list();
         session.setAttribute("ForeCategory",categories);
         return "fore/Fore";
+    }
+
+    /**
+     * 根据用户名查询订单信息
+     * @return
+     */
+    @RequestMapping("orderInformation")
+    public String orderInformation(HttpSession session,Model model){
+        User user =(User)session.getAttribute("user");
+        if (user == null){
+            return "fore/ForeRegister";
+        }
+        List<Order> orders = orderService.searchByname(user.getName());
+        orderDetailService.searchOrderDetail(orders);
+        model.addAttribute("orderInformation",orders);
+        return "fore/MyOrders";
     }
 }

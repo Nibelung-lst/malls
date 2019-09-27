@@ -45,7 +45,7 @@
             </div>
         </div>
         <hr>
-        <form action="/back/category_updata" method="post">
+        <form action="/back/categoryUpdate" method="post">
             <table class="addTable">
 
 

@@ -39,7 +39,7 @@
             <mvc:mapping path="/back/**"/>
             <!-- mvc:exclude-mapping是另外一种拦截，它可以在你后来的测试中对某个页面进行不拦截，这样就不用在
                 LoginInterceptor的preHandler方法里面获取不拦截的请求uri地址了(优选) -->
-            <mvc:exclude-mapping path="/back/admin_login" />
+            <mvc:exclude-mapping path="/back/adminLogin" />
             <bean class="com.lst.malls.interceptor.LoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

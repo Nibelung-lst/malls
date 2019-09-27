@@ -10,40 +10,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<footer role="contentinfo" style="margin-left: 200px">
 
-<c:if test="${empty param.categorycount}">
-    <c:set var="categorycount" scope="page" value="10"/>
-</c:if>
-
-<c:if test="${!empty param.categorycount}">
-    <c:set var="categorycount" scope="page" value="${param.categorycount}"/>
-</c:if>
-
-<div class="homepageCategoryProducts">
-    <c:forEach items="${categories}" var="c" varStatus="stc">
-        <c:if test="${stc.count<=categorycount}">
-            <div class="eachHomepageCategoryProducts">
-                <span class="categoryTitle">${c.name}</span>
-                <br>
-                <c:forEach items="${c.products}" var="p" varStatus="st">
-                    <c:if test="${st.count<=5}">
-                        <div class="productItem" >
-                            <a href="foreproduct?pid=${p.id}"><img width="100px" src="/images/productSingle_middle/${p.showPicture.id}.jpg"></a>
-                            <a class="productItemDescLink" href="foreproduct?pid=${p.id}">
-								<span class="productItemDesc">[热销]
-								    ${fn:substring(p.name, 0, 20)}
-								</span>
-                            </a>
-                            <span class="productPrice">
-                                原价: <fmt:formatNumber type="number" value="${p.original_price}" minFractionDigits="2"/><br/>
-								现价: <fmt:formatNumber type="number" value="${p.promote_price}" minFractionDigits="2"/>
-							</span>
-                        </div>
-                    </c:if>
-                </c:forEach>
-                <div style="clear:both"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>购物指南</h3>
+                <ul class="list-unstyled">
+                    <li><a>服务商信息</a></li>
+                    <li><a>购买流程</a></li>
+                    <li><a>注册登录</a></li>
+                    <li><a>支付方式</a></li>
+                </ul>
             </div>
-        </c:if>
-    </c:forEach>
+            <div class="col-md-4">
+                <h3>配送方式</h3>
+                <ul class="list-unstyled">
+                    <li><a>配送方式</a></li>
+                    <li><a>配送方式信息</a></li>
+                    <li><a>签收原则</a></li>
+                    <li><a>物流查询 </a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>售后服务</h3>
+                <ul class="list-unstyled">
+                    <li><a>订单发票</a></li>
+                    <li><a>手机频道</a></li>
+                    <li><a>售后政策总则</a></li>
+                    <li><a>手机售后政策总则</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 
-</div>

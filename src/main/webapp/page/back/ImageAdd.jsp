@@ -48,7 +48,7 @@
             </div>
         </div>
         <hr>
-        <form action="/back/image_add" method="post" enctype="multipart/form-data">
+        <form action="/back/imageAdd" method="post" enctype="multipart/form-data">
             <table class="addTable" >
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="goods_name">商品名</label><span class="label label-danger">必须</span>

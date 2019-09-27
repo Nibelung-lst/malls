@@ -85,7 +85,7 @@
                             <th>${category.final_changer}</th>
                             <th><fmt:formatDate type="date" value="${category.final_change_time}" /></th>
                             <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.original_price}','${category.real_price}','${category.represent}','${category.category_name}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                            <td><a href="/back/goods_delet?id=${category.id}&pn=${GoodsPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
+                            <td><a href="/back/goodsDelete?id=${category.id}&pn=${GoodsPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
                         </tr>
                     </c:forEach>
 
@@ -111,11 +111,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/Goods_Category_list?pn=1&categoryName=<%=session.getAttribute("Category")%>">首页</a> </li>
+                    <li><a href="/back/goodsCategoryList?pageNumber=1&categoryName=<%=session.getAttribute("Category")%>">首页</a> </li>
 
                     <c:if test="${GoodPageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/Goods_Category_list?pn=${GoodPageInfo.pageNum-1}&categoryName=<%=session.getAttribute("Category")%>" aria-label="Previous">
+                            <a href="/back/goodsCategoryList?pageNumber=${GoodPageInfo.pageNum-1}&categoryName=<%=session.getAttribute("Category")%>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -126,20 +126,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != GoodPageInfo.pageNum}">
-                            <li ><a href="/back/Goods_Category_list?pn=${pageNums}&categoryName=<%=session.getAttribute("Category")%>" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/goodsCategoryList?pageNumber=${pageNums}&categoryName=<%=session.getAttribute("Category")%>" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${CategoryPageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/Goods_Category_list?pn=${GoodPageInfo.pageNum+1}&categoryName=<%=session.getAttribute("Category")%>" aria-label="Next">
+                            <a href="/back/goodsCategoryList?pageNumber=${GoodPageInfo.pageNum+1}&categoryName=<%=session.getAttribute("Category")%>" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/Goods_Category_list?pn=${GoodPageInfo.pages}&categoryName=<%=session.getAttribute("Category")%>">末页</a> </li>
+                    <li><a href="/back/goodsCategoryList?pageNumber=${GoodPageInfo.pages}&categoryName=<%=session.getAttribute("Category")%>">末页</a> </li>
 
                 </ul>
             </nav>

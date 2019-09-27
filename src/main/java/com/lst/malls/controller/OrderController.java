@@ -30,10 +30,10 @@ public class OrderController {
     OrderDetailService orderDetailService;
 
     /**在原有分页的基础上加上订单详情的查找和显示*/
-    @RequestMapping("Order_list")
-    public String List(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    @RequestMapping("orderList")
+    public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         List<Order> orders = orderService.list();
 
         //查出订单详情

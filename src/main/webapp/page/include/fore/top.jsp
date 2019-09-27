@@ -11,6 +11,10 @@
 
 <link rel="stylesheet" href="../../css/forehome/style.css" />
 
+<script>
+
+</script>
+
 <nav class="top ">
     <a href="../../index.jsp">
         <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-home redColor"></span>
@@ -27,12 +31,19 @@
     </c:if>
 
     <span class="pull-right">
-                <a href="#">我的订单</a>
-                <a href="#">
+                <a href="/fore/orderInformation">我的订单</a>
+                <a href="../../page/fore/ShoppingCar.jsp">
                 <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-shopping-cart redColor"></span>
                 购物车<strong>${cartTotalItemNumber}</strong>件</a>
         </span>
 </nav>
+
+<div >
+    <a href="#">
+        <img id="simpleLogo" class="simpleLogo" src="../../image/luckin.jpg">
+    </a>
+</div>
+
 
 <form action="#" method="post" >
     <div class="searchDiv">
@@ -51,3 +62,4 @@
         </div>
     </div>
 </form>
+

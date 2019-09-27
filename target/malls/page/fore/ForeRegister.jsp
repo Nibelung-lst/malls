@@ -57,14 +57,14 @@
         });
         $(function(){
             $(".LoginButton").click(function(){
-                var newUrl = '/fore/Fore_Login';    //设置新提交地址
+                var newUrl = '/fore/foreLogin';    //设置新提交地址
                 $(".TestAction").attr('action',newUrl);    //通过jquery为action属性赋值
                 $(".TestAction").submit();    //提交ID为TestAction的表单
             })
         })
         $(function(){
             $(".RegisterButton").click(function(){
-                var newUrl = '/fore/Fore_Register';    //设置新提交地址
+                var newUrl = '/fore/foreRegister';    //设置新提交地址
                 $(".TestAction").attr('action',newUrl);    //通过jquery为action属性赋值
                 $(".TestAction").submit();    //提交ID为TestAction的表单
             })

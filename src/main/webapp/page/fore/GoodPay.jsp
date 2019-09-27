@@ -31,7 +31,7 @@
                     </tr>
 
                     <input type="text" id="price" style="display: none" name="price" value="${price}">
-                    <input type="text" id="status" style="display: none" name="status" value="待付款">
+                    <input type="text" id="status" style="display: none" name="status" value="待发货">
                     <input type="text" id="user_name" style="display: none" name="user_name" value="${user.name}">
 
                     <tr>

@@ -42,7 +42,7 @@
             </div>
         </div>
         <hr>
-        <form action="/back/goods_updata" method="post" enctype="multipart/form-data">
+        <form action="/back/goodsUpdate" method="post" enctype="multipart/form-data">
             <table class="addTable">
 
                 <div class="form-group">

@@ -50,4 +50,12 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.insert(order);
     }
 
+    @Override
+    public List<Order> searchByname(String userName) {
+        OrderExample example = new OrderExample();
+        example.createCriteria().andUser_nameEqualTo(userName);
+        List<Order> orders = orderMapper.selectByExample(example);
+        return orders;
+    }
+
 }

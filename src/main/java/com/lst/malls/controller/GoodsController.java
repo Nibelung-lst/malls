@@ -7,7 +7,6 @@ import com.lst.malls.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,16 +34,16 @@ public class GoodsController {
 
     /**
      * 指定分类下的商品展示
-     * @param pn
+     * @param pageNumber
      * @param model
      * @param categoryName
      * @param session
      * @return
      */
-    @RequestMapping("Goods_Category_list")
-    public String listCategory(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model, String categoryName, HttpSession session){
+    @RequestMapping("goodsCategoryList")
+    public String listCategoryGoods(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model, String categoryName, HttpSession session){
 
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         List<Goods> goods = goodsService.listCategory(categoryName);
         PageInfo page = new PageInfo(goods,5);
         model.addAttribute("GoodPageInfo",page);
@@ -53,10 +52,16 @@ public class GoodsController {
     }
 
 
-    @RequestMapping("Goods_list")
-    public String list(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    /**
+     * 订单显示
+     * @param pageNumber
+     * @param model
+     * @return
+     */
+    @RequestMapping("goodsList")
+    public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         List<Goods> goods = goodsService.list();
         PageInfo page = new PageInfo(goods,5);
         model.addAttribute("GoodsPageInfo",page);
@@ -70,8 +75,8 @@ public class GoodsController {
      * @param
      * @return
      */
-    @RequestMapping("goods_add")
-    public String add(Goods goods, String name, Model model, MultipartFile file) throws IOException {
+    @RequestMapping("goodsAdd")
+    public String addGoods(Goods goods, String name, Model model, MultipartFile file) throws IOException {
         if (goods == null)
         {
             return "static_page/Error";
@@ -111,14 +116,14 @@ public class GoodsController {
      * @param pn
      * @return
      */
-    @RequestMapping("goods_delet")
-    public String delet(Integer id,Integer pn){
+    @RequestMapping("goodsDelete")
+    public String Delete(Integer id, Integer pn){
         if (id == null){
             return "static_page/Error";
         }
         goodsService.delete(id);
         //删除完成后返回到先前页数下的分类展示页面
-        return "redirect:/back/Goods_list?pn="+pn;
+        return "redirect:/back/Goods_list?pageNumber="+pn;
     }
     /**
      * 修改分类，设置最后修改时间，分类名校验
@@ -127,12 +132,15 @@ public class GoodsController {
      * @param
      * @return
      */
-    @RequestMapping("goods_updata")
-    public String update(Goods goods,String name,Model model,MultipartFile file) throws IOException {
+    @RequestMapping("goodsUpdate")
+    public String updateGoods(Goods goods, Model model, MultipartFile file) throws IOException {
         if (goods == null){
             return "static_page/Error";
         }
 
+        /**
+         * 缺少名字校验
+         */
        if (!file.isEmpty()) {
            //图片上传成功后，将图片的地址写到数据库
            //保存图片的路径

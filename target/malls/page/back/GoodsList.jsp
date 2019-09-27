@@ -86,7 +86,7 @@
                             <th>${category.final_changer}</th>
                             <th><fmt:formatDate type="date" value="${category.final_change_time}" /></th>
                             <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.original_price}','${category.real_price}','${category.represent}','${category.category_name}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                            <td><a href="/back/goods_delet?id=${category.id}&pn=${GoodsPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
+                            <td><a href="/back/goodsDelete?id=${category.id}&pageNumber=${GoodsPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
                         </tr>
                     </c:forEach>
 
@@ -112,11 +112,11 @@
             <nav aria-label="Page navigation">
                 <ul class="pagination">
 
-                    <li><a href="/back/Goods_list?pn=1">首页</a> </li>
+                    <li><a href="/back/goodsList?pageNumber=1">首页</a> </li>
 
                     <c:if test="${GoodsPageInfo.hasPreviousPage}">
                         <li>
-                            <a href="/back/Goods_list?pn=${GoodsPageInfo.pageNum-1}" aria-label="Previous">
+                            <a href="/back/goodsList?pageNumber=${GoodsPageInfo.pageNum-1}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -127,20 +127,20 @@
                             <li class="active"><a href="#">${pageNums}</a></li>
                         </c:if>
                         <c:if test="${pageNums != GoodsPageInfo.pageNum}">
-                            <li ><a href="/back/Goods_list?pn=${pageNums}" target="right">${pageNums}</a></li>
+                            <li ><a href="/back/goodsList?pageNumber=${pageNums}" target="right">${pageNums}</a></li>
                         </c:if>
                     </c:forEach>
 
                     <c:if test="${CategoryPageInfo.hasNextPage}">
                         <li>
-                            <a href="/back/Goods_list?pn=${GoodsPageInfo.pageNum+1}" aria-label="Next">
+                            <a href="/back/goodsList?pageNumber=${GoodsPageInfo.pageNum+1}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
                     </c:if>
 
 
-                    <li><a href="/back/Goods_list?pn=${GoodsPageInfo.pages}">末页</a> </li>
+                    <li><a href="/back/goodsList?pageNumber=${GoodsPageInfo.pages}">末页</a> </li>
 
                 </ul>
             </nav>

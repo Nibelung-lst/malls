@@ -23,12 +23,18 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("user_list")
-    public String List(@RequestParam(value = "pn",defaultValue = "1")Integer pn, Model model){
+    /**
+     * 用户显示
+     * @param pageNumber
+     * @param model
+     * @return
+     */
+    @RequestMapping("userList")
+    public String List(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
 
         //设置起始页，每页展示5条数据
-        PageHelper.startPage(pn,5);
+        PageHelper.startPage(pageNumber,5);
         //将user表下的数据传入到users数组里
         java.util.List<User> users = userService.list();
         //使用pageInfo包装查询后的结果,只需要将pageInfo交给页面就行了
@@ -38,8 +44,15 @@ public class UserController {
         return "back/UserList";
     }
 
-    @RequestMapping("user_status")
-    public String ChangeStatus(boolean status,Integer id,Integer pn){
+    /**
+     * 用户状态改变
+     * @param status
+     * @param id
+     * @param pageNumber
+     * @return
+     */
+    @RequestMapping("userStatus")
+    public String ChangeStatus(boolean status,Integer id,Integer pageNumber){
         System.out.println(status);
         User user =new User();
         user.setId(id);
@@ -49,7 +62,7 @@ public class UserController {
         else {
             userService.change(false,user);
         }
-        return "redirect:/back/user_list?pn="+pn;
+        return "redirect:/back/userList?pageNumber="+ pageNumber;
     }
 
 }
