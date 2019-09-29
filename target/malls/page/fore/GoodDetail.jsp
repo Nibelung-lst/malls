@@ -66,7 +66,7 @@ $(function () {
     $(function () {
         $(".addCartButton").click(function () {
             var num = $(".productNumberSetting").val();
-            location.href= $(".addCartLink").attr('href','/fore/shoppingCarAdd?goodsId=${commodity.id}&goodsNumbers='+num)
+            location.href= $(".addCartLink").attr('href','/fore/shoppingCarAdd?goodsId=${commodity.id}&userId=${user.id}&numbers='+num)
         });
     });
 

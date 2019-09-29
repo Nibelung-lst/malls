@@ -1,9 +1,7 @@
 package com.lst.malls.service.impl;
 
-import com.lst.malls.pojo.Goods;
-import com.lst.malls.pojo.Order;
-import com.lst.malls.pojo.OrderDetail;
-import com.lst.malls.pojo.User;
+import com.lst.malls.mapper.ShoppingCarMapper;
+import com.lst.malls.pojo.*;
 import com.lst.malls.service.ForeService;
 import com.lst.malls.service.OrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +24,8 @@ public class ForeServiceImpl implements ForeService {
 
     @Autowired
     OrderDetailService orderDetailService;
+    @Autowired
+    ShoppingCarMapper shoppingCarMapper;
 
     /**
      * 立即购买
@@ -70,4 +70,55 @@ public class ForeServiceImpl implements ForeService {
 
         return order;
     }
+
+
+    @Override
+    public void shoppingCarAdd(Integer userId, Integer goodsId, Integer numbers) {
+        ShoppingCar shoppingCar = new ShoppingCar();
+        shoppingCar.setUser_id(userId);
+        shoppingCar.setGoods_id(goodsId);
+        shoppingCar.setNumbers(numbers);
+        shoppingCarMapper.insert(shoppingCar);
+    }
+
+    @Override
+    public List<ShoppingCar> selectShoppingByUserId(Integer userId) {
+        ShoppingCarExample example = new ShoppingCarExample();
+        example.createCriteria().andUser_idEqualTo(userId);
+        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByExample(example);
+        return shoppingCars;
+    }
+
+    @Override
+    public boolean selectShoppingCarByGoodsAndUser(Integer userId, Integer goodsId) {
+        ShoppingCarExample example = new ShoppingCarExample();
+        example.createCriteria().andUser_idEqualTo(userId).andGoods_idEqualTo(goodsId);
+        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByExample(example);
+        if (shoppingCars.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+
+
+    @Override
+    public void updateGoodsNumbers(Integer userId, Integer goodsId, Integer numbers) {
+        Integer originalNumbers = shoppingCarMapper.selectByNumbers(userId,goodsId);
+        Integer presentNumbers = originalNumbers+numbers;
+        shoppingCarMapper.updateByNumbers(userId,goodsId,presentNumbers);
+    }
+
+    @Override
+    public void deleteShoppingCar(Integer id) {
+        shoppingCarMapper.delete(id);
+    }
+
+    @Override
+    public ShoppingCar selectShoppingCar(Integer id) {
+       ShoppingCar shoppingCar = shoppingCarMapper.selectById(id);
+        return shoppingCar;
+    }
+
+
 }

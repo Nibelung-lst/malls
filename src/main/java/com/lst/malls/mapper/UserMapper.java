@@ -3,21 +3,43 @@ package com.lst.malls.mapper;
 import com.lst.malls.pojo.User;
 import com.lst.malls.pojo.UserExample;
 import java.util.List;
-
+/**
+ * @Author:Nibelung
+ */
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
 
+    /**
+     * 新增用户
+     * @param record
+     * @return
+     */
     int insert(User record);
 
-    int insertSelective(User record);
-
+    /**
+     * 根据条件查询用户信息
+     * @param example
+     * @return
+     */
     List<User> selectByExample(UserExample example);
 
-    User selectByPrimaryKey(Integer id);
+    /**
+     * 根据ID查询用户信息
+     * @param id
+     * @return
+     */
+    User selectById(Integer id);
 
-    int updateByPrimaryKeySelective(User record);
+    /**
+     * 更新用户信息
+     * @param record
+     * @return
+     */
+    int update(User record);
 
-    int updateByPrimaryKey(User record);
-
-    List<User> selectByExampleNoPassword(UserExample example);
+    /**
+     * 不挟带密码的条件查询
+     * @param example
+     * @return
+     */
+    List<User> selectByNoPassword(UserExample example);
 }

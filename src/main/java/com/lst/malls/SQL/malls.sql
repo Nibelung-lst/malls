@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2019-09-26 10:21:39
+Date: 2019-09-29 15:05:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -45,7 +45,7 @@ CREATE TABLE `t_category` (
   `final_modification_time` date DEFAULT NULL COMMENT '最后修改时间',
   `final_change_man` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '最后修改人',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_category
@@ -58,6 +58,7 @@ INSERT INTO `t_category` VALUES ('5', '测试分类5', 'Nibelung', '2019-09-11',
 INSERT INTO `t_category` VALUES ('13', '测试分类13', 'Nibelung', '2019-09-11', '2019-09-12', 'Nibelung');
 INSERT INTO `t_category` VALUES ('16', '测试分类10', 'Nibelung', '2019-09-12', '2019-09-12', 'Nibelung');
 INSERT INTO `t_category` VALUES ('20', '测试分类20', 'Nibelung', '2019-09-12', null, null);
+INSERT INTO `t_category` VALUES ('22', '测试分类11', 'Nibelung', '2019-09-27', null, null);
 
 -- ----------------------------
 -- Table structure for t_goods
@@ -125,7 +126,7 @@ CREATE TABLE `t_order` (
   `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '状态',
   `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '会员名',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_order
@@ -135,6 +136,13 @@ INSERT INTO `t_order` VALUES ('2', '1234567890', '广东', '枣子哥', '111', '
 INSERT INTO `t_order` VALUES ('3', '201909260905534681', '厦门', '侯国玉', '12345678901', '4.00', '2019-09-26', null, '待付款', 'otto');
 INSERT INTO `t_order` VALUES ('4', '201909260927504691', '厦门', '侯国玉', '12345678900', '3.00', '2019-09-26', null, '代发货', 'otto');
 INSERT INTO `t_order` VALUES ('5', '201909260929405281', '厦门', '侯国玉', '12312312123231', '92.00', '2019-09-26', null, '代发货', 'otto');
+INSERT INTO `t_order` VALUES ('6', '201909261103481341', '厦门', '侯国玉', '1231232133', '2.00', '2019-09-26', null, '待付款', 'otto');
+INSERT INTO `t_order` VALUES ('7', '201909261315595221', '厦门', '侯国玉', '123456', '3.00', '2019-09-26', null, '待发货', 'otto');
+INSERT INTO `t_order` VALUES ('8', '20190926134401151', '广东', '侯国玉', '123213123', '3.00', '2019-09-26', null, '待发货', 'otto');
+INSERT INTO `t_order` VALUES ('9', '201909261344373211', '广东', '侯国玉', '123213123', '3.00', '2019-09-26', null, '待发货', 'otto');
+INSERT INTO `t_order` VALUES ('10', '201909261344466171', '广东', '侯国玉', '123213123', '3.00', '2019-09-26', null, '待发货', 'otto');
+INSERT INTO `t_order` VALUES ('11', '20190926134509151', '厦门', '侯国玉', '123123', '4.00', '2019-09-26', null, '待发货', 'otto');
+INSERT INTO `t_order` VALUES ('12', '201909261346177281', '厦门', '侯国玉', '123123', '4.00', '2019-09-26', null, '待发货', 'otto');
 
 -- ----------------------------
 -- Table structure for t_order_detail
@@ -146,7 +154,7 @@ CREATE TABLE `t_order_detail` (
   `goods_id` int(10) DEFAULT NULL COMMENT '商品ID',
   `number` int(10) DEFAULT NULL COMMENT '数量',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_order_detail
@@ -157,6 +165,13 @@ INSERT INTO `t_order_detail` VALUES ('3', '1234567890', '4', '1');
 INSERT INTO `t_order_detail` VALUES ('4', '201909260905534681', '4', '4');
 INSERT INTO `t_order_detail` VALUES ('5', '201909260927504691', '4', '3');
 INSERT INTO `t_order_detail` VALUES ('6', '201909260929405281', '5', '4');
+INSERT INTO `t_order_detail` VALUES ('7', '201909261103481341', '4', '2');
+INSERT INTO `t_order_detail` VALUES ('8', '201909261315595221', '4', '3');
+INSERT INTO `t_order_detail` VALUES ('9', '20190926134401151', '4', '3');
+INSERT INTO `t_order_detail` VALUES ('10', '201909261344373211', '4', '3');
+INSERT INTO `t_order_detail` VALUES ('11', '201909261344466171', '4', '3');
+INSERT INTO `t_order_detail` VALUES ('12', '20190926134509151', '4', '4');
+INSERT INTO `t_order_detail` VALUES ('13', '201909261346177281', '4', '4');
 
 -- ----------------------------
 -- Table structure for t_point
@@ -176,6 +191,24 @@ CREATE TABLE `t_point` (
 -- Records of t_point
 -- ----------------------------
 INSERT INTO `t_point` VALUES ('1', '1', null, null, '1', '2019-09-18');
+
+-- ----------------------------
+-- Table structure for t_shopping_car
+-- ----------------------------
+DROP TABLE IF EXISTS `t_shopping_car`;
+CREATE TABLE `t_shopping_car` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) DEFAULT NULL,
+  `goods_id` int(10) DEFAULT NULL,
+  `numbers` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_shopping_car
+-- ----------------------------
+INSERT INTO `t_shopping_car` VALUES ('8', '1', '4', '7');
+INSERT INTO `t_shopping_car` VALUES ('9', '1', '5', '2');
 
 -- ----------------------------
 -- Table structure for t_user

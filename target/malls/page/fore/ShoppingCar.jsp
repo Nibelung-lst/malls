@@ -18,6 +18,7 @@
 <%@include file="../include/fore/top.jsp"%>
 
 <script>
+
     var deleteOrderItem = false;
     var deleteOrderItemid = 0;
     $(function(){
@@ -91,32 +92,39 @@
             calcCartSumPriceAndNumber();
 
         });
-        /**
-         * ---------------------------------------------------------------------------
-         */
+
         $(".orderItemNumberSetting").keyup(function(){
             var pid=$(this).attr("pid");
+            var stock= $("span.orderItemStock[pid="+pid+"]").text();
             var price= $("span.orderItemPromotePrice[pid="+pid+"]").text();
+
             var num= $(".orderItemNumberSetting[pid="+pid+"]").val();
             num = parseInt(num);
             if(isNaN(num))
                 num= 1;
             if(num<=0)
                 num = 1;
+            if(num>stock)
+                num = stock;
+
             syncPrice(pid,num,price);
         });
 
         $(".numberPlus").click(function(){
 
             var pid=$(this).attr("pid");
+            var stock= $("span.orderItemStock[pid="+pid+"]").text();
             var price= $("span.orderItemPromotePrice[pid="+pid+"]").text();
             var num= $(".orderItemNumberSetting[pid="+pid+"]").val();
 
             num++;
+            if(num>stock)
+                num = stock;
             syncPrice(pid,num,price);
         });
         $(".numberMinus").click(function(){
             var pid=$(this).attr("pid");
+            var stock= $("span.orderItemStock[pid="+pid+"]").text();
             var price= $("span.orderItemPromotePrice[pid="+pid+"]").text();
 
             var num= $(".orderItemNumberSetting[pid="+pid+"]").val();
@@ -125,25 +133,17 @@
                 num=1;
             syncPrice(pid,num,price);
         });
-        /**
-         * ---------------------------------------------------------------------------
-         */
 
-
-
-        /**
-         * ---------------------------------------------------------------------------
-         */
         $("button.createOrderButton").click(function(){
             var params = "";
             $(".cartProductItemIfSelected").each(function(){
                 if("selectit"==$(this).attr("selectit")){
                     var oiid = $(this).attr("oiid");
-                    params += "&oiid="+oiid;
+                    params += "&shoppingCarId="+oiid;
                 }
             });
             params = params.substring(1);
-            location.href="forebuy?"+params;
+            location.href="/fore/shoppingCarPuy?"+params;
         });
 
     })
@@ -181,9 +181,6 @@
 
     }
 
-    /**
-     * -----------------------------------------------------------
-     */
     function calcCartSumPriceAndNumber(){
         var sum = 0;
         var totalNumber = 0;
@@ -244,7 +241,6 @@
             location.reload();
         }
     })
-
 </script>
 
 <title>购物车</title>
@@ -271,18 +267,21 @@
             </tr>
             </thead>
             <tbody>
-            <%!int i = 0;%>
-            <c:forEach items="${shoppingCar}" var="oi">
-                <tr oiid=<%=i%> class="cartProductItemTR">
+
+            <c:forEach items="${shoppingCars}" var="oi">
+                <tr oiid=${oi.id} class="cartProductItemTR">
 
                     <td>
-                        <img selectit="false" oiid=<%=i%> class="cartProductItemIfSelected" src="../../image/fore/site/cartNotSelected.png">
+                        <img selectit="false" oiid=${oi.id} class="cartProductItemIfSelected" src="../../image/fore/site/cartNotSelected.png">
                         <a style="display:none" href="#nowhere"><img src="../../image/fore/site/cartSelected.png"></a>
                         <img class="cartProductImg"  src="/images/${oi.goods.image }">
                     </td>
                     <td>
-                        <div class="cartProductLinkOutDiv">
-
+                        <div >
+                            <a>${oi.goods.name}</a>
+                        </div>
+                        <div>
+                            <a>${oi.goods.represent}</a>
                         </div>
 
                     </td>
@@ -292,24 +291,21 @@
 
                     </td>
                     <td>
-                        <div class="cartProductChangeNumberDiv">
-                            <span class="hidden orderItemPromotePrice " pid="${oi.goods.id}">${oi.goods.real_price}</span>
-                            <a  pid="${oi.goods.id}" class="numberMinus" href="#nowhere" id="numberMinus">-</a>
-                            <input pid="${oi.goods.id}" oiid=<%=i%> class="orderItemNumberSetting" autocomplete="off" value="${oi.number}">
+                        <div >
+                            <input pid="${oi.goods.id}" style="border: none" oiid=${oi.id} class="orderItemNumberSetting" autocomplete="off" value="${oi.numbers}">
                         </div>
                     </td>
 
                     <td >
-							<span class="cartProductItemSmallSumPrice" oiid=<%=i%> pid="${oi.goods.id}" >
-							￥<fmt:formatNumber type="number" value="${oi.goods.real_price*oi.number}" minFractionDigits="2"/>
+							<span class="cartProductItemSmallSumPrice" oiid=${oi.id} pid="${oi.goods.id}" >
+							￥<fmt:formatNumber type="number" value="${oi.goods.real_price*oi.numbers}" minFractionDigits="2"/>
 							</span>
                     </td>
 
                     <td>
-                        <a class="deleteOrderItem" oiid=<%=i%>  href="#nowhere">删除</a>
+                        <a class="deleteOrderItem" oiid=${oi.id}  href="#nowhere">删除</a>
                     </td>
                 </tr>
-                <%i++;%>
             </c:forEach>
             </tbody>
 

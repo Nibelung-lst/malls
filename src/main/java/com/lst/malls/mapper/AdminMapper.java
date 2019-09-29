@@ -4,21 +4,43 @@ import com.lst.malls.pojo.Admin;
 import com.lst.malls.pojo.AdminExample;
 import java.util.List;
 
+/**
+ * @Author:Nibelung
+ */
 public interface AdminMapper {
-    int deleteByPrimaryKey(Integer id);
+    /**
+     * 根据主键删除
+     * @param id
+     * @return
+     */
+    int delete(Integer id);
 
+    /**
+     * 新增一个管理员对象
+     * @param record
+     * @return
+     */
     int insert(Admin record);
-
-    int insertSelective(Admin record);
-
+    /**
+     * 根据条件进行查询
+     * @param example
+     * @return
+     */
     List<Admin> selectByExample(AdminExample example);
 
-    Admin selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(Admin record);
+    /**
+     * 更新管理员对象
+     * @param record
+     * @return
+     */
+    int update(Admin record);
 
-    int updateByPrimaryKey(Admin record);
-
+    /**
+     * 按条件查询不带密码
+     * @param example
+     * @return
+     */
     List<Admin> selectByExampleNoPassword(AdminExample example);
 
 }

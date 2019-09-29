@@ -1,20 +1,13 @@
 package com.lst.malls.controller;
 
-import com.lst.malls.pojo.Goods;
-import com.lst.malls.pojo.Order;
-import com.lst.malls.pojo.OrderDetail;
-import com.lst.malls.pojo.User;
+import com.lst.malls.pojo.*;
 import com.lst.malls.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.servlet.http.HttpSession;
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +37,7 @@ public class ForeGoodsPayController {
     @Autowired
     ForeService foreService;
 
+
     /**
      * 前台通过分类显示相应的商品
      * @param categoryName
@@ -72,6 +66,32 @@ public class ForeGoodsPayController {
     }
 
     /**
+     * 提交购物车生成订单
+     * @param shoppingCarId
+     * @param session
+     * @param model
+     * @return
+     */
+    @RequestMapping("shoppingCarPuy")
+    public String shoppingCarPuy(String []shoppingCarId,HttpSession session,Model model){
+        List<OrderDetail> orderDetails =new ArrayList<>();
+        BigDecimal price = new BigDecimal("0.00");
+        for (String s : shoppingCarId){
+            int id = Integer.parseInt(s);
+            ShoppingCar shoppingCar = foreService.selectShoppingCar(id);
+            Goods goods = goodsService.get(shoppingCar.getGoods_id());
+            OrderDetail orderDetail = foreService.puyNow(shoppingCar.getGoods_id(),shoppingCar.getNumbers(),goods);
+            price = price.add(goods.getReal_price().multiply(BigDecimal.valueOf(orderDetail.getNumber())));
+            orderDetails.add(orderDetail);
+
+        }
+
+        session.setAttribute("order",orderDetails);
+        model.addAttribute("price",price);
+        return "fore/GoodPay";
+    }
+
+    /**
      *立即购买
      * @param id
      * @param goodsNumbers
@@ -96,34 +116,55 @@ public class ForeGoodsPayController {
 
     /**
      * 购物车添加
-     * @param goodsId
-     * @param goodsNumbers
-     * @param session
+     * @param
+     *
      * @return
-     * @throws UnsupportedEncodingException
      */
     @RequestMapping("shoppingCarAdd")
-    public String shoppingCarAdd(Integer goodsId,Integer goodsNumbers,HttpSession session) throws UnsupportedEncodingException {
-        Goods goods = goodsService.get(goodsId);
-        OrderDetail orderDetail =foreService.puyNow(goodsId,goodsNumbers,goods);
+    public String shoppingCarAdd(Integer goodsId,Integer userId,Integer numbers) {
 
-        if (session.getAttribute("shoppingCar") == null){
-            List<OrderDetail> orderDetails = new ArrayList<>();
-            orderDetails.add(orderDetail);
-            session.setAttribute("shoppingCar",orderDetails);
+        if (userId == null){
+            return "fore/ForeRegister";
         }
-        else {
-            List<OrderDetail> orderDetails = (List<OrderDetail>)session.getAttribute("shoppingCar");
-            for (OrderDetail orderDetail1:orderDetails){
-                if (orderDetail.getGoods_id().equals(orderDetail1.getGoods_id())){
-                    orderDetail1.setNumber(orderDetail1.getNumber()+orderDetail.getNumber());
-                    return "redirect:/fore/Goods?goodsName="+ URLEncoder.encode(goods.getName(),"UTF-8");
-                }
-            }
-            orderDetails.add(orderDetail);
-            session.setAttribute("shoppingCar",orderDetails);
+        boolean carCheck = foreService.selectShoppingCarByGoodsAndUser(userId,goodsId);
+        if (carCheck){
+            foreService.shoppingCarAdd(userId,goodsId,numbers);
+            return "static_page/Error";
         }
-        return "redirect:/fore/Goods?goodsName="+ URLEncoder.encode(goods.getName(),"UTF-8");
+        foreService.updateGoodsNumbers(userId,goodsId,numbers);
+        return "fore/Fore";
+    }
+
+    /**
+     *购物车展示
+     * @param userId
+     * @param model
+     * @return
+     */
+    @RequestMapping("shoppingCarShow")
+    public String shoppingCarShow(Integer userId,Model model){
+        if (userId == null){
+            return "fore/ForeRegister";
+        }
+        List<ShoppingCar> shoppingCars = foreService.selectShoppingByUserId(userId);
+        for (ShoppingCar shoppingCar:shoppingCars){
+            shoppingCar.setGoods(goodsService.get(shoppingCar.getGoods_id()));
+        }
+        model.addAttribute("shoppingCars",shoppingCars);
+        return "fore/ShoppingCar";
+    }
+
+    /**
+     *删除购物车里的某一商品
+     * @param ShoppingCarId
+     * @return
+     */
+    @RequestMapping("deleteShoppingCar")
+    public String deleteShoppingCar(String ShoppingCarId,HttpSession session){
+        Integer id = Integer.parseInt(ShoppingCarId);
+        foreService.deleteShoppingCar(id);
+        return "redirect:/fore/shoppingCarShow?userId="+((User)session.getAttribute("user")).getName();
+
     }
 
     /**

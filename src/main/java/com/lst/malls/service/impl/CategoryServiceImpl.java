@@ -74,12 +74,12 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public void delete(Integer id) {
-        categoryMapper.deleteByPrimaryKey(id);
+        categoryMapper.delete(id);
     }
 
     @Override
     public void update(Category category) {
-        categoryMapper.updateByPrimaryKeySelective(category);
+        categoryMapper.update(category);
 
     }
 

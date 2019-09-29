@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public List<User> list() {
         UserExample example = new UserExample();
 
-        List<User> users = userMapper.selectByExampleNoPassword(example);
+        List<User> users = userMapper.selectByNoPassword(example);
 
         return users;
     }
@@ -44,11 +44,11 @@ public class UserServiceImpl implements UserService {
     public void change(boolean change,User user){
         if (change){
             user.setStatus(true);
-            userMapper.updateByPrimaryKeySelective(user);
+            userMapper.update(user);
         }
         else {
             user.setStatus(false);
-            userMapper.updateByPrimaryKeySelective(user);
+            userMapper.update(user);
         }
     }
 

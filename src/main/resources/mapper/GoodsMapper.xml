@@ -47,7 +47,7 @@
     id, name, image, original_price, real_price, represent, category_name, creater,
     create_date, final_changer, final_change_time
   </sql>
-  <select id="selectByExampleWithCategory" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByCategory" resultMap="BaseResultMap" parameterType="java.lang.String" >
   select
   <include refid="Base_Column_List" />
   from t_goods
@@ -74,13 +74,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
     from t_goods
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_goods
     where id = #{id,jdbcType=INTEGER}
   </delete>
@@ -161,7 +161,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.Goods" >
+  <update id="update" parameterType="com.lst.malls.pojo.Goods" >
     update t_goods
     <set >
       <if test="name != null" >

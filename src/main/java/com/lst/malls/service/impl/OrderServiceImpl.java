@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     public void update(Order order) {
-        orderMapper.updateByPrimaryKeySelective(order);
+        orderMapper.update(order);
     }
 
     @Override

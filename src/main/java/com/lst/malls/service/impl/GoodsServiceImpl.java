@@ -47,7 +47,7 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public List<Goods> listCategory(String categoryName) {
 
-        List<Goods> goods =goodsMapper.selectByExampleWithCategory(categoryName);
+        List<Goods> goods =goodsMapper.selectByCategory(categoryName);
 
         return goods;
     }
@@ -67,7 +67,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public void delete(Integer id) {
-        goodsMapper.deleteByPrimaryKey(id);
+        goodsMapper.delete(id);
     }
 
     /**
@@ -95,7 +95,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public void update(Goods goods) {
-        goodsMapper.updateByPrimaryKeySelective(goods);
+        goodsMapper.update(goods);
 
     }
 
@@ -106,7 +106,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public Goods get(Integer id) {
-        Goods goods =goodsMapper.selectByPrimaryKey(id);
+        Goods goods =goodsMapper.selectById(id);
         return goods;
     }
 

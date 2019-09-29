@@ -66,4 +66,5 @@ public interface GoodsService {
      */
     Goods getByName(String goodName);
 
+
 }

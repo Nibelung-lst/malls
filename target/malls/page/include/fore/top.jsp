@@ -32,7 +32,7 @@
 
     <span class="pull-right">
                 <a href="/fore/orderInformation">我的订单</a>
-                <a href="../../page/fore/ShoppingCar.jsp">
+                <a href="/fore/shoppingCarShow?userId=${user.id}">
                 <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-shopping-cart redColor"></span>
                 购物车<strong>${cartTotalItemNumber}</strong>件</a>
         </span>

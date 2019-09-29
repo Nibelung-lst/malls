@@ -53,7 +53,7 @@ public class PointServiceImpl implements PointService {
      */
     @Override
     public void search(Point point){
-        User user = userMapper.selectByPrimaryKey(point.getUser_id());
+        User user = userMapper.selectById(point.getUser_id());
         point.setUser(user);
     }
     }

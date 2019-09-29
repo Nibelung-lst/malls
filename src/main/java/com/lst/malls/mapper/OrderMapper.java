@@ -4,18 +4,36 @@ import com.lst.malls.pojo.Order;
 import com.lst.malls.pojo.OrderExample;
 import java.util.List;
 
+/**
+ * @Author:Nibelung
+ */
 public interface OrderMapper {
-    int deleteByPrimaryKey(Integer id);
+    /**
+     * 根据主键删除订单
+     * @param id
+     * @return
+     */
+    int delete(Integer id);
 
+    /**
+     * 新增订单信息
+     * @param record
+     * @return
+     */
     int insert(Order record);
 
-    int insertSelective(Order record);
-
+    /**
+     * 根据条件查询订单
+     * @param example
+     * @return
+     */
     List<Order> selectByExample(OrderExample example);
 
-    Order selectByPrimaryKey(Integer id);
+    /**
+     * 更新订单详情
+     * @param record
+     * @return
+     */
+    int update(Order record);
 
-    int updateByPrimaryKeySelective(Order record);
-
-    int updateByPrimaryKey(Order record);
 }

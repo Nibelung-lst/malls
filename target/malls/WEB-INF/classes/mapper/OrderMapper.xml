@@ -67,7 +67,7 @@
     from t_order
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_order
     where id = #{id,jdbcType=INTEGER}
   </delete>
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.Order" >
+  <update id="update" parameterType="com.lst.malls.pojo.Order" >
     update t_order
     <set >
       <if test="order_ID != null" >

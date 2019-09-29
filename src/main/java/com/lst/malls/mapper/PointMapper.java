@@ -4,18 +4,18 @@ import com.lst.malls.pojo.Point;
 import com.lst.malls.pojo.PointExample;
 import java.util.List;
 
+/**
+ * @Author:Nibelung
+ */
 public interface PointMapper {
-    int deleteByPrimaryKey(Integer id);
 
-    int insert(Point record);
 
-    int insertSelective(Point record);
-
+    /**
+     * 根据条件查询积分
+     * @param example
+     * @return
+     */
     List<Point> selectByExample(PointExample example);
 
-    Point selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(Point record);
-
-    int updateByPrimaryKey(Point record);
 }

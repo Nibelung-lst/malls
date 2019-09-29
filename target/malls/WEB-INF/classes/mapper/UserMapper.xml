@@ -61,7 +61,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExampleNoPassword" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.UserExample" >
+  <select id="selectByNoPassword" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.UserExample" >
     select
     <if test="distinct" >
       distinct
@@ -76,7 +76,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from t_user
@@ -163,7 +163,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.User" >
+  <update id="update" parameterType="com.lst.malls.pojo.User" >
     update t_user
     <set >
       <if test="name != null" >

@@ -78,7 +78,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public void delete(Integer id) {
-        adminMapper.deleteByPrimaryKey(id);
+        adminMapper.delete(id);
     }
 
     /**
@@ -87,7 +87,7 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public void update(Admin admin) {
-        adminMapper.updateByPrimaryKeySelective(admin);
+        adminMapper.update(admin);
     }
 
 

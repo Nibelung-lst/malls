@@ -74,7 +74,7 @@
     from t_admin
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <delete id="delete" parameterType="java.lang.Integer">
     delete from t_admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
@@ -101,7 +101,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.Admin">
+  <update id="update" parameterType="com.lst.malls.pojo.Admin">
     update t_admin
     <set>
       <if test="name != null">
