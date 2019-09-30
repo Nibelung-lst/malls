@@ -47,10 +47,10 @@ public interface GoodsMapper {
 
     /**
      * 根据分类查询商品
-     * @param category_name
+     * @param categoryName
      * @return
      */
-    List<Goods> selectByCategory(String category_name);
+    List<Goods> selectByCategory(@Param("category_name") String categoryName);
 
     /**
      * 根据商品名字查询商品

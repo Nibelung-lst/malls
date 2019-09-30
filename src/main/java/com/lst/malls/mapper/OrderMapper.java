@@ -53,7 +53,7 @@ public interface OrderMapper {
      * @param orderId
      * @return
      */
-    Integer updateStatusByOrder_Id(@Param("status")String status,@Param("order_ID")Long orderId);
+    Integer updateStatusByOrderId(@Param("status")String status, @Param("order_ID")Long orderId);
 
     /**
      * 根据订单编号修改完成时间

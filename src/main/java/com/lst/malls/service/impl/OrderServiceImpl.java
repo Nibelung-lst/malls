@@ -67,7 +67,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void changeStatus(Long orderId, String status) {
-        orderMapper.updateStatusByOrder_Id(status,orderId);
+        orderMapper.updateStatusByOrderId(status,orderId);
     }
 
     @Override

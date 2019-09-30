@@ -29,12 +29,15 @@ public interface OrderService {
     void update(Order order);
 
     /**
-     *添加订单
+     * 添加订单
+     * @param order
      */
     void add(Order order);
 
     /**
-     * 根据用户名查询ID
+     * 根据用户名查询订单
+     * @param userName
+     * @return
      */
     List<Order> searchByName(String userName);
 
