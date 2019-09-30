@@ -14,7 +14,7 @@ public interface ImageURLMapper {
      * @param record
      * @return
      */
-    int insert(ImageURL record);
+    Integer insert(ImageURL record);
 
 
     /**

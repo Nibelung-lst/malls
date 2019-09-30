@@ -13,14 +13,14 @@ public interface AdminMapper {
      * @param id
      * @return
      */
-    int delete(Integer id);
+    Integer delete(Integer id);
 
     /**
      * 新增一个管理员对象
      * @param record
      * @return
      */
-    int insert(Admin record);
+    Integer insert(Admin record);
     /**
      * 根据条件进行查询
      * @param example
@@ -34,7 +34,7 @@ public interface AdminMapper {
      * @param record
      * @return
      */
-    int update(Admin record);
+    Integer update(Admin record);
 
     /**
      * 按条件查询不带密码

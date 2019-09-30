@@ -7,6 +7,7 @@ import com.lst.malls.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -51,11 +52,39 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> searchByname(String userName) {
+    public List<Order> searchByName(String userName) {
         OrderExample example = new OrderExample();
         example.createCriteria().andUser_nameEqualTo(userName);
         List<Order> orders = orderMapper.selectByExample(example);
         return orders;
     }
+
+    @Override
+    public List<Order> searchByNameAndStatus(String userName, String status) {
+        List<Order> orders = orderMapper.selectByUserIdAndStatus(userName,status);
+        return orders;
+    }
+
+    @Override
+    public void changeStatus(Long orderId, String status) {
+        orderMapper.updateStatusByOrder_Id(status,orderId);
+    }
+
+    @Override
+    public void updateFinishTime(Long orderId, Date finishTime) {
+        orderMapper.updateFinishTimeByOrderId(finishTime,orderId);
+    }
+
+    @Override
+    public Order searchByOrderId(Long orderId) {
+        Order order =orderMapper.selectByOrderId(orderId);
+        return order;
+    }
+
+    @Override
+    public void delete(Long orderId) {
+        orderMapper.delete(orderId);
+    }
+
 
 }

@@ -2,6 +2,8 @@ package com.lst.malls.mapper;
 
 import com.lst.malls.pojo.User;
 import com.lst.malls.pojo.UserExample;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 /**
  * @Author:Nibelung
@@ -13,7 +15,7 @@ public interface UserMapper {
      * @param record
      * @return
      */
-    int insert(User record);
+    Integer insert(User record);
 
     /**
      * 根据条件查询用户信息
@@ -34,7 +36,7 @@ public interface UserMapper {
      * @param record
      * @return
      */
-    int update(User record);
+    Integer update(User record);
 
     /**
      * 不挟带密码的条件查询
@@ -42,4 +44,12 @@ public interface UserMapper {
      * @return
      */
     List<User> selectByNoPassword(UserExample example);
+
+    /**
+     * 修改用户积分
+     * @param point
+     * @param userId
+     * @return
+     */
+    Integer updateByPoint(@Param("point")Integer point,@Param("id")Integer userId);
 }

@@ -14,14 +14,14 @@ public interface ShoppingCarMapper {
      * @param id
      * @return
      */
-    int delete(Integer id);
+    Integer delete(Integer id);
 
     /**
      * 新增购物车
      * @param record
      * @return
      */
-    int insert(ShoppingCar record);
+    Integer insert(ShoppingCar record);
 
 
     /**
@@ -40,20 +40,27 @@ public interface ShoppingCarMapper {
 
     /**
      * 查询指定用户名和商品名下的购物车里的商品数量
-     * @param user_id
-     * @param goods_id
+     * @param userId
+     * @param goodsId
      * @return
      */
-    Integer selectByNumbers(@Param("user_id") Integer user_id,@Param("goods_id") Integer goods_id);
+    Integer selectByNumbers(@Param("user_id") Integer userId,@Param("goods_id") Integer goodsId);
 
     /**
      * 修改购物车的商品数量
-     * @param user_id
-     * @param goods_id
+     * @param userId
+     * @param goodsId
      * @param numbers
      * @return
      */
-    int updateByNumbers(@Param("user_id") Integer user_id,@Param("goods_id") Integer goods_id,@Param("numbers") Integer numbers);
+    Integer updateByNumbers(@Param("user_id") Integer userId,@Param("goods_id") Integer goodsId,@Param("numbers") Integer numbers);
+
+    /**
+     * 查询用户的购物车有几件商品
+     * @param userId
+     * @return
+     */
+    Integer countByUserId(@Param("user_id") Integer userId);
 
 
 }

@@ -33,5 +33,11 @@ public interface OrderDetailService {
      */
     void add(OrderDetail orderDetail);
 
+    /**
+     * 根据订单编号删除订单详情
+     * @param orderId
+     */
+    void delete(Long orderId);
+
 
 }

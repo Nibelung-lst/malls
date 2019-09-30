@@ -86,6 +86,11 @@ public class OrderDetailServiceImpl implements OrderDetailService {
         orderDetailMapper.insert(orderDetail);
     }
 
+    @Override
+    public void delete(Long orderId) {
+        orderDetailMapper.delete(orderId);
+    }
+
 
     /**
      *

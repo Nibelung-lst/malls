@@ -30,6 +30,8 @@ public class ForePageController {
     OrderService orderService;
     @Autowired
     OrderDetailService orderDetailService;
+    @Autowired
+    ForeService foreService;
 
     /**
      * 前台登录
@@ -59,7 +61,10 @@ public class ForePageController {
         }
 
         //用户名和密码正确，向前端传参，并跳转到后台管理系统页面
+
         session.setAttribute("user",user);
+        Integer shoppingCarNumbers = foreService.countShoppingCayByUser(user.getId());
+        session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
         return "fore/Fore";
 
     }
@@ -101,6 +106,7 @@ public class ForePageController {
         if (b.equals(sexCheck)){
             user.setSex(false);
         }
+            user.setPoint(0);
             userService.add(user);
             model.addAttribute("RegisterSucceed", true);
             return "fore/ForeRegister";
@@ -119,19 +125,12 @@ public class ForePageController {
         return "fore/Fore";
     }
 
-    /**
-     * 根据用户名查询订单信息
-     * @return
-     */
-    @RequestMapping("orderInformation")
-    public String orderInformation(HttpSession session,Model model){
-        User user =(User)session.getAttribute("user");
-        if (user == null){
-            return "fore/ForeRegister";
-        }
-        List<Order> orders = orderService.searchByname(user.getName());
-        orderDetailService.searchOrderDetail(orders);
-        model.addAttribute("orderInformation",orders);
-        return "fore/MyOrders";
+    @RequestMapping("searchBox")
+    public String searchBox(String keyWord,Model model){
+        System.out.println(keyWord);
+        List<Goods> goods = foreService.searchGoodsByKeyWord(keyWord);
+        model.addAttribute("CategoryGood",goods);
+        return "fore/CategoryGoods";
     }
+
 }

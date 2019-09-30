@@ -61,12 +61,18 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
 
-  <select id="selectByNumbers" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+  <select id="selectByNumbers" resultType="java.lang.Integer"  >
     select numbers
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER} and goods_id = #{goods_id,jdbcType=INTEGER}
   </select>
 
+  <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    select count(*)
+    from t_shopping_car
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </select>
+  
   <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_shopping_car
     where id = #{id,jdbcType=INTEGER}
@@ -132,18 +138,5 @@
       numbers = #{numbers,jdbcType=INTEGER}
     where user_id = #{user_id,jdbcType=INTEGER} and goods_id = #{goods_id,jdbcType=INTEGER}
   </update>
-
-  <update id="updateCarAdd" parameterType="com.lst.malls.pojo.ShoppingCar" >
-    update t_shopping_car
-    set
-      numbers = numbers+1
-    where user_id = #{user_id,jdbcType=INTEGER} and goods_id = #{goods_id,jdbcType=INTEGER}
-  </update>
-
-  <update id="updateCarDelete" parameterType="com.lst.malls.pojo.ShoppingCar" >
-    update t_shopping_car
-    set
-      numbers = numbers-1
-    where user_id = #{user_id,jdbcType=INTEGER} AND goods_id = #{goods_id,jdbcType=INTEGER}
-  </update>
+  
 </mapper>

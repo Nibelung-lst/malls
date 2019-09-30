@@ -1,8 +1,9 @@
 package com.lst.malls.mapper;
 
-import com.lst.malls.pojo.Category;
 import com.lst.malls.pojo.Goods;
 import com.lst.malls.pojo.GoodsExample;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -14,14 +15,14 @@ public interface GoodsMapper {
      * @param id
      * @return
      */
-    int delete(Integer id);
+    Integer delete(Integer id);
 
     /**
      * 新增一个商品
      * @param record
      * @return
      */
-    int insert(Goods record);
+    Integer insert(Goods record);
 
     /**
      * 按条件查询商品信息
@@ -42,7 +43,7 @@ public interface GoodsMapper {
      * @param record
      * @return
      */
-    int update(Goods record);
+    Integer update(Goods record);
 
     /**
      * 根据分类查询商品
@@ -57,4 +58,11 @@ public interface GoodsMapper {
      * @return
      */
     Goods selectByName(String name);
+
+    /**
+     * 关键字查询
+     * @param goodsName
+     * @return
+     */
+    List<Goods> selectByKeyWord(@Param("name") String goodsName);
 }

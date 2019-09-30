@@ -14,7 +14,7 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: #C40000;
+    color: #610B38;
 }
 
 nav.top {
@@ -26,7 +26,7 @@ nav.top {
 }
 
 .redColor {
-    color: #C40000;
+    color: #610B38;
 }
 
 .boldWord {
@@ -43,7 +43,7 @@ nav.top span, nav.top a {
 }
 
 nav.top a:hover {
-    color: #C40000;
+    color: #610B38;
 }
 
 nav.top {
@@ -61,7 +61,7 @@ nav.top div.row div {
 }
 
 div.searchDiv {
-    background-color: #C40000;
+    background-color: #610B38;
     width: 400px;
     margin: 50px auto;
     padding: 1px;
@@ -80,7 +80,7 @@ div.searchDiv input {
 div.searchDiv button {
     width: 110px;
     border: 1px solid transparent;
-    background-color: #C40000;
+    background-color: #610B38;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -193,7 +193,7 @@ div.productsAsideCategorys a {
 }
 
 div.productsAsideCategorys a:hover {
-    color: #C40000;
+    color: #610B38;
     text-decoration: none;
 }
 
@@ -287,7 +287,7 @@ a.productItemDescLink {
 }
 
 div.productItem:hover {
-    border: 1px solid #C40000;
+    border: 1px solid #610B38;
 }
 
 div.productItem span.productItemDesc {
@@ -299,7 +299,7 @@ div.productItem span.productItemDesc {
 
 div.productItem span.productPrice {
     font-size: 16px;
-    color: #FF003A;
+    color: #610B38;
     display: block;
     padding-left: 16px;
     margin-top: -10px;
@@ -452,7 +452,7 @@ span.loginInputIcon span.glyphicon {
 
 button.redButton {
     color: white;
-    background-color: #C40000;
+    background-color: #610B38;
     font-size: 14px;
     font-weight: bold;
 }
@@ -481,7 +481,7 @@ table.categorySortBarTable td a {
 }
 
 table.categorySortBarTable td a:hover {
-    color: #C40000;
+    color: #610B38;
 }
 
 table.categorySortBarTable td.grayColumn {

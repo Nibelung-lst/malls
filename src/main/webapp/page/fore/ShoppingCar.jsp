@@ -35,17 +35,17 @@
 
         $('#deleteConfirmModal').on('hidden.bs.modal', function () {
             if(deleteOrderItem){
-                var page = "foredeleteOrderItem";
+                var page = "deleteShoppingCar";
                 $.post(
                     page,
-                    {"oiid":deleteOrderItemid},
+                    {"shoppingCarId":deleteOrderItemid},
                     function(result){
                         if("success"==result){
                             $("tr.cartProductItemTR[oiid="+deleteOrderItemid+"]").hide();
                             location.reload(true);
                         }
                         else{
-                            location.href="/user/foreLogin";
+                            location.href="../../page/fore/ForeRegister.jsp";
                         }
                     }
                 );
@@ -292,7 +292,7 @@
                     </td>
                     <td>
                         <div >
-                            <input pid="${oi.goods.id}" style="border: none" oiid=${oi.id} class="orderItemNumberSetting" autocomplete="off" value="${oi.numbers}">
+                            <input pid="${oi.goods.id}" style="border: none" oiid=${oi.id}  class="orderItemNumberSetting" autocomplete="off" value="${oi.numbers}" readonly unselectable="on">
                         </div>
                     </td>
 
@@ -305,6 +305,7 @@
                     <td>
                         <a class="deleteOrderItem" oiid=${oi.id}  href="#nowhere">删除</a>
                     </td>
+
                 </tr>
             </c:forEach>
             </tbody>

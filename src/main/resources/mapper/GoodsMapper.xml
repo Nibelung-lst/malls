@@ -59,6 +59,12 @@
     from t_goods
     where name = #{name,jdbcType=VARCHAR}
   </select>
+  <select id="selectByKeyWord" resultMap="BaseResultMap">
+    select
+    id, name, image, original_price, real_price, represent, category_name
+    from t_goods
+    where name like CONCAT(CONCAT("%",#{name},"%"))
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.GoodsExample" >
     select
     <if test="distinct" >

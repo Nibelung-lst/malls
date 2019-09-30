@@ -48,4 +48,12 @@ public interface UserService {
      */
     boolean exist(String name);
 
+    /**
+     * 根据ID查询用户
+     * @param userId
+     * @return
+     */
+    User searchUserById(Integer userId);
+
+
 }

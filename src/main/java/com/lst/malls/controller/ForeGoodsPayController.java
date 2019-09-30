@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -83,9 +85,11 @@ public class ForeGoodsPayController {
             OrderDetail orderDetail = foreService.puyNow(shoppingCar.getGoods_id(),shoppingCar.getNumbers(),goods);
             price = price.add(goods.getReal_price().multiply(BigDecimal.valueOf(orderDetail.getNumber())));
             orderDetails.add(orderDetail);
-
+            foreService.deleteShoppingCar(id);
         }
-
+        User user = (User)session.getAttribute("user");
+        Integer shoppingCarNumbers = foreService.countShoppingCayByUser(user.getId());
+        session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
         session.setAttribute("order",orderDetails);
         model.addAttribute("price",price);
         return "fore/GoodPay";
@@ -121,7 +125,7 @@ public class ForeGoodsPayController {
      * @return
      */
     @RequestMapping("shoppingCarAdd")
-    public String shoppingCarAdd(Integer goodsId,Integer userId,Integer numbers) {
+    public String shoppingCarAdd(Integer goodsId,Integer userId,Integer numbers,HttpSession session) {
 
         if (userId == null){
             return "fore/ForeRegister";
@@ -129,10 +133,15 @@ public class ForeGoodsPayController {
         boolean carCheck = foreService.selectShoppingCarByGoodsAndUser(userId,goodsId);
         if (carCheck){
             foreService.shoppingCarAdd(userId,goodsId,numbers);
-            return "static_page/Error";
+
+            Integer shoppingCarNumbers = foreService.countShoppingCayByUser(userId);
+            session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
+            return "/fore/Fore";
         }
+        Integer shoppingCarNumbers = foreService.countShoppingCayByUser(userId);
+        session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
         foreService.updateGoodsNumbers(userId,goodsId,numbers);
-        return "fore/Fore";
+        return "/fore/Fore";
     }
 
     /**
@@ -155,16 +164,22 @@ public class ForeGoodsPayController {
     }
 
     /**
-     *删除购物车里的某一商品
-     * @param ShoppingCarId
+     * 删除某一购物车
+     * @param shoppingCarId
+     * @param session
      * @return
      */
     @RequestMapping("deleteShoppingCar")
-    public String deleteShoppingCar(String ShoppingCarId,HttpSession session){
-        Integer id = Integer.parseInt(ShoppingCarId);
-        foreService.deleteShoppingCar(id);
-        return "redirect:/fore/shoppingCarShow?userId="+((User)session.getAttribute("user")).getName();
-
+    @ResponseBody
+    public String deleteShoppingCar(Integer shoppingCarId,HttpSession session){
+        User user = (User)session.getAttribute("user");
+        if (user == null){
+            return "fail";
+        }
+        foreService.deleteShoppingCar(shoppingCarId);
+        Integer shoppingCarNumbers = foreService.countShoppingCayByUser(user.getId());
+        session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
+        return "success";
     }
 
     /**
@@ -185,5 +200,6 @@ public class ForeGoodsPayController {
         model.addAttribute("order1",order1);
         return "fore/PayConfirm";
     }
+
 
 }

@@ -60,9 +60,10 @@
     from t_order_detail
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="delete" parameterType="java.lang.Integer" >
+
+  <delete id="delete"  >
     delete from t_order_detail
-    where id = #{id,jdbcType=INTEGER}
+    where order_id = #{orderId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.lst.malls.pojo.OrderDetail" useGeneratedKeys="true" keyProperty="id" >
     insert into t_order_detail (order_id, goods_id, number

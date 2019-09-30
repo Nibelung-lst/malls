@@ -22,7 +22,7 @@
     </a>
 
     <c:if test="${!empty user}">
-        <a href="#">${user.name}</a>
+        <a href="/fore/myInformation">${user.name}</a>
         <a href="/fore/Fore_LoginOut">退出</a>
     </c:if>
 
@@ -34,7 +34,13 @@
                 <a href="/fore/orderInformation">我的订单</a>
                 <a href="/fore/shoppingCarShow?userId=${user.id}">
                 <span style="color:#C40000;margin:0px" class=" glyphicon glyphicon-shopping-cart redColor"></span>
-                购物车<strong>${cartTotalItemNumber}</strong>件</a>
+                购物车<strong>
+                    <c:if test="${!empty shoppingCarNumbers}">
+                        ${shoppingCarNumbers}
+                    </c:if>
+                    <c:if test="${empty shoppingCarNumbers}">
+                        0
+                    </c:if></strong>件</a>
         </span>
 </nav>
 
@@ -45,9 +51,9 @@
 </div>
 
 
-<form action="#" method="post" >
+<form action="/fore/searchBox" method="post" >
     <div class="searchDiv">
-        <input name="keyword" type="text">
+        <input name="keyWord" type="text">
         <button  type="submit" class="searchButton">搜索</button>
         <div class="searchBelow">
             <c:forEach items="${categories}" var="c" varStatus="st">

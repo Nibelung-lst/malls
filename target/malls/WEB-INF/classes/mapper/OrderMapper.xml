@@ -62,14 +62,30 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_order
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="delete" parameterType="java.lang.Integer" >
+
+  <select id="selectByUserIdAndStatus" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_order
+    where user_name = #{user_name,jdbcType=VARCHAR} AND status = #{status,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByOrderId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_order
+    where order_ID = #{Order_ID,jdbcType=BIGINT}
+  </select>
+
+
+  <delete id="delete"  >
     delete from t_order
-    where id = #{id,jdbcType=INTEGER}
+    where order_ID = #{orderId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.lst.malls.pojo.Order" useGeneratedKeys="true" keyProperty="id" >
     insert into t_order (order_ID, address, receiver, 
@@ -175,6 +191,9 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+
   <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.Order" >
     update t_order
     set order_ID = #{order_ID,jdbcType=BIGINT},
@@ -188,4 +207,17 @@
       user_name = #{user_name,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <update id="updateFinishTimeByOrderId" parameterType="com.lst.malls.pojo.Order" >
+    update t_order
+    set finsh_time = #{finish_time,jdbcType=DATE}
+    where order_ID = #{order_ID,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateStatusByOrder_Id" parameterType="com.lst.malls.pojo.Order">
+    update t_order
+    set status = #{status,jdbcType=VARCHAR}
+    where order_ID = #{order_ID,jdbcType=BIGINT}
+  </update>
+
 </mapper>

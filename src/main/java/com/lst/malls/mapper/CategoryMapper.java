@@ -13,14 +13,14 @@ public interface CategoryMapper {
      * @param id
      * @return
      */
-    int delete(Integer id);
+    Integer delete(Integer id);
 
     /**
      * 新增一个分类对象
      * @param record
      * @return
      */
-    int insert(Category record);
+    Integer insert(Category record);
 
     /**
      * 按条件查询分类
@@ -35,6 +35,6 @@ public interface CategoryMapper {
      * @param record
      * @return
      */
-    int update(Category record);
+    Integer update(Category record);
 
 }

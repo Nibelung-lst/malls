@@ -40,9 +40,6 @@
         </div>
     </div>
     <form method="post">
-        <input type="hidden" name="id">
-        <input type="hidden" name="name">
-        <input type="hidden" name="create_name">
         <!--显示表格数据-->
         <div class="row">
             <div class="col-md-12">

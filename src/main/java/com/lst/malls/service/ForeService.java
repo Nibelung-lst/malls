@@ -79,5 +79,18 @@ public interface ForeService {
      */
     ShoppingCar selectShoppingCar(Integer id);
 
+    /**
+     * 查询用户的购物车里有几件商品
+     * @param userId
+     * @return
+     */
+    Integer countShoppingCayByUser(Integer userId);
+
+    /**
+     * 根据关键字查询
+     * @param goodsName
+     * @return
+     */
+    List<Goods> searchGoodsByKeyWord(String goodsName);
 
 }

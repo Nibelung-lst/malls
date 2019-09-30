@@ -199,6 +199,12 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <update id="updateByPoint" >
+    update t_user
+    set
+      point = #{point,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
   <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.User" >
     update t_user
     set name = #{name,jdbcType=VARCHAR},

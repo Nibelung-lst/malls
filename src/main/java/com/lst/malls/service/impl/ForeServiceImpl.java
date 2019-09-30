@@ -1,5 +1,6 @@
 package com.lst.malls.service.impl;
 
+import com.lst.malls.mapper.GoodsMapper;
 import com.lst.malls.mapper.ShoppingCarMapper;
 import com.lst.malls.pojo.*;
 import com.lst.malls.service.ForeService;
@@ -26,6 +27,8 @@ public class ForeServiceImpl implements ForeService {
     OrderDetailService orderDetailService;
     @Autowired
     ShoppingCarMapper shoppingCarMapper;
+    @Autowired
+    GoodsMapper goodsMapper;
 
     /**
      * 立即购买
@@ -118,6 +121,18 @@ public class ForeServiceImpl implements ForeService {
     public ShoppingCar selectShoppingCar(Integer id) {
        ShoppingCar shoppingCar = shoppingCarMapper.selectById(id);
         return shoppingCar;
+    }
+
+    @Override
+    public Integer countShoppingCayByUser(Integer userId) {
+        Integer shoppingCarNumbers = shoppingCarMapper.countByUserId(userId);
+        return shoppingCarNumbers;
+    }
+
+    @Override
+    public List<Goods> searchGoodsByKeyWord(String goodsName) {
+        List<Goods> goods = goodsMapper.selectByKeyWord(goodsName);
+        return goods;
     }
 
 

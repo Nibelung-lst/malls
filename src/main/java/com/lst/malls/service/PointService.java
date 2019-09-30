@@ -1,6 +1,7 @@
 package com.lst.malls.service;
 
 import com.lst.malls.pojo.Point;
+import com.lst.malls.pojo.User;
 
 import java.util.List;
 
@@ -30,4 +31,20 @@ public interface PointService {
      * @param point
      */
     void search(Point point);
+
+
+    /**
+     * 新增积分详情
+     * @param price
+     * @param user
+     * @param orderId
+     */
+    void addPoint(Integer price, User user, Long orderId);
+
+    /**
+     * 根据用户id查询积分详情
+     * @param userId
+     * @return
+     */
+    List<Point> searchPointsByUserId(Integer userId);
 }

@@ -102,4 +102,10 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public User searchUserById(Integer userId) {
+        User user = userMapper.selectById(userId);
+        return user;
+    }
+
 }

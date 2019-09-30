@@ -9,6 +9,7 @@ import com.lst.malls.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,4 +57,24 @@ public class PointServiceImpl implements PointService {
         User user = userMapper.selectById(point.getUser_id());
         point.setUser(user);
     }
+
+    @Override
+    public void addPoint(Integer price,User user,Long orderId) {
+        Point point = new Point();
+        point.setUser_id(user.getId());
+        point.setCreate_time(new Date());
+        point.setOrder_id(orderId);
+        point.setUser(user);
+        point.setPoint(price);
+        Integer totalPoint = price+user.getPoint();
+        point.setTotal_point(totalPoint);
+        userMapper.updateByPoint(totalPoint,user.getId());
+        pointMapper.insert(point);
     }
+
+    @Override
+    public List<Point> searchPointsByUserId(Integer userId) {
+        List<Point> points = pointMapper.selectByUserId(userId);
+        return points;
+    }
+}
