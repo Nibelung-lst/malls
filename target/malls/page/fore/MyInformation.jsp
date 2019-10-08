@@ -68,7 +68,7 @@
                 </tr>
                 <tr>
                     <td>真实姓名</td>
-                    <td>${user.real_name}</td>
+                    <td>${user.realName}</td>
                 </tr>
                 <tr>
                     <td>性别</td>

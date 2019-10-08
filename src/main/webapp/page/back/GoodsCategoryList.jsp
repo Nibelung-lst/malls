@@ -76,15 +76,15 @@
                             <th>${category.name}</th>
                             <th><c:if test="${category.image!=null }">
                                 <img width="80px" height="80px" id="images" alt="" src="/images/${category.image }"></c:if></th>
-                            <th>${category.original_price}</th>
-                            <th>${category.real_price}</th>
+                            <th>${category.originalPrice}</th>
+                            <th>${category.realPrice}</th>
                             <th>${category.represent}</th>
-                            <th>${category.category_name}</th>
+                            <th>${category.categoryName}</th>
                             <th>${category.creater}</th>
-                            <th><fmt:formatDate type="date" value="${category.create_date}" /></th>
-                            <th>${category.final_changer}</th>
-                            <th><fmt:formatDate type="date" value="${category.final_change_time}" /></th>
-                            <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.original_price}','${category.real_price}','${category.represent}','${category.category_name}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <th><fmt:formatDate type="date" value="${category.createDate}" /></th>
+                            <th>${category.finalChanger}</th>
+                            <th><fmt:formatDate type="date" value="${category.finalChangeTime}" /></th>
+                            <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.originalPrice}','${category.realPrice}','${category.represent}','${category.categoryName}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
                             <td><a href="/back/goodsDelete?id=${category.id}&pn=${GoodsPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
                         </tr>
                     </c:forEach>

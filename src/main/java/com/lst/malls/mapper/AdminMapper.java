@@ -1,7 +1,8 @@
 package com.lst.malls.mapper;
 
 import com.lst.malls.pojo.Admin;
-import com.lst.malls.pojo.AdminExample;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -16,18 +17,31 @@ public interface AdminMapper {
     Integer delete(Integer id);
 
     /**
+     * 查询出用户名和密码
+     * @return
+     */
+    List<Admin> select();
+
+    /**
      * 新增一个管理员对象
      * @param record
      * @return
      */
     Integer insert(Admin record);
+
     /**
-     * 根据条件进行查询
-     * @param example
+     * 查询用户和密码
+     * @param name
+     * @param password
      * @return
      */
-    List<Admin> selectByExample(AdminExample example);
-
+    List<Admin> selectByNameAndPassword(@Param("name")String name,@Param("password")String password);
+    /**
+     * 根据用户名查询
+     * @param name
+     * @return
+     */
+    List<Admin> selectByName(@Param("name")String name);
 
     /**
      * 更新管理员对象
@@ -36,11 +50,5 @@ public interface AdminMapper {
      */
     Integer update(Admin record);
 
-    /**
-     * 按条件查询不带密码
-     * @param example
-     * @return
-     */
-    List<Admin> selectByExampleNoPassword(AdminExample example);
 
 }

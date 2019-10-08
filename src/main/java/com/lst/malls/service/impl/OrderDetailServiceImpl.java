@@ -4,12 +4,12 @@ import com.lst.malls.mapper.OrderDetailMapper;
 import com.lst.malls.pojo.Goods;
 import com.lst.malls.pojo.Order;
 import com.lst.malls.pojo.OrderDetail;
-import com.lst.malls.pojo.OrderDetailExample;
 import com.lst.malls.service.GoodsService;
 import com.lst.malls.service.OrderDetailService;
 import com.lst.malls.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -51,10 +51,8 @@ public class OrderDetailServiceImpl implements OrderDetailService {
      */
     @Override
     public void searchOrderDetail(Order order) {
-        OrderDetailExample example = new OrderDetailExample();
-        //通过传进来的订单对象里的订单id到订单详情里找id，select * from orderDetail where order.id = order_id
-        example.createCriteria().andOrder_idEqualTo(order.getOrder_ID());
-        List<OrderDetail> orderDetails = orderDetailMapper.selectByExample(example);
+
+        List<OrderDetail> orderDetails = orderDetailMapper.selectByOrderId(order.getOrderId());
 
         //将找出来的所以订单详情orderDetails传递到setGoods方法进行下一步查询;
         searchGoods(orderDetails);
@@ -67,7 +65,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
             //int number = od.number
             BigDecimal number = new BigDecimal(Integer.toString(orderDetail.getNumber()));
             //price+=number*real_price
-            price = price.add(number.multiply(orderDetail.getGoods().getReal_price()));
+            price = price.add(number.multiply(orderDetail.getGoods().getRealPrice()));
 
         }
 
@@ -81,11 +79,14 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(OrderDetail orderDetail) {
         orderDetailMapper.insert(orderDetail);
+
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Long orderId) {
         orderDetailMapper.delete(orderId);
@@ -107,7 +108,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
      */
     private void searchGoods(OrderDetail orderDetail){
         //通过主键进行查询
-        Goods goods = goodsService.get(orderDetail.getGoods_id());
+        Goods goods = goodsService.get(orderDetail.getGoodsId());
         //封装到orderDetail下
         orderDetail.setGoods(goods);
     }

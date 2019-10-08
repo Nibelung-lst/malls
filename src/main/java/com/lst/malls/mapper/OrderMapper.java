@@ -1,7 +1,6 @@
 package com.lst.malls.mapper;
 
 import com.lst.malls.pojo.Order;
-import com.lst.malls.pojo.OrderExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -11,6 +10,19 @@ import java.util.List;
  * @Author:Nibelung
  */
 public interface OrderMapper {
+
+    /**
+     * 查询所有订单
+     * @return
+     */
+    List<Order> select();
+
+    /**
+     * 根据用户名查询订单信息
+     * @param userName
+     * @return
+     */
+    List<Order> selectByUserName(@Param("userName") String userName);
     /**
      * 根据主键删除订单
      * @param orderId
@@ -25,12 +37,6 @@ public interface OrderMapper {
      */
     Integer insert(Order record);
 
-    /**
-     * 根据条件查询订单
-     * @param example
-     * @return
-     */
-    List<Order> selectByExample(OrderExample example);
 
     /**
      * 更新订单详情

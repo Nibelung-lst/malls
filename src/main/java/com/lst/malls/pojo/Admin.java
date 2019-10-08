@@ -1,5 +1,8 @@
 package com.lst.malls.pojo;
 
+/**
+ * @Author:Nibelung
+ */
 public class Admin {
     private Integer id;
 

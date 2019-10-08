@@ -1,19 +1,21 @@
 package com.lst.malls.pojo;
 
 import java.util.Date;
-
+/**
+ * @Author:Nibelung
+ */
 public class Point {
     private Integer id;
 
-    private Integer user_id;
+    private Integer userId;
 
     private Integer point;
 
-    private Integer total_point;
+    private Integer totalPoint;
 
-    private Long order_id;
+    private Long orderId;
 
-    private Date create_time;
+    private Date createTime;
     /**非数据库实体类----------------------------------------*/
     private User user;
     public User getUser() {
@@ -39,12 +41,12 @@ public class Point {
         this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Integer getPoint() {
@@ -55,27 +57,27 @@ public class Point {
         this.point = point;
     }
 
-    public Integer getTotal_point() {
-        return total_point;
+    public Integer getTotalPoint() {
+        return totalPoint;
     }
 
-    public void setTotal_point(Integer total_point) {
-        this.total_point = total_point;
+    public void setTotalPoint(Integer totalPoint) {
+        this.totalPoint = totalPoint;
     }
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

@@ -2,12 +2,12 @@ package com.lst.malls.service.impl;
 
 import com.lst.malls.mapper.GoodsMapper;
 import com.lst.malls.pojo.Goods;
-import com.lst.malls.pojo.GoodsExample;
-import com.lst.malls.pojo.ImageURL;
+import com.lst.malls.pojo.ImageUrl;
 import com.lst.malls.service.GoodsService;
 import com.lst.malls.service.ImageUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -33,9 +33,8 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public List<Goods> list(){
-        GoodsExample example = new GoodsExample();
-        //使用list接受
-        List<Goods> goods = goodsMapper.selectByExample(example);
+
+        List<Goods> goods = goodsMapper.select();
 
         return goods;
     }
@@ -56,6 +55,7 @@ public class GoodsServiceImpl implements GoodsService {
      *
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(Goods goods) {
         goodsMapper.insert(goods);
@@ -65,6 +65,7 @@ public class GoodsServiceImpl implements GoodsService {
      *
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Integer id) {
         goodsMapper.delete(id);
@@ -76,13 +77,10 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public boolean exist(String name) {
-        GoodsExample example = new GoodsExample();
-        //通过 name 调用Example里的方法进行校验
-        example.createCriteria().andNameEqualTo(name);
-        //如果数据库内有字段相同的name，就给categories赋值
-        List<Goods> goods = goodsMapper.selectByExample(example);
 
-        if (goods.isEmpty()){
+        Goods goods = goodsMapper.selectByName(name);
+
+        if (goods == null){
 
             return true;
         }
@@ -93,6 +91,7 @@ public class GoodsServiceImpl implements GoodsService {
      *
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void update(Goods goods) {
         goodsMapper.update(goods);
@@ -117,7 +116,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public Goods getByName(String goodName) {
-        List<ImageURL> imageUrls = imageUrlService.get(goodName);
+        List<ImageUrl> imageUrls = imageUrlService.get(goodName);
         Goods goods = goodsMapper.selectByName(goodName);
         goods.setImageUrls(imageUrls);
         return goods;

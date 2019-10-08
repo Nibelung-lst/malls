@@ -3,19 +3,21 @@ package com.lst.malls.pojo;
 
 import java.util.Date;
 
-
+/**
+ * @Author:Nibelung
+ */
 public class Category {
     private Integer id;
 
     private String name;
 
-    private String create_name;
+    private String createName;
 
-    private Date create_time;
+    private Date createTime;
 
-    private Date final_modification_time;
+    private Date finalModificationTime;
 
-    private String final_change_man;
+    private String finalChangeMan;
 
     public Integer getId() {
         return id;
@@ -33,36 +35,35 @@ public class Category {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getCreate_name() {
-        return create_name;
+    public String getCreateName() {
+        return createName;
     }
 
-    public void setCreate_name(String create_name) {
-        this.create_name = create_name == null ? null : create_name.trim();
+    public void setCreateName(String createName) {
+        this.createName = createName;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getFinal_modification_time() {
-        return final_modification_time;
+    public Date getFinalModificationTime() {
+        return finalModificationTime;
     }
 
-    public void setFinal_modification_time(Date final_modification_time) {
-        this.final_modification_time = final_modification_time;
+    public void setFinalModificationTime(Date finalModificationTime) {
+        this.finalModificationTime = finalModificationTime;
     }
 
-    public String getFinal_change_man() {
-        return final_change_man;
+    public String getFinalChangeMan() {
+        return finalChangeMan;
     }
 
-
-    public void setFinal_change_man(String final_change_man) {
-        this.final_change_man = final_change_man == null ? null : final_change_man.trim();
+    public void setFinalChangeMan(String finalChangeMan) {
+        this.finalChangeMan = finalChangeMan;
     }
 }

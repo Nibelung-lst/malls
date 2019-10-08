@@ -4,57 +4,24 @@
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.Category" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="create_name" property="create_name" jdbcType="VARCHAR" />
-    <result column="create_time" property="create_time" jdbcType="DATE" />
-    <result column="final_modification_time" property="final_modification_time" jdbcType="DATE" />
-    <result column="final_change_man" property="final_change_man" jdbcType="VARCHAR" />
+    <result column="create_name" property="createName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="DATE" />
+    <result column="final_modification_time" property="finalModificationTime" jdbcType="DATE" />
+    <result column="final_change_man" property="finalChangeMan" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
   <sql id="Base_Column_List" >
     id, name, create_name, create_time, final_modification_time, final_change_man
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.CategoryExample" >
+  <select id="select" resultMap="BaseResultMap" >
     select
-    <if test="distinct" >
-      distinct
-    </if>
-    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from t_category
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_category
+    where name = #{name,jdbcType=VARCHAR}
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -69,45 +36,8 @@
   <insert id="insert" parameterType="com.lst.malls.pojo.Category" useGeneratedKeys="true" keyProperty="id" >
     insert into t_category (name, create_name, create_time, 
       final_modification_time, final_change_man)
-    values (#{name,jdbcType=VARCHAR}, #{create_name,jdbcType=VARCHAR}, #{create_time,jdbcType=DATE}, 
-      #{final_modification_time,jdbcType=DATE}, #{final_change_man,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.lst.malls.pojo.Category" useGeneratedKeys="true" keyProperty="id" >
-    insert into t_category
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        name,
-      </if>
-      <if test="create_name != null" >
-        create_name,
-      </if>
-      <if test="create_time != null" >
-        create_time,
-      </if>
-      <if test="final_modification_time != null" >
-        final_modification_time,
-      </if>
-      <if test="final_change_man != null" >
-        final_change_man,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="create_name != null" >
-        #{create_name,jdbcType=VARCHAR},
-      </if>
-      <if test="create_time != null" >
-        #{create_time,jdbcType=DATE},
-      </if>
-      <if test="final_modification_time != null" >
-        #{final_modification_time,jdbcType=DATE},
-      </if>
-      <if test="final_change_man != null" >
-        #{final_change_man,jdbcType=VARCHAR},
-      </if>
-    </trim>
+    values (#{name,jdbcType=VARCHAR}, #{createName,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE},
+      #{finalModificationTime,jdbcType=DATE}, #{finalChangeMan,jdbcType=VARCHAR})
   </insert>
   <update id="update" parameterType="com.lst.malls.pojo.Category" >
     update t_category
@@ -115,28 +45,19 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="create_name != null" >
-        create_name = #{create_name,jdbcType=VARCHAR},
+      <if test="createName != null" >
+        create_name = #{createName,jdbcType=VARCHAR},
       </if>
-      <if test="create_time != null" >
-        create_time = #{create_time,jdbcType=DATE},
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=DATE},
       </if>
-      <if test="final_modification_time != null" >
-        final_modification_time = #{final_modification_time,jdbcType=DATE},
+      <if test="finalModificationTime != null" >
+        final_modification_time = #{finalModificationTime,jdbcType=DATE},
       </if>
-      <if test="final_change_man != null" >
-        final_change_man = #{final_change_man,jdbcType=VARCHAR},
+      <if test="finalChangeMan != null" >
+        final_change_man = #{finalChangeMan,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.Category" >
-    update t_category
-    set name = #{name,jdbcType=VARCHAR},
-      create_name = #{create_name,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=DATE},
-      final_modification_time = #{final_modification_time,jdbcType=DATE},
-      final_change_man = #{final_change_man,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

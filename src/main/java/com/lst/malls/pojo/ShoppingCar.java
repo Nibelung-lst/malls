@@ -1,11 +1,13 @@
 package com.lst.malls.pojo;
-
+/**
+ * @Author:Nibelung
+ */
 public class ShoppingCar {
     private Integer id;
 
-    private Integer user_id;
+    private Integer userId;
 
-    private Integer goods_id;
+    private Integer goodsId;
 
     private Integer numbers;
 
@@ -29,20 +31,20 @@ public class ShoppingCar {
         this.id = id;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public Integer getGoods_id() {
-        return goods_id;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoods_id(Integer goods_id) {
-        this.goods_id = goods_id;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public Integer getNumbers() {

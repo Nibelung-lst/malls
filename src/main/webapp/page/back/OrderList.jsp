@@ -66,15 +66,15 @@
                     <c:forEach items="${OrderPageInfo.list}" var="order">
 
                         <tr>
-                            <th>${order.order_ID}</th>
+                            <th>${order.orderId}</th>
                             <th>${order.address}</th>
                             <th>${order.receiver}</th>
                             <th>${order.telephone}</th>
                             <th>${order.price}</th>
-                            <th><fmt:formatDate type="date" value="${order.creator_time}" /></th>
-                            <th><fmt:formatDate type="date" value="${order.finsh_time}" /></th>
+                            <th><fmt:formatDate type="date" value="${order.creatorTime}" /></th>
+                            <th><fmt:formatDate type="date" value="${order.finshTime}" /></th>
                             <th>${order.status}</th>
-                            <th>${order.user_name}</th>
+                            <th>${order.userName}</th>
 
                             <th> <button order_id=${order.id} class="buttonclick" >查看详情</button></th>
 
@@ -101,9 +101,9 @@
                                                 <td><img width="35px" height="35px" src="/images/${orderDetail.goods.image}"></td>
                                                 <td>${orderDetail.goods.name}</td>
                                                 <td>${orderDetail.goods.represent}</td>
-                                                <td>${orderDetail.goods.category_name}</td>
+                                                <td>${orderDetail.goods.categoryName}</td>
                                                 <td>${orderDetail.number}个</td>
-                                                <td>${orderDetail.goods.real_price}元</span>
+                                                <td>${orderDetail.goods.realPrice}元</span>
                                                 </td>
                                             </tr>
                                         </c:forEach>

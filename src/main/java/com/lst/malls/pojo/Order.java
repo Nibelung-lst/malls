@@ -3,11 +3,13 @@ package com.lst.malls.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * @Author:Nibelung
+ */
 public class Order {
     private Integer id;
 
-    private Long order_ID;
+    private Long orderId;
 
     private String address;
 
@@ -17,13 +19,13 @@ public class Order {
 
     private BigDecimal price;
 
-    private Date creator_time;
+    private Date creatorTime;
 
-    private Date finsh_time;
+    private Date finshTime;
 
     private String status;
 
-    private String user_name;
+    private String userName;
 
     /**非数据库实体类----------------------*/
     private List<OrderDetail> orderDetails;
@@ -46,12 +48,12 @@ public class Order {
         this.id = id;
     }
 
-    public Long getOrder_ID() {
-        return order_ID;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_ID(Long order_ID) {
-        this.order_ID = order_ID;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
     public String getAddress() {
@@ -59,7 +61,7 @@ public class Order {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
 
     public String getReceiver() {
@@ -67,7 +69,7 @@ public class Order {
     }
 
     public void setReceiver(String receiver) {
-        this.receiver = receiver == null ? null : receiver.trim();
+        this.receiver = receiver;
     }
 
     public String getTelephone() {
@@ -75,7 +77,7 @@ public class Order {
     }
 
     public void setTelephone(String telephone) {
-        this.telephone = telephone == null ? null : telephone.trim();
+        this.telephone = telephone;
     }
 
     public BigDecimal getPrice() {
@@ -86,20 +88,20 @@ public class Order {
         this.price = price;
     }
 
-    public Date getCreator_time() {
-        return creator_time;
+    public Date getCreatorTime() {
+        return creatorTime;
     }
 
-    public void setCreator_time(Date creator_time) {
-        this.creator_time = creator_time;
+    public void setCreatorTime(Date creatorTime) {
+        this.creatorTime = creatorTime;
     }
 
-    public Date getFinsh_time() {
-        return finsh_time;
+    public Date getFinshTime() {
+        return finshTime;
     }
 
-    public void setFinsh_time(Date finsh_time) {
-        this.finsh_time = finsh_time;
+    public void setFinshTime(Date finshTime) {
+        this.finshTime = finshTime;
     }
 
     public String getStatus() {
@@ -107,14 +109,14 @@ public class Order {
     }
 
     public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+        this.status = status;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name == null ? null : user_name.trim();
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

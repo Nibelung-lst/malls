@@ -50,8 +50,8 @@
             <table class="orderListItemTable" orderStatus="${o.status}" oid="${o.id}">
                 <tr class="orderListItemFirstTR">
                     <td colspan="2">
-                        <b>创建时间: <fmt:formatDate value="${o.creator_time}" pattern="yyyy-MM-dd"/></b>
-                        <span>订单号: ${o.order_ID}
+                        <b>创建时间: <fmt:formatDate value="${o.creatorTime}" pattern="yyyy-MM-dd"/></b>
+                        <span>订单号: ${o.orderId}
 					</span>
                     </td>
                     <td  colspan="3"></td>
@@ -61,7 +61,7 @@
                         <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${o.price}" minFractionDigits="2"/></div>
                     </td>
                     <td class="orderItemDeleteTD">
-                        <a class="deleteOrderLink" oiid="${o.order_ID}" href="/fore/deleteOrder?orderId=${o.order_ID}" onclick="return confirm('请确认删除');"><span  class="orderListItemDelete glyphicon glyphicon-trash"></span></a>
+                        <a class="deleteOrderLink" oiid="${o.orderId}" href="/fore/deleteOrder?orderId=${o.orderId}" onclick="return confirm('请确认删除');"><span  class="orderListItemDelete glyphicon glyphicon-trash"></span></a>
                     </td>
 
                 </tr>
@@ -74,13 +74,13 @@
                             </div>
                         </td>
                         <td>
-                            <div class="orderListItemProductPrice">￥<fmt:formatNumber type="number" value="${oi.goods.real_price}" minFractionDigits="2"/></div>
+                            <div class="orderListItemProductPrice">￥<fmt:formatNumber type="number" value="${oi.goods.realPrice}" minFractionDigits="2"/></div>
                         </td>
                         <td>${oi.number}</td>
                         <td>
                         </td>
                         <td  class="orderItemProductInfoPartTD" width="100px">
-                            <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${oi.goods.real_price*oi.number}" minFractionDigits="2"/></div>
+                            <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${oi.goods.realPrice*oi.number}" minFractionDigits="2"/></div>
                         </td>
                         <td></td>
 

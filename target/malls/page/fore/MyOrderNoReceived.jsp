@@ -50,8 +50,8 @@
             <table class="orderListItemTable" orderStatus="${o.status}" oid="${o.id}">
                 <tr class="orderListItemFirstTR">
                     <td colspan="2">
-                        <b>创建时间: <fmt:formatDate value="${o.creator_time}" pattern="yyyy-MM-dd"/></b>
-                        <span>订单号: ${o.order_ID}
+                        <b>创建时间: <fmt:formatDate value="${o.creatorTime}" pattern="yyyy-MM-dd"/></b>
+                        <span>订单号: ${o.orderId}
 					</span>
                     </td>
                     <td  colspan="3"></td>
@@ -60,7 +60,7 @@
                         <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${o.price}" minFractionDigits="2"/></div>
                     </td>
                     <td>
-                        <a href="/fore/received?orderId=${o.order_ID}" onclick="return confirm('请确认收货');" class="label label-success">确认收货</a>
+                        <a href="/fore/received?orderId=${o.orderId}" onclick="return confirm('请确认收货');" class="label label-success">确认收货</a>
                     </td>
 
                 </tr>
@@ -73,13 +73,13 @@
                             </div>
                         </td>
                         <td>
-                            <div class="orderListItemProductPrice">￥<fmt:formatNumber type="number" value="${oi.goods.real_price}" minFractionDigits="2"/></div>
+                            <div class="orderListItemProductPrice">￥<fmt:formatNumber type="number" value="${oi.goods.realPrice}" minFractionDigits="2"/></div>
                         </td>
                         <td>${oi.number}</td>
                         <td>
                         </td>
                         <td  class="orderItemProductInfoPartTD" width="100px">
-                            <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${oi.goods.real_price*oi.number}" minFractionDigits="2"/></div>
+                            <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${oi.goods.realPrice*oi.number}" minFractionDigits="2"/></div>
                         </td>
                         <td></td>
                     </tr>

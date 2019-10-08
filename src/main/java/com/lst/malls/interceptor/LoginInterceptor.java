@@ -1,5 +1,6 @@
 package com.lst.malls.interceptor;
 
+import com.lst.malls.filter.StaticUrl;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 后台登录拦截器
+ * @Author:Nibelung
  */
 public class LoginInterceptor implements HandlerInterceptor {
 
@@ -28,10 +30,11 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
         // 在拦截点执行前拦截，如果返回true则不执行拦截点后的操作（拦截成功）
         // 返回false则不执行拦截
+
         HttpSession session = request.getSession();
         //String uri = request.getRequestURI(); // 获取登录的uri，这个是不进行拦截的
         //if(session.getAttribute("LOGIN_USER")!=null || uri.indexOf("system/login")!=-1) {// 说明登录成功 或者 执行登录功能
-        if(session.getAttribute("admin")!=null) {
+        if(session.getAttribute(StaticUrl.admin)!=null) {
             // 登录成功不拦截
             return true;
         }else {

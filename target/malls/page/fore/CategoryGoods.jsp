@@ -117,10 +117,10 @@
 
                         <div style="background-color: #F0F0F0;">
                             <div>
-                                <del>¥<fmt:formatNumber type="number" value="${goods.original_price}" minFractionDigits="2"/></del>
+                                <del>¥<fmt:formatNumber type="number" value="${goods.originalPrice}" minFractionDigits="2"/></del>
                             </div>
                             <div>
-                                <span style="color: red;font-size: 20px">¥<fmt:formatNumber type="number" value="${goods.real_price}" minFractionDigits="2"/></span>
+                                <span style="color: red;font-size: 20px">¥<fmt:formatNumber type="number" value="${goods.realPrice}" minFractionDigits="2"/></span>
                             </div>
 
                         <div>

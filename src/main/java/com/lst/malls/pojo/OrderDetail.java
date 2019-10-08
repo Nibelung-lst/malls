@@ -1,11 +1,13 @@
 package com.lst.malls.pojo;
-
+/**
+ * @Author:Nibelung
+ */
 public class OrderDetail {
     private Integer id;
 
-    private Long order_id;
+    private Long orderId;
 
-    private Integer goods_id;
+    private Integer goodsId;
 
     private Integer number;
 
@@ -29,20 +31,20 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public Long getOrder_id() {
-        return order_id;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Long order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 
-    public Integer getGoods_id() {
-        return goods_id;
+    public Integer getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoods_id(Integer goods_id) {
-        this.goods_id = goods_id;
+    public void setGoodsId(Integer goodsId) {
+        this.goodsId = goodsId;
     }
 
     public Integer getNumber() {

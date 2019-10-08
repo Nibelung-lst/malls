@@ -1,7 +1,6 @@
 package com.lst.malls.mapper;
 
 import com.lst.malls.pojo.Goods;
-import com.lst.malls.pojo.GoodsExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -16,20 +15,17 @@ public interface GoodsMapper {
      * @return
      */
     Integer delete(Integer id);
-
+    /**
+     * 查询出所有商品信息
+     * @return
+     */
+    List<Goods> select();
     /**
      * 新增一个商品
      * @param record
      * @return
      */
     Integer insert(Goods record);
-
-    /**
-     * 按条件查询商品信息
-     * @param example
-     * @return
-     */
-    List<Goods> selectByExample(GoodsExample example);
 
     /**
      * 根据商品Id查询商品

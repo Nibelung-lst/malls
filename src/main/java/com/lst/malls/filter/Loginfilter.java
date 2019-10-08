@@ -20,6 +20,7 @@ public class Loginfilter implements Filter {
 
     }
 
+
     @Override
     public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest)arg0;
@@ -27,12 +28,12 @@ public class Loginfilter implements Filter {
         HttpSession session = request.getSession();
 
         final String uri = request.getRequestURI().startsWith("/") ? request.getRequestURI().substring(1) : request.getRequestURI();
-        if (uri.contains("page/index.jsp") || uri.contains("page/back/login.jsp")){
+        if (uri.contains(StaticUrl.pageIndex) || uri.contains(StaticUrl.pageLogin)){
             //白名单
             arg2.doFilter(arg0, arg1);
             return;
         }
-        if(session.getAttribute("admin")==null&& request.getRequestURI().indexOf("/back/admin_login") == -1){
+        if(session.getAttribute(StaticUrl.admin)==null&& !request.getRequestURI().contains(StaticUrl.adminLogin)){
             // 没有登录
             response.sendRedirect("/page/back/login.jsp");
         }else{

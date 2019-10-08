@@ -63,7 +63,7 @@
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">修改人</label>
                     <p class="form-control-static"><%= session.getAttribute("admin")%></p>
-                    <input type="text" class="form-control" style="display:none" id="final_change_man" name="final_change_man" value="<%= session.getAttribute("admin")%>"  required="required" readonly unselectable="on">
+                    <input type="text" class="form-control" style="display:none" id="finalChangeMan" name="finalChangeMan" value="<%= session.getAttribute("admin")%>"  required="required" readonly unselectable="on">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">

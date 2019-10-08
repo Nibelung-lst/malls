@@ -2,10 +2,10 @@ package com.lst.malls.service.impl;
 
 import com.lst.malls.mapper.OrderMapper;
 import com.lst.malls.pojo.Order;
-import com.lst.malls.pojo.OrderExample;
 import com.lst.malls.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -30,9 +30,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> list() {
 
-        OrderExample example = new OrderExample();
 
-        List<Order> order = orderMapper.selectByExample(example);
+        List<Order> order = orderMapper.select();
 
         return order;
     }
@@ -41,11 +40,13 @@ public class OrderServiceImpl implements OrderService {
      *
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void update(Order order) {
         orderMapper.update(order);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(Order order) {
         orderMapper.insert(order);
@@ -53,9 +54,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public List<Order> searchByName(String userName) {
-        OrderExample example = new OrderExample();
-        example.createCriteria().andUser_nameEqualTo(userName);
-        List<Order> orders = orderMapper.selectByExample(example);
+
+        List<Order> orders = orderMapper.selectByUserName(userName);
         return orders;
     }
 
@@ -65,11 +65,13 @@ public class OrderServiceImpl implements OrderService {
         return orders;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void changeStatus(Long orderId, String status) {
         orderMapper.updateStatusByOrderId(status,orderId);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void updateFinishTime(Long orderId, Date finishTime) {
         orderMapper.updateFinishTimeByOrderId(finishTime,orderId);
@@ -81,6 +83,7 @@ public class OrderServiceImpl implements OrderService {
         return order;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Long orderId) {
         orderMapper.delete(orderId);

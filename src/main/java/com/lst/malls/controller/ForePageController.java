@@ -125,6 +125,12 @@ public class ForePageController {
         return "fore/Fore";
     }
 
+    /**
+     * 搜索框
+     * @param keyWord
+     * @param model
+     * @return
+     */
     @RequestMapping("searchBox")
     public String searchBox(String keyWord,Model model){
         System.out.println(keyWord);

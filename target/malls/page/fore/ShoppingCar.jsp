@@ -113,7 +113,6 @@
         $(".numberPlus").click(function(){
 
             var pid=$(this).attr("pid");
-            var stock= $("span.orderItemStock[pid="+pid+"]").text();
             var price= $("span.orderItemPromotePrice[pid="+pid+"]").text();
             var num= $(".orderItemNumberSetting[pid="+pid+"]").val();
 
@@ -124,7 +123,6 @@
         });
         $(".numberMinus").click(function(){
             var pid=$(this).attr("pid");
-            var stock= $("span.orderItemStock[pid="+pid+"]").text();
             var price= $("span.orderItemPromotePrice[pid="+pid+"]").text();
 
             var num= $(".orderItemNumberSetting[pid="+pid+"]").val();
@@ -286,8 +284,8 @@
 
                     </td>
                     <td>
-                        <span class="cartProductItemOringalPrice">￥${oi.goods.original_price}</span>
-                        <span  class="cartProductItemPromotionPrice">￥${oi.goods.real_price}</span>
+                        <span class="cartProductItemOringalPrice">￥${oi.goods.originalPrice}</span>
+                        <span  class="cartProductItemPromotionPrice">￥${oi.goods.realPrice}</span>
 
                     </td>
                     <td>
@@ -298,7 +296,7 @@
 
                     <td >
 							<span class="cartProductItemSmallSumPrice" oiid=${oi.id} pid="${oi.goods.id}" >
-							￥<fmt:formatNumber type="number" value="${oi.goods.real_price*oi.numbers}" minFractionDigits="2"/>
+							￥<fmt:formatNumber type="number" value="${oi.goods.realPrice*oi.numbers}" minFractionDigits="2"/>
 							</span>
                     </td>
 

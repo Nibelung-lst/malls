@@ -57,9 +57,9 @@
                             <th>${point.id}</th>
                             <th>${point.user.name}</th>
                             <th>${point.point}</th>
-                            <th>${point.total_point}</th>
-                            <th>${point.order_id}</th>
-                            <th><fmt:formatDate type="date" value="${point.create_time}" /></th>
+                            <th>${point.totalPoint}</th>
+                            <th>${point.orderId}</th>
+                            <th><fmt:formatDate type="date" value="${point.createTime}" /></th>
                         </tr>
                     </c:forEach>
 

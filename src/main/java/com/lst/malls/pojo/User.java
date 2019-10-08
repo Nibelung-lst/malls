@@ -1,13 +1,15 @@
 package com.lst.malls.pojo;
 
 import java.util.Date;
-
+/**
+ * @Author:Nibelung
+ */
 public class User {
     private Integer id;
 
     private String name;
 
-    private String real_name;
+    private String realName;
 
     private String password;
 
@@ -41,12 +43,12 @@ public class User {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getReal_name() {
-        return real_name;
+    public String getRealName() {
+        return realName;
     }
 
-    public void setReal_name(String real_name) {
-        this.real_name = real_name == null ? null : real_name.trim();
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
     public String getPassword() {

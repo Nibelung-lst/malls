@@ -18,7 +18,7 @@
     </div>
     <div class="payedAddressInfo">
         <ul>
-            <li>订单编号：${order2.order_ID}</li>
+            <li>订单编号：${order2.orderId}</li>
             <li>获得积分：<span class="payedInfoPrice">
 			<fmt:formatNumber type="number" value="${order2.price}"/>
             </li>

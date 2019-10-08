@@ -30,7 +30,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("userList")
-    public String List(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
+    public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
 
         //设置起始页，每页展示5条数据
@@ -52,7 +52,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("userStatus")
-    public String ChangeStatus(boolean status,Integer id,Integer pageNumber){
+    public String changeStatus(boolean status, Integer id, Integer pageNumber){
         System.out.println(status);
         User user =new User();
         user.setId(id);

@@ -2,10 +2,10 @@ package com.lst.malls.service.impl;
 
 import com.lst.malls.mapper.UserMapper;
 import com.lst.malls.pojo.User;
-import com.lst.malls.pojo.UserExample;
 import com.lst.malls.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,10 +28,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public List<User> list() {
-        UserExample example = new UserExample();
-
-        List<User> users = userMapper.selectByNoPassword(example);
-
+        List<User> users = userMapper.select();
         return users;
     }
 
@@ -40,6 +37,7 @@ public class UserServiceImpl implements UserService {
      * @param change
      * @param user
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void change(boolean change,User user){
         if (change){
@@ -60,11 +58,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User get(String name, String password) {
-        UserExample example = new UserExample();
 
-        example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
-
-        List<User> admins = userMapper.selectByExample(example);
+        List<User> admins = userMapper.selectByNameAndPassword(name,password);
 
         if (admins.isEmpty()){
             return null;
@@ -78,6 +73,7 @@ public class UserServiceImpl implements UserService {
      *
      * @param user
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(User user) {
         userMapper.insert(user);
@@ -90,9 +86,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean exist(String name) {
-        UserExample example = new UserExample();
-        example.createCriteria().andNameEqualTo(name);
-        List<User> users = userMapper.selectByExample(example);
+        List<User> users = userMapper.selectByName(name);
 
         if (users.isEmpty()){
             return true;

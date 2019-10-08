@@ -3,7 +3,9 @@ package com.lst.malls.pojo;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-
+/**
+ * @Author:Nibelung
+ */
 public class Goods {
     private Integer id;
 
@@ -11,53 +13,26 @@ public class Goods {
 
     private String image;
 
-    private BigDecimal original_price;
+    private BigDecimal originalPrice;
 
-    private BigDecimal real_price;
+    private BigDecimal realPrice;
 
     private String represent;
 
-    private String category_name;
+    private String categoryName;
 
     private String creater;
 
-    private Date create_date;
+    private Date createDate;
 
-    private String final_changer;
+    private String finalChanger;
 
-    private Date final_change_time;
+    private Date finalChangeTime;
 
-    /**
-     * 非数据库字段
-     * @return
-     */
+    private List<ImageUrl> imageUrls;
+
+
     private Integer num;
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    private List<ImageURL> imageUrls;
-
-    public List<ImageURL> getImageUrls() {
-        return imageUrls;
-    }
-
-    public void setImageUrls(List<ImageURL> imageUrls) {
-        this.imageUrls = imageUrls;
-    }
-
-    public BigDecimal getOriginal_price() {
-        return original_price;
-    }
-
-    public void setOriginal_price(BigDecimal original_price) {
-        this.original_price = original_price;
-    }
 
     public Integer getId() {
         return id;
@@ -72,7 +47,7 @@ public class Goods {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getImage() {
@@ -80,16 +55,23 @@ public class Goods {
     }
 
     public void setImage(String image) {
-        this.image = image == null ? null : image.trim();
+        this.image = image;
     }
 
-
-    public BigDecimal getReal_price() {
-        return real_price;
+    public BigDecimal getOriginalPrice() {
+        return originalPrice;
     }
 
-    public void setReal_price(BigDecimal real_price) {
-        this.real_price = real_price;
+    public void setOriginalPrice(BigDecimal originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public BigDecimal getRealPrice() {
+        return realPrice;
+    }
+
+    public void setRealPrice(BigDecimal realPrice) {
+        this.realPrice = realPrice;
     }
 
     public String getRepresent() {
@@ -97,15 +79,15 @@ public class Goods {
     }
 
     public void setRepresent(String represent) {
-        this.represent = represent == null ? null : represent.trim();
+        this.represent = represent;
     }
 
-    public String getCategory_name() {
-        return category_name;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name == null ? null : category_name.trim();
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public String getCreater() {
@@ -113,30 +95,50 @@ public class Goods {
     }
 
     public void setCreater(String creater) {
-        this.creater = creater == null ? null : creater.trim();
+        this.creater = creater;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public String getFinal_changer() {
-        return final_changer;
+    public String getFinalChanger() {
+        return finalChanger;
     }
 
-    public void setFinal_changer(String final_changer) {
-        this.final_changer = final_changer == null ? null : final_changer.trim();
+    public void setFinalChanger(String finalChanger) {
+        this.finalChanger = finalChanger;
     }
 
-    public Date getFinal_change_time() {
-        return final_change_time;
+    public Date getFinalChangeTime() {
+        return finalChangeTime;
     }
 
-    public void setFinal_change_time(Date final_change_time) {
-        this.final_change_time = final_change_time;
+    public void setFinalChangeTime(Date finalChangeTime) {
+        this.finalChangeTime = finalChangeTime;
     }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public List<ImageUrl> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(List<ImageUrl> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+
+
+
 }

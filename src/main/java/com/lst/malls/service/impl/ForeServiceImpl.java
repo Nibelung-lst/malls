@@ -7,6 +7,7 @@ import com.lst.malls.service.ForeService;
 import com.lst.malls.service.OrderDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,7 +42,7 @@ public class ForeServiceImpl implements ForeService {
     public OrderDetail puyNow(Integer id, Integer num, Goods goods) {
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setNumber(num);
-        orderDetail.setGoods_id(id);
+        orderDetail.setGoodsId(id);
         orderDetail.setGoods(goods);
         return orderDetail;
     }
@@ -53,6 +54,7 @@ public class ForeServiceImpl implements ForeService {
      * @param user
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public Order creatOrder(Order order, List<OrderDetail> orderDetails, User user) {
         //生成订单号
@@ -64,39 +66,37 @@ public class ForeServiceImpl implements ForeService {
         order.setOrderDetails(orderDetails);
 
         for (OrderDetail o:orderDetails) {
-            o.setOrder_id(i);
+            o.setOrderId(i);
             orderDetailService.add(o);
         }
         //将订单ID和创建时间存入到订单中
-        order.setOrder_ID(i);
-        order.setCreator_time(new Date());
+        order.setOrderId(i);
+        order.setCreatorTime(new Date());
 
         return order;
     }
 
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void shoppingCarAdd(Integer userId, Integer goodsId, Integer numbers) {
         ShoppingCar shoppingCar = new ShoppingCar();
-        shoppingCar.setUser_id(userId);
-        shoppingCar.setGoods_id(goodsId);
+        shoppingCar.setUserId(userId);
+        shoppingCar.setGoodsId(goodsId);
         shoppingCar.setNumbers(numbers);
         shoppingCarMapper.insert(shoppingCar);
     }
 
     @Override
     public List<ShoppingCar> selectShoppingByUserId(Integer userId) {
-        ShoppingCarExample example = new ShoppingCarExample();
-        example.createCriteria().andUser_idEqualTo(userId);
-        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByExample(example);
+
+        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByUserId(userId);
         return shoppingCars;
     }
 
     @Override
     public boolean selectShoppingCarByGoodsAndUser(Integer userId, Integer goodsId) {
-        ShoppingCarExample example = new ShoppingCarExample();
-        example.createCriteria().andUser_idEqualTo(userId).andGoods_idEqualTo(goodsId);
-        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByExample(example);
+        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByUserIdAndGoodsId(userId,goodsId);
         if (shoppingCars.isEmpty()){
             return true;
         }
@@ -105,6 +105,7 @@ public class ForeServiceImpl implements ForeService {
 
 
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void updateGoodsNumbers(Integer userId, Integer goodsId, Integer numbers) {
         Integer originalNumbers = shoppingCarMapper.selectByNumbers(userId,goodsId);
@@ -112,6 +113,7 @@ public class ForeServiceImpl implements ForeService {
         shoppingCarMapper.updateByNumbers(userId,goodsId,presentNumbers);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void deleteShoppingCar(Integer id) {
         shoppingCarMapper.delete(id);

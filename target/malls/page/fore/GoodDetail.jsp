@@ -112,14 +112,14 @@ $(function () {
                         <span class="originalPriceDesc">价格</span>
                         <span class="originalPriceYuan">¥</span>
                         <span class="originalPrice">
-						<fmt:formatNumber type="number" value="${commodity.original_price}" minFractionDigits="2"/>
+						<fmt:formatNumber type="number" value="${commodity.originalPrice}" minFractionDigits="2"/>
 					</span>
                     </div>
                     <div class="promotionDiv">
                         <span class="promotionPriceDesc">促销价 </span>
                         <span class="promotionPriceYuan">¥</span>
                         <span class="promotionPrice">
-						<fmt:formatNumber type="number" value="${commodity.real_price}" minFractionDigits="2"/>
+						<fmt:formatNumber type="number" value="${commodity.realPrice}" minFractionDigits="2"/>
 					</span>
                     </div>
                 </div>
@@ -188,7 +188,7 @@ $(function () {
             <div class="productParamter">产品描述：</div>
             <c:forEach items="${commodity.imageUrls}" var="imageUrls">
                 <div   style="margin-top: 10px" >
-                    <img src="/images/${imageUrls.imgURL}" class="bigImg">
+                    <img src="/images/${imageUrls.imgUrl}" class="bigImg">
                 </div>
             </c:forEach>
             <div style="clear:both"></div>

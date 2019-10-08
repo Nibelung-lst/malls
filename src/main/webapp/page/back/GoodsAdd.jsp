@@ -66,11 +66,11 @@
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">原价</label>
-                    <input type="text" class="form-control" id="original_price" name="original_price" placeholder="请输入原价" required="required">
+                    <input type="text" class="form-control" id="originalPrice" name="originalPrice" placeholder="请输入原价" required="required">
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">现价</label><span class="label label-danger">必须</span>
-                    <input type="text" class="form-control" id="real_price" name="real_price" placeholder="请输入现价" required="required">
+                    <input type="text" class="form-control" id="realPrice" name="realPrice" placeholder="请输入现价" required="required">
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">描述</label>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">分类</label><span class="label label-danger">必须</span>
-                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="请输入分类" >
+                    <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="请输入分类" >
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">

@@ -1,7 +1,6 @@
 package com.lst.malls.mapper;
 
 import com.lst.malls.pojo.OrderDetail;
-import com.lst.malls.pojo.OrderDetailExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -22,12 +21,12 @@ public interface OrderDetailMapper {
      * @return
      */
     Integer insert(OrderDetail record);
-
     /**
-     * 根据条件查询订单详情
-     * @param example
+     * 根据订单ID查询订单详情
+     * @param orderId
      * @return
      */
-    List<OrderDetail> selectByExample(OrderDetailExample example);
+    List<OrderDetail> selectByOrderId(@Param("order_id") Long orderId);
+
 
 }

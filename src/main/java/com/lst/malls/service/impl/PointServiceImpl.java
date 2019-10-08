@@ -3,11 +3,11 @@ package com.lst.malls.service.impl;
 import com.lst.malls.mapper.PointMapper;
 import com.lst.malls.mapper.UserMapper;
 import com.lst.malls.pojo.Point;
-import com.lst.malls.pojo.PointExample;
 import com.lst.malls.pojo.User;
 import com.lst.malls.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -32,8 +32,7 @@ public class PointServiceImpl implements PointService {
      */
     @Override
     public List<Point> list() {
-        PointExample example = new PointExample();
-        List<Point> points = pointMapper.selectByExample(example);
+        List<Point> points = pointMapper.select();
         return points;
         }
 
@@ -54,20 +53,21 @@ public class PointServiceImpl implements PointService {
      */
     @Override
     public void search(Point point){
-        User user = userMapper.selectById(point.getUser_id());
+        User user = userMapper.selectById(point.getUserId());
         point.setUser(user);
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void addPoint(Integer price,User user,Long orderId) {
         Point point = new Point();
-        point.setUser_id(user.getId());
-        point.setCreate_time(new Date());
-        point.setOrder_id(orderId);
+        point.setUserId(user.getId());
+        point.setCreateTime(new Date());
+        point.setOrderId(orderId);
         point.setUser(user);
         point.setPoint(price);
         Integer totalPoint = price+user.getPoint();
-        point.setTotal_point(totalPoint);
+        point.setTotalPoint(totalPoint);
         userMapper.updateByPoint(totalPoint,user.getId());
         pointMapper.insert(point);
     }

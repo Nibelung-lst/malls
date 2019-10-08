@@ -70,7 +70,7 @@ public class CategoryController {
             return "back/CategoryAdd";
         }
         //设置创建分类时的日期
-        category.setCreate_time(new Date());
+        category.setCreateTime(new Date());
         categoryService.add(category);
         //返回参数 model 提示添加成功
         model.addAttribute("CategorySucceed",true);
@@ -114,7 +114,7 @@ public class CategoryController {
             return "back/CategoryUpdata";
         }
         //修改时间设置
-        category.setFinal_modification_time(new Date());
+        category.setFinalModificationTime(new Date());
         categoryService.update(category);
 
         model.addAttribute("CategoryUpdataSucceed",true);

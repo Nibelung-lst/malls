@@ -1,7 +1,6 @@
 package com.lst.malls.mapper;
 
 import com.lst.malls.pojo.ShoppingCar;
-import com.lst.malls.pojo.ShoppingCarExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -23,13 +22,20 @@ public interface ShoppingCarMapper {
      */
     Integer insert(ShoppingCar record);
 
-
     /**
-     * 根据条件查询购物车
-     * @param example
+     * 根据用户ID查询购物车
+     * @param userId
      * @return
      */
-    List<ShoppingCar> selectByExample(ShoppingCarExample example);
+    List<ShoppingCar> selectByUserId(@Param("user_id") Integer userId);
+
+    /**
+     * 根据用户ID和商品ID查询购物车
+     * @param userId
+     * @param goodsId
+     * @return
+     */
+    List<ShoppingCar> selectByUserIdAndGoodsId(@Param("user_id") Integer userId,@Param("goods_id")Integer goodsId);
 
     /**
      * 根据主键进行查询

@@ -2,10 +2,10 @@ package com.lst.malls.service.impl;
 
 import com.lst.malls.mapper.AdminMapper;
 import com.lst.malls.pojo.Admin;
-import com.lst.malls.pojo.AdminExample;
 import com.lst.malls.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -30,10 +30,8 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public List<Admin> list(){
-        AdminExample example = new AdminExample();
-        //按 id 降序排序
-        //使用list接受
-        List<Admin> admins = adminMapper.selectByExampleNoPassword(example);
+
+        List<Admin> admins = adminMapper.select();
 
         return admins;
     }
@@ -46,11 +44,8 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public Admin get(String name, String password) {
-        AdminExample example = new AdminExample();
 
-        example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
-
-        List<Admin> admins = adminMapper.selectByExample(example);
+        List<Admin> admins = adminMapper.selectByNameAndPassword(name,password);
 
         if (admins.isEmpty()){
             return null;
@@ -66,6 +61,7 @@ public class AdminServiceImpl implements AdminService {
      *添加管理员账户
      * @param admin
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(Admin admin){
         
@@ -76,6 +72,7 @@ public class AdminServiceImpl implements AdminService {
      * 删除管理员账户by id
      * @param id
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Integer id) {
         adminMapper.delete(id);
@@ -85,6 +82,7 @@ public class AdminServiceImpl implements AdminService {
      * 更新管理员
      * @param admin
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void update(Admin admin) {
         adminMapper.update(admin);
@@ -98,11 +96,8 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public boolean exist(String name) {
-        AdminExample example = new AdminExample();
 
-        example.createCriteria().andNameEqualTo(name);
-
-        List<Admin> admins = adminMapper.selectByExample(example);
+        List<Admin> admins = adminMapper.selectByName(name);
 
         if (admins.isEmpty()){
 

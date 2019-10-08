@@ -30,7 +30,7 @@ public class PointController {
      * @return
      */
     @RequestMapping("pointList")
-    public String List(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
+    public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 
 
         //设置起始页，每页展示5条数据

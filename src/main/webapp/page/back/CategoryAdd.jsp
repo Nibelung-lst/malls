@@ -57,7 +57,7 @@
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">创建人</label>
                     <p class="form-control-static"><%= session.getAttribute("admin")%></p>
-                    <input type="text" class="form-control" style="display:none" id="create_name" name="create_name" value="<%= session.getAttribute("admin")%>"  required="required" readonly unselectable="on">
+                    <input type="text" class="form-control" style="display:none" id="createName" name="createName" value="<%= session.getAttribute("admin")%>"  required="required" readonly unselectable="on">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">

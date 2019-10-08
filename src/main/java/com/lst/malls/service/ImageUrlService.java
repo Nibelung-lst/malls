@@ -1,6 +1,6 @@
 package com.lst.malls.service;
 
-import com.lst.malls.pojo.ImageURL;
+import com.lst.malls.pojo.ImageUrl;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ public interface ImageUrlService {
      * 添加附图
      * @param imageUrl
      */
-    void add(ImageURL imageUrl);
+    void add(ImageUrl imageUrl);
 
     /**
      * 显示附图
      * @param goodsName
      * @return
      */
-    List<ImageURL> get(String goodsName);
+    List<ImageUrl> get(String goodsName);
 
 }

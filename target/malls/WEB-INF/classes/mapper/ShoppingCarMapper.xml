@@ -3,56 +3,24 @@
 <mapper namespace="com.lst.malls.mapper.ShoppingCarMapper" >
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.ShoppingCar" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="user_id" property="user_id" jdbcType="INTEGER" />
-    <result column="goods_id" property="goods_id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
     <result column="numbers" property="numbers" jdbcType="INTEGER" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
   <sql id="Base_Column_List" >
     id, user_id, goods_id, numbers
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.ShoppingCarExample" >
+  <select id="selectByUserId" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
-      distinct
-    </if>
-    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from t_shopping_car
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
+    where user_id = #{user_id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserIdAndGoodsId" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_shopping_car
+    where user_id = #{user_id,jdbcType=INTEGER} AND goods_id = #{goods_id,jdbcType=INTEGER}
   </select>
   <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -60,19 +28,16 @@
     from t_shopping_car
     where id = #{id,jdbcType=INTEGER}
   </select>
-
   <select id="selectByNumbers" resultType="java.lang.Integer"  >
     select numbers
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER} and goods_id = #{goods_id,jdbcType=INTEGER}
   </select>
-
   <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
     select count(*)
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER}
   </select>
-  
   <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_shopping_car
     where id = #{id,jdbcType=INTEGER}
@@ -80,16 +45,16 @@
   <insert id="insert" parameterType="com.lst.malls.pojo.ShoppingCar" useGeneratedKeys="true" keyProperty="id" >
     insert into t_shopping_car (user_id, goods_id, numbers
       )
-    values (#{user_id,jdbcType=INTEGER}, #{goods_id,jdbcType=INTEGER}, #{numbers,jdbcType=INTEGER}
+    values (#{userId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{numbers,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.lst.malls.pojo.ShoppingCar" useGeneratedKeys="true" keyProperty="id" >
     insert into t_shopping_car
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="user_id != null" >
+      <if test="userId != null" >
         user_id,
       </if>
-      <if test="goods_id != null" >
+      <if test="goodsId != null" >
         goods_id,
       </if>
       <if test="numbers != null" >
@@ -98,10 +63,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="user_id != null" >
-        #{user_id,jdbcType=INTEGER},
+        #{userId,jdbcType=INTEGER},
       </if>
       <if test="goods_id != null" >
-        #{goods_id,jdbcType=INTEGER},
+        #{goodsId,jdbcType=INTEGER},
       </if>
       <if test="numbers != null" >
         #{numbers,jdbcType=INTEGER},
@@ -111,11 +76,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.ShoppingCar" >
     update t_shopping_car
     <set >
-      <if test="user_id != null" >
-        user_id = #{user_id,jdbcType=INTEGER},
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="goods_id != null" >
-        goods_id = #{goods_id,jdbcType=INTEGER},
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=INTEGER},
       </if>
       <if test="numbers != null" >
         numbers = #{numbers,jdbcType=INTEGER},
@@ -123,14 +88,6 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.ShoppingCar" >
-    update t_shopping_car
-    set user_id = #{user_id,jdbcType=INTEGER},
-      goods_id = #{goods_id,jdbcType=INTEGER},
-      numbers = #{numbers,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-
 
   <update id="updateByNumbers"  >
     update t_shopping_car

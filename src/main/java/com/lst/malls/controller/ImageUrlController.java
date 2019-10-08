@@ -1,6 +1,6 @@
 package com.lst.malls.controller;
 
-import com.lst.malls.pojo.ImageURL;
+import com.lst.malls.pojo.ImageUrl;
 import com.lst.malls.service.ImageUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ public class ImageUrlController {
      * @throws IOException
      */
     @RequestMapping("imageAdd")
-    public String imageAdd(ImageURL imageUrl,MultipartFile file) throws IOException {
+    public String imageAdd(ImageUrl imageUrl, MultipartFile file) throws IOException {
         if(imageUrl == null){
             return "static_page/Error";
         }
@@ -46,7 +46,7 @@ public class ImageUrlController {
         File targetFile = new File(filePath,newFileName);
         //把本地文件上传到封装上传文件位置的全路径
         file.transferTo(targetFile);
-        imageUrl.setImgURL(newFileName);
+        imageUrl.setImgUrl(newFileName);
         imageUrlService.add(imageUrl);
         return "back/ImageAdd";
     }

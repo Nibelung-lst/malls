@@ -61,12 +61,12 @@
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">原价</label>
-                    <input type="text" class="form-control" id="original_price" name="original_price" value="${param.original_price}" required="required">
+                    <input type="text" class="form-control" id="originalPrice" name="originalPrice" value="${param.originalPrice}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">现价</label>
-                    <input type="text" class="form-control" id="real_price" name="real_price" value="${param.real_price}" required="required">
+                    <input type="text" class="form-control" id="realPrice" name="realPrice" value="${param.realPrice}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
@@ -75,13 +75,13 @@
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">分类名</label>
-                    <input type="text" class="form-control" id="category_name" name="category_name" value="${param.category_name}" required="required">
+                    <input type="text" class="form-control" id="categoryName" name="categoryName" value="${param.categoryName}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">修改人</label>
                     <p class="form-control-static"><%= session.getAttribute("admin")%></p>
-                    <input type="text" class="form-control" style="display:none" id="final_changer" name="final_changer" value="<%= session.getAttribute("admin")%>"  required="required" readonly unselectable="on">
+                    <input type="text" class="form-control" style="display:none" id="finalChanger" name="finalChanger" value="<%= session.getAttribute("admin")%>"  required="required" readonly unselectable="on">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">

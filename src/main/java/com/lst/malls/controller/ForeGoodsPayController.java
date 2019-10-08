@@ -81,9 +81,9 @@ public class ForeGoodsPayController {
         for (String s : shoppingCarId){
             int id = Integer.parseInt(s);
             ShoppingCar shoppingCar = foreService.selectShoppingCar(id);
-            Goods goods = goodsService.get(shoppingCar.getGoods_id());
-            OrderDetail orderDetail = foreService.puyNow(shoppingCar.getGoods_id(),shoppingCar.getNumbers(),goods);
-            price = price.add(goods.getReal_price().multiply(BigDecimal.valueOf(orderDetail.getNumber())));
+            Goods goods = goodsService.get(shoppingCar.getGoodsId());
+            OrderDetail orderDetail = foreService.puyNow(shoppingCar.getGoodsId(),shoppingCar.getNumbers(),goods);
+            price = price.add(goods.getRealPrice().multiply(BigDecimal.valueOf(orderDetail.getNumber())));
             orderDetails.add(orderDetail);
             foreService.deleteShoppingCar(id);
         }
@@ -110,7 +110,7 @@ public class ForeGoodsPayController {
         OrderDetail orderDetail = foreService.puyNow(id, goodsNumbers,goods);
         orderDetails.add(orderDetail);
         //计算订单总额
-        BigDecimal price = goods.getReal_price().multiply(BigDecimal.valueOf(goodsNumbers));
+        BigDecimal price = goods.getRealPrice().multiply(BigDecimal.valueOf(goodsNumbers));
 
         session.setAttribute("order",orderDetails);
         model.addAttribute("price",price);
@@ -157,7 +157,7 @@ public class ForeGoodsPayController {
         }
         List<ShoppingCar> shoppingCars = foreService.selectShoppingByUserId(userId);
         for (ShoppingCar shoppingCar:shoppingCars){
-            shoppingCar.setGoods(goodsService.get(shoppingCar.getGoods_id()));
+            shoppingCar.setGoods(goodsService.get(shoppingCar.getGoodsId()));
         }
         model.addAttribute("shoppingCars",shoppingCars);
         return "fore/ShoppingCar";

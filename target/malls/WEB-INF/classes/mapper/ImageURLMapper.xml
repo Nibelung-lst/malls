@@ -1,107 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lst.malls.mapper.ImageURLMapper" >
-  <resultMap id="BaseResultMap" type="com.lst.malls.pojo.ImageURL" >
+<mapper namespace="com.lst.malls.mapper.ImageUrlMapper" >
+  <resultMap id="BaseResultMap" type="com.lst.malls.pojo.ImageUrl" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="goods_name" property="goods_name" jdbcType="VARCHAR" />
-    <result column="imgURL" property="imgURL" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="imgURL" property="imgUrl" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
   <sql id="Base_Column_List" >
     id, goods_name, imgURL
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lst.malls.pojo.ImageURLExample" >
+  <select id="selectByGoodsName" resultMap="BaseResultMap" >
     select
-    <if test="distinct" >
-      distinct
-    </if>
-    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from t_imageurl
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
+    where goods_name = #{goodsName,jdbcType=VARCHAR}
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from t_imageurl
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from t_imageurl
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.lst.malls.pojo.ImageURL" useGeneratedKeys="true" keyProperty="id" >
+
+  <insert id="insert" parameterType="com.lst.malls.pojo.ImageUrl" useGeneratedKeys="true" keyProperty="id" >
     insert into t_imageurl (goods_name, imgURL)
-    values (#{goods_name,jdbcType=VARCHAR}, #{imgURL,jdbcType=VARCHAR})
+    values (#{goodsName,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lst.malls.pojo.ImageURL" useGeneratedKeys="true" keyProperty="id" >
-    insert into t_imageurl
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="goods_name != null" >
-        goods_name,
-      </if>
-      <if test="imgURL != null" >
-        imgURL,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="goods_name != null" >
-        #{goods_name,jdbcType=VARCHAR},
-      </if>
-      <if test="imgURL != null" >
-        #{imgURL,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.ImageURL" >
-    update t_imageurl
-    <set >
-      <if test="goods_name != null" >
-        goods_name = #{goods_name,jdbcType=VARCHAR},
-      </if>
-      <if test="imgURL != null" >
-        imgURL = #{imgURL,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.lst.malls.pojo.ImageURL" >
-    update t_imageurl
-    set goods_name = #{goods_name,jdbcType=VARCHAR},
-      imgURL = #{imgURL,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+
 </mapper>

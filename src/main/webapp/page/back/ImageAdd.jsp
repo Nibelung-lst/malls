@@ -51,11 +51,11 @@
         <form action="/back/imageAdd" method="post" enctype="multipart/form-data">
             <table class="addTable" >
                 <div class="form-group" style="height:51px;width:449px">
-                    <label for="goods_name">商品名</label><span class="label label-danger">必须</span>
-                    <input type="text" class="form-control" id="goods_name" name="goods_name" placeholder="请输入商品名" required="required">
+                    <label for="goodsName">商品名</label><span class="label label-danger">必须</span>
+                    <input type="text" class="form-control" id="goodsName" name="goodsName" placeholder="请输入商品名" required="required">
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
-                    <label for="goods_name">图片</label><span class="label label-danger">必须</span>
+                    <label for="goodsName">图片</label><span class="label label-danger">必须</span>
                     <input type="file" name="file" >
                 </div>
 

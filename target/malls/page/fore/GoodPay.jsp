@@ -20,27 +20,26 @@
 
 
         <div class="address">
-            <div class="addressTip">订单编号</div>
             <div class="addressTip">输入收货地址</div>
             <div>
                 <table class="addressTable">
                     <tr>
                         <td class="firstColumn">详细地址<span class="redStar">*</span></td>
 
-                        <td><textarea id="address" name="address" placeholder="请填写详细收货地址"></textarea></td>
+                        <td><textarea id="address" name="address" placeholder="请填写详细收货地址" required="required"></textarea></td>
                     </tr>
 
                     <input type="text" id="price" style="display: none" name="price" value="${price}">
                     <input type="text" id="status" style="display: none" name="status" value="待收货">
-                    <input type="text" id="user_name" style="display: none" name="user_name" value="${user.name}">
+                    <input type="text" id="userName" style="display: none" name="userName" value="${user.name}">
 
                     <tr>
                         <td>收货人姓名<span class="redStar">*</span></td>
-                        <td><input id="receiver" name="receiver" type="text"></td>
+                        <td><input id="receiver" name="receiver" type="text" required="required"></td>
                     </tr>
                     <tr>
                         <td>手机号码 <span class="redStar">*</span></td>
-                        <td><input id="telephone" name="telephone"  placeholder="请输入11位手机号码" type="text"></td>
+                        <td><input id="telephone" name="telephone"  placeholder="请输入11位手机号码" type="text" required="required"></td>
                     </tr>
                 </table>
 
@@ -77,13 +76,13 @@
                             </a>
                         </td>
                         <td>
-                            <span class="orderItemProductPrice">￥<fmt:formatNumber type="number" value="${order.goods.real_price}" minFractionDigits="2"/></span>
+                            <span class="orderItemProductPrice">￥<fmt:formatNumber type="number" value="${order.goods.realPrice}" minFractionDigits="2"/></span>
                         </td>
                         <td>
                             <span class="orderItemProductNumber">${order.number}</span>
                         </td>
                         <td><span class="orderItemUnitSum">
-						￥<fmt:formatNumber type="number" value="${order.number*order.goods.real_price}" minFractionDigits="2"/>
+						￥<fmt:formatNumber type="number" value="${order.number*order.goods.realPrice}" minFractionDigits="2"/>
 						</span></td>
                         <c:if test="${st.count==1}">
                             <td rowspan="5"  class="orderItemLastTD">

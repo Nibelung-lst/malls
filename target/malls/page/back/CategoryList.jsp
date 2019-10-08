@@ -22,12 +22,12 @@
     <title>分类展示</title>
 </head>
 <script>
-function undate(id,name,create_name){
+function undate(id,name,createName){
 
 document.forms[0].elements[0].value = id;
 document.forms[0].elements[1].value = name;
-document.forms[0].elements[2].value = create_name;
-document.forms[0].action = '<c:url value="CategoryUpdata.jsp"/>';
+document.forms[0].elements[2].value = createName;
+document.forms[0].action = '<c:url value="/page/back/CategoryUpdata.jsp"/>';
 document.forms[0].submit();
 }
 
@@ -50,7 +50,7 @@ document.forms[0].submit();
     <form method="post">
         <input type="hidden" name="id">
         <input type="hidden" name="name">
-        <input type="hidden" name="create_name">
+        <input type="hidden" name="createName">
         <!--显示表格数据-->
         <div class="row">
             <div class="col-md-12">
@@ -72,11 +72,11 @@ document.forms[0].submit();
                             <th>${category.id}</th>
                             <th>${category.name}</th>
                             <td><a href="/back/goodsCategoryList?categoryName=${category.name}">该分类下的商品</a></td>
-                            <th>${category.create_name}</th>
-                            <th><fmt:formatDate type="date" value="${category.create_time}" /></th>
-                            <th>${category.final_change_man}</th>
-                            <th><fmt:formatDate type="date" value="${category.final_modification_time}" /></th>
-                            <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.create_name}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <th>${category.createName}</th>
+                            <th><fmt:formatDate type="date" value="${category.createTime}" /></th>
+                            <th>${category.finalChangeMan}</th>
+                            <th><fmt:formatDate type="date" value="${category.finalModificationTime}" /></th>
+                            <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.createName}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
                             <td><a href="/back/categoryDelete?id=${category.id}&pageNumber=${CategoryPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
                         </tr>
                     </c:forEach>

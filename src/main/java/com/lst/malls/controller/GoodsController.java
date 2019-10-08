@@ -103,7 +103,7 @@ public class GoodsController {
         goods.setImage(newFileName);
 
 
-        goods.setCreate_date(new Date());
+        goods.setCreateDate(new Date());
         goodsService.add(goods);
         //返回参数 model 提示添加成功
         model.addAttribute("GoodsSucceed",true);
@@ -113,17 +113,17 @@ public class GoodsController {
     /**
      * 删除分类
      * @param id
-     * @param pn
+     * @param pageNumber
      * @return
      */
     @RequestMapping("goodsDelete")
-    public String Delete(Integer id, Integer pn){
+    public String delete(Integer id, Integer pageNumber){
         if (id == null){
             return "static_page/Error";
         }
         goodsService.delete(id);
         //删除完成后返回到先前页数下的分类展示页面
-        return "redirect:/back/Goods_list?pageNumber="+pn;
+        return "redirect:/back/goodsList?pageNumber="+pageNumber;
     }
     /**
      * 修改分类，设置最后修改时间，分类名校验
@@ -158,7 +158,7 @@ public class GoodsController {
 
 
         //修改时间设置
-        goods.setFinal_change_time(new Date());
+        goods.setFinalChangeTime(new Date());
         goodsService.update(goods);
 
         model.addAttribute("CategoryUpdataSucceed",true);
