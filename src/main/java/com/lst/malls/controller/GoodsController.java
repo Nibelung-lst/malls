@@ -21,14 +21,15 @@ import java.util.UUID;
 /**
  * @Author :Nibelung
  * @Date ：Created in 17:22 2019/9/12
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :商品controller
  */
 
 @Controller
 @RequestMapping("back")
 public class GoodsController {
+    /**
+     * 商品service
+     */
     @Autowired
     GoodsService goodsService;
 

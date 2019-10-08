@@ -7,12 +7,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * 后台登录过滤器
  * @Author :Nibelung
  * @Date ：Created in 10:27 2019/9/19
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :后台登录过滤器
  */
 public class Loginfilter implements Filter {
     @Override
@@ -28,12 +25,12 @@ public class Loginfilter implements Filter {
         HttpSession session = request.getSession();
 
         final String uri = request.getRequestURI().startsWith("/") ? request.getRequestURI().substring(1) : request.getRequestURI();
-        if (uri.contains(StaticUrl.pageIndex) || uri.contains(StaticUrl.pageLogin)){
+        if (uri.contains(StaticUrl.PAGE_INDEX) || uri.contains(StaticUrl.PAGE_LOGIN)){
             //白名单
             arg2.doFilter(arg0, arg1);
             return;
         }
-        if(session.getAttribute(StaticUrl.admin)==null&& !request.getRequestURI().contains(StaticUrl.adminLogin)){
+        if(session.getAttribute(StaticUrl.ADMIN)==null&& !request.getRequestURI().contains(StaticUrl.ADMIN_LOGIN)){
             // 没有登录
             response.sendRedirect("/page/back/login.jsp");
         }else{

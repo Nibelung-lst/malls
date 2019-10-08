@@ -10,16 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * @Author：Nibelung
  * @ Date      ：Created in 10:27 2019/9/5
- * @ Description :
- * @ Modified By :
- * @ Version : $
+ * @Author：Nibelung
+ * @ Description :管理员登录与展示service
  */
 @Service
 public class AdminServiceImpl implements AdminService {
 
 
+    /**
+     * 管理员表sql方法
+     */
     @Autowired
     AdminMapper adminMapper;
 

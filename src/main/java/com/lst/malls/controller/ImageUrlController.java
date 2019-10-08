@@ -14,13 +14,14 @@ import java.util.UUID;
 /**
  * @Author :Nibelung
  * @Date ：Created in 14:01 2019/9/24
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :附图controller
  */
 @Controller
 @RequestMapping("back")
 public class ImageUrlController {
+    /**
+     * 附图service
+     */
     @Autowired
     ImageUrlService imageUrlService;
 

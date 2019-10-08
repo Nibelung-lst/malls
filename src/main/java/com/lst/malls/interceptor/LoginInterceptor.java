@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * 后台登录拦截器
+ * @Description: 后台登录拦截器
+ * @Date ：Created in 14:52 2019/10/8
  * @Author:Nibelung
  */
 public class LoginInterceptor implements HandlerInterceptor {
@@ -34,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         HttpSession session = request.getSession();
         //String uri = request.getRequestURI(); // 获取登录的uri，这个是不进行拦截的
         //if(session.getAttribute("LOGIN_USER")!=null || uri.indexOf("system/login")!=-1) {// 说明登录成功 或者 执行登录功能
-        if(session.getAttribute(StaticUrl.admin)!=null) {
+        if(session.getAttribute(StaticUrl.ADMIN)!=null) {
             // 登录成功不拦截
             return true;
         }else {

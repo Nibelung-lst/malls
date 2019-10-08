@@ -14,22 +14,25 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 17:19 2019/9/12
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :商品管理与显示service
  */
 
 @Service
 public class GoodsServiceImpl implements GoodsService {
+    /**
+     * 商品表的sql方法
+     */
     @Autowired
     GoodsMapper goodsMapper;
+    /**
+     * 附图表的sql方法
+     */
     @Autowired
     ImageUrlService imageUrlService;
 
     /**
-     * 查询Admin表里的账户数据
-     *
-     * @return admin
+     * 展示
+     * @return
      */
     @Override
     public List<Goods> list(){
@@ -40,7 +43,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /**
-     *
+     * 展示相应分类下的商品
+     * @param categoryName
      * @return
      */
     @Override
@@ -52,8 +56,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /**
-     *
-     * @return
+     * 添加商品
+     * @param goods
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -62,8 +66,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /**
-     *
-     * @return
+     * 根据主键进行删除
+     * @param id
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -72,8 +76,9 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /**
-     * 查重
+     * 商品名字查重
      * @param name
+     * @return
      */
     @Override
     public boolean exist(String name) {
@@ -88,8 +93,8 @@ public class GoodsServiceImpl implements GoodsService {
     }
 
     /**
-     *
-     * @return
+     * 更新商品
+     * @param goods
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -100,7 +105,8 @@ public class GoodsServiceImpl implements GoodsService {
 
 
     /**
-     *
+     * 通过主键进行查询
+     * @param id
      * @return
      */
     @Override

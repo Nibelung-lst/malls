@@ -16,16 +16,20 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 16:22 2019/9/16
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :订单controller
  */
 @Controller
 @RequestMapping("back")
 public class OrderController {
 
+    /**
+     * 订单service
+     */
     @Autowired
     OrderService orderService;
+    /**
+     * 订单详情service
+     */
     @Autowired
     OrderDetailService orderDetailService;
 

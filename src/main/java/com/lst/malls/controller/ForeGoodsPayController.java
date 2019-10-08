@@ -17,25 +17,39 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 14:19 2019/9/23
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :前台商品购买controller
  */
 @RequestMapping("fore")
 @Controller
 public class ForeGoodsPayController {
+
+    /**
+     * 分类service
+     */
     @Autowired
     CategoryService categoryService;
 
+    /**
+     * 商品service
+     */
     @Autowired
     GoodsService goodsService;
 
+    /**
+     * 订单service
+     */
     @Autowired
     OrderService orderService;
 
+    /**
+     * 订单详情service
+     */
     @Autowired
     OrderDetailService orderDetailService;
 
+    /**
+     * 前台service
+     */
     @Autowired
     ForeService foreService;
 

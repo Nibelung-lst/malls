@@ -17,14 +17,15 @@ import java.util.Date;
 /**
  * @Author :Nibelung
  * @Date ：Created in 9:54 2019/9/11
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :分类controller
  */
 @Controller
 @RequestMapping("back")
 public class CategoryController {
 
+    /**
+     * 分类service
+     */
     @Autowired
     CategoryService categoryService;
 

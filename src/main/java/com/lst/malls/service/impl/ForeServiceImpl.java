@@ -17,17 +17,24 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 10:45 2019/9/26
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :前台功能service
  */
 @Service
 public class ForeServiceImpl implements ForeService {
 
+    /**
+     * 订单详情表的sql方法
+     */
     @Autowired
     OrderDetailService orderDetailService;
+    /**
+     * 购物车表的sql方法
+     */
     @Autowired
     ShoppingCarMapper shoppingCarMapper;
+    /**
+     * 商品表的sql方法
+     */
     @Autowired
     GoodsMapper goodsMapper;
 
@@ -76,7 +83,13 @@ public class ForeServiceImpl implements ForeService {
         return order;
     }
 
-
+    /**
+     *添加购物车
+     * @param userId
+     * @param goodsId
+     * @param numbers
+     * @return
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void shoppingCarAdd(Integer userId, Integer goodsId, Integer numbers) {
@@ -87,6 +100,11 @@ public class ForeServiceImpl implements ForeService {
         shoppingCarMapper.insert(shoppingCar);
     }
 
+    /**
+     *根据用户名查询购物车内容
+     * @param userId
+     * @return
+     */
     @Override
     public List<ShoppingCar> selectShoppingByUserId(Integer userId) {
 
@@ -94,6 +112,12 @@ public class ForeServiceImpl implements ForeService {
         return shoppingCars;
     }
 
+    /**
+     * 通过用户ID和商品ID查询是否有相应的购物车商品信息存在
+     * @param userId
+     * @param goodsId
+     * @return
+     */
     @Override
     public boolean selectShoppingCarByGoodsAndUser(Integer userId, Integer goodsId) {
         List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByUserIdAndGoodsId(userId,goodsId);
@@ -104,7 +128,12 @@ public class ForeServiceImpl implements ForeService {
     }
 
 
-
+    /**
+     * 增加商品数量
+     * @param userId
+     * @param goodsId
+     * @param numbers
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void updateGoodsNumbers(Integer userId, Integer goodsId, Integer numbers) {
@@ -113,24 +142,43 @@ public class ForeServiceImpl implements ForeService {
         shoppingCarMapper.updateByNumbers(userId,goodsId,presentNumbers);
     }
 
+    /**
+     * 删除购物车的某一商品信息
+     * @param id
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void deleteShoppingCar(Integer id) {
         shoppingCarMapper.delete(id);
     }
 
+    /**
+     * 根据购物车主键查询购物车内容
+     * @param id
+     * @return
+     */
     @Override
     public ShoppingCar selectShoppingCar(Integer id) {
        ShoppingCar shoppingCar = shoppingCarMapper.selectById(id);
         return shoppingCar;
     }
 
+    /**
+     * 查询用户的购物车里有几件商品
+     * @param userId
+     * @return
+     */
     @Override
     public Integer countShoppingCayByUser(Integer userId) {
         Integer shoppingCarNumbers = shoppingCarMapper.countByUserId(userId);
         return shoppingCarNumbers;
     }
 
+    /**
+     * 根据关键字查询
+     * @param goodsName
+     * @return
+     */
     @Override
     public List<Goods> searchGoodsByKeyWord(String goodsName) {
         List<Goods> goods = goodsMapper.selectByKeyWord(goodsName);

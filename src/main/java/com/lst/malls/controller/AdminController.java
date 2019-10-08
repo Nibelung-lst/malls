@@ -17,12 +17,14 @@ import java.util.List;
  * @Author    :Nibelung
  * @Date      ：Created in 10:14 2019/9/5
  * @Description :后台管理总控制器
- * @Modified By :
- * @Version : 1$
  */
 @Controller
 @RequestMapping("back")
 public class AdminController {
+
+    /**
+     * 管理员service
+     */
     @Autowired
     AdminService adminService;
 

@@ -3,6 +3,8 @@ package com.lst.malls.pojo;
 import java.util.Date;
 /**
  * @Author:Nibelung
+ * @Date ：Created in 14:52 2019/10/8
+ * @Description: 用户表Entity
  */
 public class User {
     private Integer id;

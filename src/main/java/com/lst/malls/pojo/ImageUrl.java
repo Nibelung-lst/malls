@@ -1,6 +1,8 @@
 package com.lst.malls.pojo;
 /**
  * @Author:Nibelung
+ * @Date ：Created in 14:52 2019/10/8
+ * @Description: 附图表Entity
  */
 public class ImageUrl {
     private Integer id;

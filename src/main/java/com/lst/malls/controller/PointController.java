@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @Author :Nibelung
  * @Date ：Created in 13:31 2019/9/18
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :积分controller
  */
 @Controller
 @RequestMapping("back")
 public class PointController {
+    /**
+     * 积分service
+     */
     @Autowired
     PointService pointService;
 

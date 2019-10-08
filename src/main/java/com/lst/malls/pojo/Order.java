@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 /**
  * @Author:Nibelung
+ * @Date ：Created in 14:52 2019/10/8
+ * @Description: 订单表Entity
  */
 public class Order {
     private Integer id;

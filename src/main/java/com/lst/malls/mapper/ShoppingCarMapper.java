@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 /**
  * @Author:Nibelung
+ * @Date ：Created in 14:52 2019/10/8
+ * @Description: 购物车mapper
  */
 public interface ShoppingCarMapper {
     /**

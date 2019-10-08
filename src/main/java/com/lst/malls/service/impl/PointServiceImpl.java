@@ -15,19 +15,23 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 13:30 2019/9/18
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :积分管理service
  */
 @Service
 public class PointServiceImpl implements PointService {
+    /**
+     * 积分表的sql方法
+     */
     @Autowired
     PointMapper pointMapper;
+    /**
+     * 用户表的sql方法
+     */
     @Autowired
     UserMapper userMapper;
 
     /**
-     *
+     * 展示
      * @return
      */
     @Override
@@ -37,8 +41,8 @@ public class PointServiceImpl implements PointService {
         }
 
     /**
-     *
-     * @return
+     * 查找积分
+     * @param points
      */
     @Override
     public void search(List<Point> points){
@@ -48,8 +52,8 @@ public class PointServiceImpl implements PointService {
     }
 
     /**
-     *
-     * @return
+     * 查找积分
+     * @param point
      */
     @Override
     public void search(Point point){
@@ -57,6 +61,12 @@ public class PointServiceImpl implements PointService {
         point.setUser(user);
     }
 
+    /**
+     * 新增积分详情
+     * @param price
+     * @param user
+     * @param orderId
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void addPoint(Integer price,User user,Long orderId) {
@@ -72,6 +82,11 @@ public class PointServiceImpl implements PointService {
         pointMapper.insert(point);
     }
 
+    /**
+     * 根据用户id查询积分详情
+     * @param userId
+     * @return
+     */
     @Override
     public List<Point> searchPointsByUserId(Integer userId) {
         List<Point> points = pointMapper.selectByUserId(userId);

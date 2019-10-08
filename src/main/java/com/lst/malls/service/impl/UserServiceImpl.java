@@ -12,18 +12,19 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 9:54 2019/9/18
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :用户管理service
  */
 @Service
 public class UserServiceImpl implements UserService {
 
+    /**
+     * 用户表的sql方法
+     */
     @Autowired
     UserMapper userMapper;
 
     /**
-     *
+     * 展示
      * @return
      */
     @Override
@@ -33,7 +34,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     *
+     * 改变用户状态
      * @param change
      * @param user
      */
@@ -51,7 +52,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     *
+     * 用户登录和注册
      * @param name
      * @param password
      * @return
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     *
+     * 用户注册功能（添加）
      * @param user
      */
     @Transactional(rollbackFor = Exception.class)
@@ -80,7 +81,7 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     *
+     * 用户名查重
      * @param name
      * @return
      */
@@ -96,6 +97,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * 根据ID查询用户
+     * @param userId
+     * @return
+     */
     @Override
     public User searchUserById(Integer userId) {
         User user = userMapper.selectById(userId);

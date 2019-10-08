@@ -19,19 +19,29 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 16:45 2019/9/29
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :前台用户界面controller
  */
 @Controller
 @RequestMapping("fore")
 public class ForeUserController {
+    /**
+     * 订单service
+     */
     @Autowired
     OrderService orderService;
+    /**
+     * 订单详情service
+     */
     @Autowired
     OrderDetailService orderDetailService;
+    /**
+     * 积分service
+     */
     @Autowired
     PointService pointService;
+    /**
+     * 用户service
+     */
     @Autowired
     UserService userService;
     /**

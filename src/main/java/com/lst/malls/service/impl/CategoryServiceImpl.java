@@ -12,14 +12,15 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 10:05 2019/9/11
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :分类管理与显示service
  */
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
+    /**
+     * 分类表的sql方法
+     */
     @Autowired
     CategoryMapper categoryMapper;
 
@@ -39,8 +40,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     /**
-     *
-     * @return
+     * 添加分类
+     * @param category
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -66,8 +67,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     /**
-     *
-     * @return
+     * 按id删除
+     * @param id
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -75,6 +76,10 @@ public class CategoryServiceImpl implements CategoryService {
         categoryMapper.delete(id);
     }
 
+    /**
+     * 分类更新
+     * @param category
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void update(Category category) {

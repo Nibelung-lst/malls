@@ -1,6 +1,8 @@
 package com.lst.malls.pojo;
 /**
  * @Author:Nibelung
+ * @Date ：Created in 14:52 2019/10/8
+ * @Description: 订单详情表Entity
  */
 public class OrderDetail {
     private Integer id;

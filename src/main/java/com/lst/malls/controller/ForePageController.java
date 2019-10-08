@@ -13,23 +13,39 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 17:26 2019/9/20
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :前台页面controller
  */
 @RequestMapping("fore")
 @Service
 public class ForePageController {
+    /**
+     * 分类service
+     */
     @Autowired
     CategoryService categoryService;
+    /**
+     * 用户service
+     */
     @Autowired
     UserService userService;
+    /**
+     * 商品service
+     */
     @Autowired
     GoodsService goodsService;
+    /**
+     * 订单service
+     */
     @Autowired
     OrderService orderService;
+    /**
+     * 订单详情service
+     */
     @Autowired
     OrderDetailService orderDetailService;
+    /**
+     * 前台service
+     */
     @Autowired
     ForeService foreService;
 

@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @Author :Nibelung
  * @Date ：Created in 9:59 2019/9/18
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :用户controller
  */
 @Controller
 @RequestMapping("back")
 public class UserController {
+    /**
+     * 用户service
+     */
     @Autowired
     UserService userService;
 

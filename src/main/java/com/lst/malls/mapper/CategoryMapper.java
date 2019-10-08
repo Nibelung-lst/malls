@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * @Author:Nibelung
+ * @Date ：Created in 14:52 2019/10/8
+ * @Description: 分类mapper
  */
 public interface CategoryMapper {
     /**

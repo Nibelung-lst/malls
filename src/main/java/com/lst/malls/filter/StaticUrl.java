@@ -3,13 +3,11 @@ package com.lst.malls.filter;
 /**
  * @Author :Nibelung
  * @Date ：Created in 14:52 2019/10/8
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :路由常量
  */
 public class StaticUrl {
-    public static final String pageIndex = "page/index.jsp";
-    public static final String pageLogin = "page/back/login.jsp";
-    public static final String admin = "admin";
-    public static final String adminLogin = "/back/admin_login";
+    public static final String PAGE_INDEX = "page/index.jsp";
+    public static final String PAGE_LOGIN = "page/back/login.jsp";
+    public static final String ADMIN = "admin";
+    public static final String ADMIN_LOGIN = "/back/admin_login";
 }

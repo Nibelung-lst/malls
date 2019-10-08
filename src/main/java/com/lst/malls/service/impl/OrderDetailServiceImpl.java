@@ -17,26 +17,31 @@ import java.util.List;
 /**
  * @Author :Nibelung
  * @Date ：Created in 10:12 2019/9/17
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :订单详情管理service
  */
 @Service
 public class OrderDetailServiceImpl implements OrderDetailService {
+    /**
+     * 订单详情表的sql方法
+     */
     @Autowired
     OrderDetailMapper orderDetailMapper;
-
+    /**
+     * 商品表的sql方法
+     */
     @Autowired
     GoodsService goodsService;
-
+    /**
+     * 订单表的sql方法
+     */
     @Autowired
     OrderService orderService;
 
 
     @Override
     /**
-     *
-     * @return
+     * 查询要查询订单详情的订单
+     * @param orders
      */
     public void searchOrderDetail(List<Order> orders) {
         for (Order order : orders){
@@ -46,8 +51,8 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     }
 
     /**
-     *
-     * @return
+     * 找出相应订单下的商品
+     * @param order
      */
     @Override
     public void searchOrderDetail(Order order) {
@@ -79,6 +84,10 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     }
 
+    /**
+     * 添加订单详情
+     * @param orderDetail
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void add(OrderDetail orderDetail) {
@@ -86,25 +95,29 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     }
 
+    /**
+     * 根据订单编号删除订单详情
+     * @param orderId
+     */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void delete(Long orderId) {
         orderDetailMapper.delete(orderId);
     }
 
-
     /**
-     *
-     * @return
+     * 根据订单详情一个个查询商品
+     * @param orderDetails
      */
     public void searchGoods(List<OrderDetail> orderDetails){
         for (OrderDetail orderDetail:orderDetails){
             searchGoods(orderDetail);
         }
     }
+
     /**
-     *
-     * @return
+     * 为每个订单详情添加商品
+     * @param orderDetail
      */
     private void searchGoods(OrderDetail orderDetail){
         //通过主键进行查询
