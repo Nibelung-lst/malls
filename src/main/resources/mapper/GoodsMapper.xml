@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lst.malls.mapper.GoodsMapper" >
+  <!--返回值类型-->
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.Goods" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -14,43 +15,51 @@
     <result column="final_changer" property="finalChanger" jdbcType="VARCHAR" />
     <result column="final_change_time" property="finalChangeTime" jdbcType="DATE" />
   </resultMap>
+  <!--关键字段-->
   <sql id="Base_Column_List" >
     id, name, image, original_price, real_price, represent, category_name, creater,
     create_date, final_changer, final_change_time
   </sql>
+  <!--通过分类查询商品信息-->
   <select id="selectByCategory" resultMap="BaseResultMap" parameterType="java.lang.String" >
   select
   <include refid="Base_Column_List" />
   from t_goods
   where category_name = #{category_name,jdbcType=VARCHAR}
   </select>
+  <!--查询全部商品信息-->
   <select id="select" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_goods
   </select>
+  <!--通过商品名称查询商品信息-->
   <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String">
     select
     id, name, image, original_price, real_price, represent, category_name
     from t_goods
     where name = #{name,jdbcType=VARCHAR}
   </select>
+  <!--通过关键字搜索商品-->
   <select id="selectByKeyWord" resultMap="BaseResultMap">
     select
     id, name, image, original_price, real_price, represent, category_name
     from t_goods
     where name like CONCAT(CONCAT("%",#{name},"%"))
   </select>
+  <!--通过主键搜索商品-->
   <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
     from t_goods
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--删除-->
   <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_goods
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <!--插入-->
   <insert id="insert" parameterType="com.lst.malls.pojo.Goods" useGeneratedKeys="true" keyProperty="id" >
     insert into t_goods (name, image,original_price,
       real_price, represent, category_name, 
@@ -61,7 +70,7 @@
       #{creater,jdbcType=VARCHAR}, #{createDate,jdbcType=DATE}, #{finalChanger,jdbcType=VARCHAR},
       #{finalChangeTime,jdbcType=DATE})
   </insert>
-
+  <!--更新-->
   <update id="update" parameterType="com.lst.malls.pojo.Goods" >
     update t_goods
     <set >

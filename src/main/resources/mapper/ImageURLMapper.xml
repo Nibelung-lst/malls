@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lst.malls.mapper.ImageUrlMapper" >
+  <!--返回值类型-->
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.ImageUrl" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
     <result column="imgURL" property="imgUrl" jdbcType="VARCHAR" />
   </resultMap>
+  <!--关键字段-->
   <sql id="Base_Column_List" >
     id, goods_name, imgURL
   </sql>
+  <!--根据商品名查询-->
   <select id="selectByGoodsName" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
     from t_imageurl
     where goods_name = #{goodsName,jdbcType=VARCHAR}
   </select>
-
+  <!--插入-->
   <insert id="insert" parameterType="com.lst.malls.pojo.ImageUrl" useGeneratedKeys="true" keyProperty="id" >
     insert into t_imageurl (goods_name, imgURL)
     values (#{goodsName,jdbcType=VARCHAR}, #{imgUrl,jdbcType=VARCHAR})
