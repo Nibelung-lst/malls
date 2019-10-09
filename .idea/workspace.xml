@@ -9,27 +9,15 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a5729c8-a1a6-4fc9-9662-3e1dd47b4ff8" name="Default Changelist" comment="">
+    <list default="true" id="1a5729c8-a1a6-4fc9-9662-3e1dd47b4ff8" name="Default Changelist" comment="商品添加分类修改为下拉框形式">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/ImageUrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/ImageUrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/OrderDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/ShoppingCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/ShoppingCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsUpdata.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsUpdata.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/fore/GoodPay.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/fore/GoodPay.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/fore/MyInformationChange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/fore/MyInformationChange.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/static_page/left_side.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/static_page/left_side.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/malls/page/back/GoodsAdd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/malls/page/back/GoodsAdd.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/malls/page/back/GoodsList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/malls/page/back/GoodsList.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/malls/page/back/GoodsUpdata.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/malls/page/back/GoodsUpdata.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/malls/page/fore/GoodPay.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/malls/page/fore/GoodPay.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/malls/page/fore/MyInformationChange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/malls/page/fore/MyInformationChange.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/malls/page/static_page/left_side.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/malls/page/static_page/left_side.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -73,7 +61,44 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="372">
+              <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsUpdata.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="79" column="72" lean-forward="true" selection-start-line="79" selection-start-column="72" selection-end-line="79" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="80" column="31" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="86" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="63" column="56" lean-forward="true" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -119,7 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ShoppingCarMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/fore/PayConfirm.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/AdminServiceImpl.java" />
@@ -146,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ImageUrlController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/PointController.java" />
@@ -163,12 +186,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/ShoppingCar.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/fore/MyInformationChange.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/fore/GoodPay.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/ImageUrl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Goods.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Category.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/static_page/left_side.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/back/GoodsUpdata.jsp" />
       </list>
     </option>
@@ -383,6 +408,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttp6-shop-liushitao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttp6-shop-liushitao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="page" type="462c0819:PsiDirectoryNode" />
               <item name="static_page" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -586,7 +620,7 @@
       <workItem from="1569802985119" duration="23715000" />
       <workItem from="1569832298543" duration="3856000" />
       <workItem from="1570496268590" duration="33586000" />
-      <workItem from="1570581784137" duration="7416000" />
+      <workItem from="1570581784137" duration="14078000" />
     </task>
     <task id="LOCAL-00001" summary="后台管理系统完成">
       <created>1568793515467</created>
@@ -742,11 +776,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570586241735</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="参数校验">
+      <created>1570589263549</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1570589263549</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="544685000" />
+    <option name="totallyTimeSpent" value="551347000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -859,51 +900,14 @@
     <MESSAGE value="代码规范" />
     <MESSAGE value="注释" />
     <MESSAGE value="个人信息修改功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="个人信息修改功能" />
+    <MESSAGE value="参数校验" />
+    <option name="LAST_COMMIT_MESSAGE" value="参数校验" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/PointServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/mapper/CategoryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/mapper/GoodsMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/mapper/ImageUrlMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/mapper/OrderDetailMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -953,13 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
           <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1029,13 +1026,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/CategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1109">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/mapper/UserMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-602">
@@ -1065,13 +1055,6 @@
             <element signature="e#2278#2279#0" expanded="true" />
             <element signature="e#2294#2295#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="56" column="40" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1117,13 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
           <caret line="42" column="25" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -1214,20 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="68" column="118" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsUpdata.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="68" column="136" selection-start-line="68" selection-start-column="136" selection-end-line="68" selection-end-column="136" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/pojo/Category.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -1242,6 +1204,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/UserList.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="56" column="42" lean-forward="true" selection-start-line="56" selection-start-column="42" selection-end-line="56" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/static_page/left_side.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="44" column="17" lean-forward="true" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/GoodsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1491">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/service/GoodsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsCategoryList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1254" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="63" column="56" lean-forward="true" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="80" column="31" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="86" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsUpdata.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="79" column="72" lean-forward="true" selection-start-line="79" selection-start-column="72" selection-end-line="79" selection-end-column="72" />
         </state>
       </provider>
     </entry>

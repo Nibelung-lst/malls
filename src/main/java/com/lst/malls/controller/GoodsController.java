@@ -2,7 +2,9 @@ package com.lst.malls.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.lst.malls.pojo.Category;
 import com.lst.malls.pojo.Goods;
+import com.lst.malls.service.CategoryService;
 import com.lst.malls.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,12 @@ public class GoodsController {
      */
     @Autowired
     GoodsService goodsService;
+
+    /**
+     * 分类service
+     */
+    @Autowired
+    CategoryService categoryService;
 
     /**
      * 指定分类下的商品展示
@@ -67,6 +75,18 @@ public class GoodsController {
         PageInfo page = new PageInfo(goods,5);
         model.addAttribute("GoodsPageInfo",page);
         return "back/GoodsList";
+    }
+
+    /**
+     * 添加商品页展示
+     * @param model
+     * @return
+     */
+    @RequestMapping("goodsAddList")
+    public String goodsAddList(Model model){
+        List<Category> categories = categoryService.list();
+        model.addAttribute("goodsAddList",categories);
+        return "back/GoodsAdd";
     }
 
     /**
@@ -125,6 +145,21 @@ public class GoodsController {
         goodsService.delete(id);
         //删除完成后返回到先前页数下的分类展示页面
         return "redirect:/back/goodsList?pageNumber="+pageNumber;
+    }
+
+    /**
+     * 展示商品修改页面
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping("goodsUpdateList")
+    public String goodsUpdateList(Integer id,Model model){
+        Goods goods = goodsService.get(id);
+        model.addAttribute("goods",goods);
+        List<Category> categories = categoryService.list();
+        model.addAttribute("categories",categories);
+        return "back/GoodsUpdata";
     }
     /**
      * 修改分类，设置最后修改时间，分类名校验

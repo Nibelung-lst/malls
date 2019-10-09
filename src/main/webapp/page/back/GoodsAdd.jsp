@@ -77,8 +77,13 @@
                     <input type="text" class="form-control" id="represent" name="represent" placeholder="请输入描述" >
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
-                    <label for="name">分类</label><span class="label label-danger">必须</span>
-                    <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="请输入分类" >
+                    <label for="name">所属分类</label>
+                    <select   required="required" class="form-control input-medium" id="categoryName" name="categoryName">
+                        <option value=""></option>
+                        <c:forEach var="category" items="${goodsAddList}">
+                            <option value="${category.name}">${category.name}</option>
+                        </c:forEach>
+                    </select>
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">

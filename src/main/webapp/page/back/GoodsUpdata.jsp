@@ -46,12 +46,12 @@
             <table class="addTable">
 
                 <div class="form-group">
-                    <input type="text" class="form-control" style="display:none" id="id" name="id" value="${param.id}" required="required" readonly unselectable="on">
+                    <input type="text" class="form-control" style="display:none" id="id" name="id" value="${goods.id}" required="required" readonly unselectable="on">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">商品名</label>
-                    <input type="text" class="form-control" id="name" name="name" value="${param.name}" required="required">
+                    <input type="text" class="form-control" id="name" name="name" value="${goods.name}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
@@ -61,23 +61,27 @@
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">原价</label>
-                    <input type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" class="form-control" id="originalPrice" name="originalPrice" value="${param.originalPrice}" required="required">
+                    <input type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" class="form-control" id="originalPrice" name="originalPrice" value="${goods.originalPrice}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">现价</label>
-                    <input type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" class="form-control" id="realPrice" name="realPrice" value="${param.realPrice}" required="required">
+                    <input type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" class="form-control" id="realPrice" name="realPrice" value="${goods.realPrice}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">描述</label>
-                    <input type="text" class="form-control" id="represent" name="represent" value="${param.represent}" required="required">
+                    <input type="text" class="form-control" id="represent" name="represent" value="${goods.represent}" required="required">
                 </div>
                 <div class="form-group" style="height:51px;width:449px">
-                    <label for="name">分类名</label>
-                    <input type="text" class="form-control" id="categoryName" name="categoryName" value="${param.categoryName}" required="required">
+                    <label for="name">所属分类</label>
+                    <select   required="required" class="form-control input-medium" id="categoryName" name="categoryName">
+                        <option value="">${goods.categoryName}</option>
+                        <c:forEach var="category" items="${categories}">
+                            <option value="${category.name}">${category.name}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">修改人</label>
                     <p class="form-control-static"><%= session.getAttribute("admin")%></p>

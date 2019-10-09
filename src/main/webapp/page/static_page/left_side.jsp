@@ -40,7 +40,7 @@
             <a href="javascript:;">商品管理</a>
             <ul>
                 <li><a href="/back/goodsList" target="right"><span>商品列表</span></a></li>
-                <li><a href="../back/GoodsAdd.jsp" target="right"><span>添加商品</span></a></li>
+                <li><a href="/back/goodsAddList" target="right"><span>添加商品</span></a></li>
                 <li><a href="../back/ImageAdd.jsp" target="right"><span>上传附图</span></a></li>
             </ul>
         </li>
