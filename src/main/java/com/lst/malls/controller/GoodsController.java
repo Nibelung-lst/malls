@@ -79,13 +79,13 @@ public class GoodsController {
 
     /**
      * 添加商品页展示
-     * @param model
+     * @param session
      * @return
      */
     @RequestMapping("goodsAddList")
-    public String goodsAddList(Model model){
+    public String goodsAddList(HttpSession session){
         List<Category> categories = categoryService.list();
-        model.addAttribute("goodsAddList",categories);
+        session.setAttribute("goodsAddList",categories);
         return "back/GoodsAdd";
     }
 

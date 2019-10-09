@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -139,7 +141,8 @@ public class ForeGoodsPayController {
      * @return
      */
     @RequestMapping("shoppingCarAdd")
-    public String shoppingCarAdd(Integer goodsId,Integer userId,Integer numbers,HttpSession session) {
+    public String shoppingCarAdd(Integer goodsId,Integer userId,Integer numbers,HttpSession session) throws UnsupportedEncodingException {
+        Goods goods = goodsService.get(goodsId);
 
         if (userId == null){
             return "fore/ForeRegister";
@@ -150,12 +153,12 @@ public class ForeGoodsPayController {
 
             Integer shoppingCarNumbers = foreService.countShoppingCayByUser(userId);
             session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
-            return "/fore/Fore";
+            return "redirect:/fore/Goods?goodsName="+ URLEncoder.encode(goods.getName(),"UTF-8");
         }
         Integer shoppingCarNumbers = foreService.countShoppingCayByUser(userId);
         session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);
         foreService.updateGoodsNumbers(userId,goodsId,numbers);
-        return "/fore/Fore";
+        return "redirect:/fore/Goods?goodsName="+URLEncoder.encode(goods.getName(),"UTF-8");
     }
 
     /**
