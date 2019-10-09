@@ -25,6 +25,7 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <body>
 
 <div class="container">
@@ -34,11 +35,11 @@
                 <li>
                     <a href="/fore/myInformation">首页</a>
                 </li>
-                <li >
-                    <a href="/fore/myInformationChangeList">修改</a>
-                </li>
                 <li class="active">
-                    <a href="#">积分详情</a>
+                    <a href="#">修改</a>
+                </li>
+                <li>
+                    <a href="/fore/myPointDetail">积分详情</a>
                 </li>
                 <li class="disabled">
                     <ul class="dropdown-menu">
@@ -59,28 +60,39 @@
                     </ul>
                 </li>
             </ul>
-            <form method="post">
-                <!--显示表格数据-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <table class="table table-hover table-bordered">
-                            <tr class="success">
-                                <th>订单号</th>
-                                <th>积分</th>
-                                <th>总积分</th>
-                                <th>创建时间</th>
-                            </tr>
-                            <c:forEach items="${points}" var="point">
-                                <tr>
-                                    <th>${point.orderId}</th>
-                                    <th>${point.point}</th>
-                                    <th>${point.totalPoint}</th>
-                                    <th><fmt:formatDate type="date" value="${point.createTime}" /></th>
-                                </tr>
-                            </c:forEach>
-                        </table>
-                    </div>
-                </div>
+            <form action="/fore/myInformationChange" method="post">
+            <table class="table">
+                <input style="display: none" type="text" id="id" name="id" value="${user.id}">
+                <tr>
+                    <td>用户名</td>
+                    <td>${user.name}</td>
+                </tr>
+                <tr>
+                    <td>真实姓名</td>
+                    <td><input style="border: none" type="text" id="realName" name="realName" value="${user.realName}"></td>
+                </tr>
+                <tr>
+                    <td>电话号码</td>
+                    <td><input maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"style="border: none" type="text" id="telephone" name="telephone" value="${user.telephone}"></td>
+                </tr>
+                <tr>
+                    <td>地址</td>
+                    <td><input style="border: none" type="text" id="address" name="address" value="${user.address}"></td>
+                </tr>
+                <tr>
+                    <td>邮箱</td>
+                    <td><input style="border: none" type="email" id="email" name="email" value="${user.email}"></td>
+                </tr>
+                <tr>
+                    <td>生日</td>
+                    <td><input style="border: none" type="date" id="birthday" name="birthday" ></td>
+                </tr>
+                <tr class="submitTR">
+                    <td colspan="2" align="center">
+                        <button type="submit" class="btn btn-success" >提 交</button>
+                    </td>
+                </tr>
+            </table>
             </form>
         </div>
     </div>

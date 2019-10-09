@@ -102,8 +102,8 @@ public class ForeUserController {
         orderService.updateFinishTime(orderId,new Date());
         model.addAttribute("order2",order);
         //刷新session
-        User user1 = userService.searchUserById(user.getId());
-        session.setAttribute("user",user1);
+        User userUpdate = userService.searchUserById(user.getId());
+        session.setAttribute("user",userUpdate);
         return "fore/ReceivedConfirm";
     }
 
@@ -137,6 +137,19 @@ public class ForeUserController {
         }
         return "fore/MyInformation";
     }
+    /**
+     * 显示个人信息的修改页面
+     * @param session
+     * @return
+     */
+    @RequestMapping("myInformationChangeList")
+    public String myInformationChangeList(HttpSession session){
+        User user = (User)session.getAttribute("user");
+        if (user == null){
+            return "fore/ForeRegister";
+        }
+        return "fore/MyInformationChange";
+    }
 
     /**
      * 显示积分详情
@@ -151,5 +164,18 @@ public class ForeUserController {
         List<Point> points = pointService.searchPointsByUserId(user.getId());
         model.addAttribute("points",points);
         return "fore/MyPointDetail";
+    }
+
+    /**
+     * 修改个人信息
+     * @param user
+     * @return
+     */
+    @RequestMapping("myInformationChange")
+    public String myInformationChange(User user,Model model,HttpSession session){
+        userService.updateUser(user);
+        User userUpdate = userService.searchUserById(user.getId());
+        session.setAttribute("user",userUpdate);
+        return "redirect:/fore/myInformationChangeList";
     }
 }

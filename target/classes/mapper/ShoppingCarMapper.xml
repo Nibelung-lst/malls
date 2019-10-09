@@ -1,94 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lst.malls.mapper.ShoppingCarMapper" >
+  <!--返回值类型-->
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.ShoppingCar" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
     <result column="numbers" property="numbers" jdbcType="INTEGER" />
   </resultMap>
+  <!--关键字段-->
   <sql id="Base_Column_List" >
     id, user_id, goods_id, numbers
   </sql>
+  <!--根据用户ID进行查询-->
   <select id="selectByUserId" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER}
   </select>
+  <!--根据用户id和商品id进行查询-->
   <select id="selectByUserIdAndGoodsId" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER} AND goods_id = #{goods_id,jdbcType=INTEGER}
   </select>
+  <!--根据主键进行查询-->
   <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from t_shopping_car
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <!--根据商品数量进行查询-->
   <select id="selectByNumbers" resultType="java.lang.Integer"  >
     select numbers
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER} and goods_id = #{goods_id,jdbcType=INTEGER}
   </select>
+  <!--通过用户id计算购物车里的商品种类（不是分类）的数量-->
   <select id="countByUserId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
     select count(*)
     from t_shopping_car
     where user_id = #{user_id,jdbcType=INTEGER}
   </select>
+  <!--删除-->
   <delete id="delete" parameterType="java.lang.Integer" >
     delete from t_shopping_car
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <!--插入-->
   <insert id="insert" parameterType="com.lst.malls.pojo.ShoppingCar" useGeneratedKeys="true" keyProperty="id" >
     insert into t_shopping_car (user_id, goods_id, numbers
       )
     values (#{userId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{numbers,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.lst.malls.pojo.ShoppingCar" useGeneratedKeys="true" keyProperty="id" >
-    insert into t_shopping_car
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userId != null" >
-        user_id,
-      </if>
-      <if test="goodsId != null" >
-        goods_id,
-      </if>
-      <if test="numbers != null" >
-        numbers,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="user_id != null" >
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="goods_id != null" >
-        #{goodsId,jdbcType=INTEGER},
-      </if>
-      <if test="numbers != null" >
-        #{numbers,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lst.malls.pojo.ShoppingCar" >
-    update t_shopping_car
-    <set >
-      <if test="userId != null" >
-        user_id = #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="goodsId != null" >
-        goods_id = #{goodsId,jdbcType=INTEGER},
-      </if>
-      <if test="numbers != null" >
-        numbers = #{numbers,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-
+  <!--通过用户id和商品id更新商品数量-->
   <update id="updateByNumbers"  >
     update t_shopping_car
     set

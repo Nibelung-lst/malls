@@ -1,5 +1,8 @@
 package com.lst.malls.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.Email;
 import java.util.Date;
 /**
  * @Author:Nibelung
@@ -38,10 +41,12 @@ public class User {
     /**
      * 邮箱
      */
+    @Email
     private String email;
     /**
      * 生日
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
     /**
      * 积分

@@ -34,14 +34,13 @@
                 <li class="active">
                     <a href="#">首页</a>
                 </li>
-                <li class="disabled">
-                    <a href="#">修改</a>
+                <li>
+                    <a href="/fore/myInformationChangeList">修改</a>
                 </li>
                 <li>
                     <a href="/fore/myPointDetail">积分详情</a>
                 </li>
                 <li class="disabled">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#">操作</a>

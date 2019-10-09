@@ -108,4 +108,14 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    /**
+     * 更新用户信息
+     * @param user
+     */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void updateUser(User user) {
+        userMapper.update(user);
+    }
+
 }

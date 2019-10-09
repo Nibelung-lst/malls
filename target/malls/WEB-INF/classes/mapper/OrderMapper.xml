@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lst.malls.mapper.OrderMapper" >
+  <!--返回值类型-->
   <resultMap id="BaseResultMap" type="com.lst.malls.pojo.Order" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="order_ID" property="orderId" jdbcType="BIGINT" />
@@ -13,43 +14,44 @@
     <result column="status" property="status" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
   </resultMap>
+  <!--关键字段-->
   <sql id="Base_Column_List" >
     id, order_ID, address, receiver, telephone, price, creator_time, finsh_time, status, 
     user_name
   </sql>
+  <!--查询-->
   <select id="select" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_order
   </select>
+  <!--根据用户名进行查询-->
   <select id="selectByUserName" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_order
     where user_name = #{userName,jdbcType=VARCHAR}
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select
-    <include refid="Base_Column_List" />
-    from t_order
-    where id = #{id,jdbcType=INTEGER}
-  </select>
+  <!--根据用户id和状态进行查询-->
   <select id="selectByUserIdAndStatus" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_order
     where user_name = #{user_name,jdbcType=VARCHAR} AND status = #{status,jdbcType=VARCHAR}
   </select>
+  <!--根据订单编号进行查询-->
   <select id="selectByOrderId" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from t_order
     where order_ID = #{Order_ID,jdbcType=BIGINT}
   </select>
+  <!--删除-->
   <delete id="delete"  >
     delete from t_order
     where order_ID = #{orderId,jdbcType=BIGINT}
   </delete>
+  <!--插入-->
   <insert id="insert" parameterType="com.lst.malls.pojo.Order" useGeneratedKeys="true" keyProperty="id" >
     insert into t_order (order_ID, address, receiver, 
       telephone, price, creator_time, 
@@ -60,7 +62,7 @@
       #{finshTime,jdbcType=DATE}, #{status,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}
       )
   </insert>
-
+  <!--更新-->
   <update id="update" parameterType="com.lst.malls.pojo.Order" >
     update t_order
     <set >
@@ -94,12 +96,13 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-
+  <!--根据订单编号更新完成订单的时间-->
   <update id="updateFinishTimeByOrderId" parameterType="com.lst.malls.pojo.Order" >
     update t_order
     set finsh_time = #{finish_time,jdbcType=DATE}
     where order_ID = #{order_ID,jdbcType=BIGINT}
   </update>
+  <!--根据订单编号更新商品状态-->
   <update id="updateStatusByOrderId" parameterType="com.lst.malls.pojo.Order">
     update t_order
     set status = #{status,jdbcType=VARCHAR}
