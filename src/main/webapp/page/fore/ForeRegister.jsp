@@ -112,17 +112,16 @@
                 <span style="font-size:20px;color: #BBBBBB">两次输入的密码不一样</span>
             </li>
             <li  class="Register" style="display: none;">
-                <span style="font-size:20px;color: #BBBBBB">电话</span><input id="telephone" name="telephone" type="text" >
+                <span style="font-size:20px;color: #BBBBBB">电话</span><input maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" id="telephone" name="telephone" type="text" >
             </li>
-            <div class="radio" style="display: none">
-                <label>
-                    <input type="radio" name="sexcheck" id="sex" value="1" checked>
-                    男
-                </label>
-                <label>
-                    <input type="radio" name="sexcheck" id="sex1" value="0">
-                    女
-                </label>
+            <div class="radio" style=" display: none;background-color: #f0eef0;">
+                <label style="font-size:20px;color: #BBBBBB;float:left;margin-left: 30px" for="name">性别</label>
+
+                <select  name="sexCheck" style="border:none;float: left;width:250px;height: 25px;background-color: #f0eef0;margin-left: 5px" required="required" class="form-control input-medium" id="categoryName" name="categoryName">
+                    <option  name="sexCheck" value=""></option>
+                        <option value="1" name="sexCheck" id="sex">男</option>
+                        <option value="0" name="sexCheck" id="sex1">女</option>
+                </select>
             </div>
             <input id="status" name="status" type="hidden" value="1" >
             <div class="clear"> </div>

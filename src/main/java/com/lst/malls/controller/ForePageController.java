@@ -107,6 +107,7 @@ public class ForePageController {
      */
     @RequestMapping("foreRegister")
     public String register(User user, Model model, String name, String sexCheck){
+        System.out.println(sexCheck);
         String a = "1",b = "0";
         if (user == null){
             return "static_page/Error";

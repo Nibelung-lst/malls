@@ -23,7 +23,7 @@
 
     <c:if test="${!empty user}">
         <a href="/fore/myInformation">${user.name}</a>
-        <a href="/fore/Fore_LoginOut">退出</a>
+        <a href="/fore/foreLoginOut">退出</a>
     </c:if>
 
     <c:if test="${empty user}">

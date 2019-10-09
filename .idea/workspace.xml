@@ -10,15 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a5729c8-a1a6-4fc9-9662-3e1dd47b4ff8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/image/fore/fore/8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/fore/ForeRegister.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/fore/ForeRegister.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/page/include/fore/top.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/page/include/fore/top.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -63,20 +57,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/ForeRegister.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="157" column="80" lean-forward="true" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+            <state relative-caret-position="342">
+              <caret line="124" column="18" lean-forward="true" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#li#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#3;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#5;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#li#5;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/AdminController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="56" column="16" lean-forward="true" selection-start-line="56" selection-start-column="16" selection-end-line="56" selection-end-column="40" />
+            <state relative-caret-position="105">
+              <caret line="109" column="36" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -127,8 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/GoodsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/ImageUrlServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/OrderDetailServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/OrderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/PointServiceImpl.java" />
@@ -144,7 +147,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/interceptor/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/filter/Loginfilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ImageUrlController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/OrderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/PointController.java" />
@@ -178,6 +180,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/GoodsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/include/fore/top.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/page/fore/ForeRegister.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java" />
       </list>
     </option>
   </component>
@@ -341,6 +346,17 @@
               <item name="ttp6-shop-liushitao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="lst" type="462c0819:PsiDirectoryNode" />
+              <item name="malls" type="462c0819:PsiDirectoryNode" />
+              <item name="SQL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ttp6-shop-liushitao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ttp6-shop-liushitao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -477,8 +493,8 @@
       <recent name="C:\malls\src\main\webapp\js\bootstrap" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\ttp6-shop-liushitao\src\main\webapp\image\fore\fore" />
       <recent name="C:\ttp6-shop-liushitao\src\main\java\com\lst\malls\SQL" />
+      <recent name="C:\ttp6-shop-liushitao\src\main\webapp\image\fore\fore" />
       <recent name="C:\ttp6-shop-liushitao\src\main\webapp\image\fore\site" />
       <recent name="C:\ttp6-shop-liushitao\src\main\webapp\image\fore" />
       <recent name="C:\ttp6-shop-liushitao\src\main\webapp\image" />
@@ -640,7 +656,7 @@
       <workItem from="1569802985119" duration="23715000" />
       <workItem from="1569832298543" duration="3856000" />
       <workItem from="1570496268590" duration="33586000" />
-      <workItem from="1570581784137" duration="21769000" />
+      <workItem from="1570581784137" duration="24493000" />
     </task>
     <task id="LOCAL-00001" summary="后台管理系统完成">
       <created>1568793515467</created>
@@ -817,11 +833,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570604644134</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Bug修复">
+      <created>1570611886210</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1570611886210</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="559038000" />
+    <option name="totallyTimeSpent" value="561762000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -938,66 +961,18 @@
     <MESSAGE value="参数校验" />
     <MESSAGE value="商品添加分类修改为下拉框形式" />
     <MESSAGE value="分类修改时相应商品的分类同步" />
-    <option name="LAST_COMMIT_MESSAGE" value="分类修改时相应商品的分类同步" />
+    <MESSAGE value="Bug修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug修复" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/mapper/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-602">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="113" column="7" lean-forward="true" selection-start-line="113" selection-start-column="7" selection-end-line="113" selection-end-column="7" />
-          <folding>
-            <element signature="e#2278#2279#0" expanded="true" />
-            <element signature="e#2294#2295#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/MyPointDetail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="77" column="98" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/MyInformation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="99" column="94" lean-forward="true" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="91" column="40" lean-forward="true" selection-start-line="91" selection-start-column="40" selection-end-line="91" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/MyInformationChange.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1209,13 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-388">
-          <caret line="80" column="31" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="86" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsList.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -1263,6 +1231,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/MyInformationChange.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="942">
+          <caret line="75" column="150" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="150" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-868">
+          <caret line="157" column="80" lean-forward="true" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/MyInformation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="99" column="94" lean-forward="true" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/back/GoodsAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="80" column="28" selection-start-line="79" selection-start-column="20" selection-end-line="85" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#5;n#table#0;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -1270,10 +1269,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForeGoodsPayController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/include/fore/top.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="157" column="80" lean-forward="true" selection-start-line="157" selection-start-column="80" selection-end-line="157" selection-end-column="80" />
+        <state relative-caret-position="114">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/static_page/top.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-369" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/page/fore/ForeRegister.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="124" column="18" lean-forward="true" selection-start-line="124" selection-start-column="18" selection-end-line="124" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#li#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#5;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#li#5;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lst/malls/controller/ForePageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="109" column="36" selection-start-line="109" selection-start-column="36" selection-end-line="109" selection-end-column="36" />
         </state>
       </provider>
     </entry>
