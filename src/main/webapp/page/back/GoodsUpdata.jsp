@@ -61,12 +61,12 @@
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">原价</label>
-                    <input type="text" class="form-control" id="originalPrice" name="originalPrice" value="${param.originalPrice}" required="required">
+                    <input type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" class="form-control" id="originalPrice" name="originalPrice" value="${param.originalPrice}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">现价</label>
-                    <input type="text" class="form-control" id="realPrice" name="realPrice" value="${param.realPrice}" required="required">
+                    <input type="text" onkeyup="if(isNaN(value))execCommand('undo')" onafterpaste="if(isNaN(value))execCommand('undo')" class="form-control" id="realPrice" name="realPrice" value="${param.realPrice}" required="required">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
@@ -105,6 +105,5 @@
         </div>
     </div>
 </div>
-<%@include file="../static_page/page.jsp" %>
 </body>
 </html>

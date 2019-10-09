@@ -1,5 +1,6 @@
 package com.lst.malls.pojo;
 
+import javax.validation.constraints.Min;
 import java.util.Date;
 /**
  * @Author:Nibelung
@@ -18,10 +19,12 @@ public class Point {
     /**
      * 得到的积分
      */
+    @Min(0)
     private Integer point;
     /**
      * 总积分
      */
+    @Min(0)
     private Integer totalPoint;
     /**
      * 订单id

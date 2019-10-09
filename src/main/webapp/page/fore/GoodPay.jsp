@@ -26,7 +26,7 @@
                     <tr>
                         <td class="firstColumn">详细地址<span class="redStar">*</span></td>
 
-                        <td><textarea id="address" name="address" placeholder="请填写详细收货地址" required="required"></textarea></td>
+                        <td><textarea id="address" name="address" placeholder="请填写详细收货地址" required="required">${user.address}</textarea></td>
                     </tr>
 
                     <input type="text" id="price" style="display: none" name="price" value="${price}">
@@ -35,11 +35,11 @@
 
                     <tr>
                         <td>收货人姓名<span class="redStar">*</span></td>
-                        <td><input id="receiver" name="receiver" type="text" required="required"></td>
+                        <td><input id="receiver" name="receiver" type="text" value="${user.realName}" required="required"></td>
                     </tr>
                     <tr>
                         <td>手机号码 <span class="redStar">*</span></td>
-                        <td><input id="telephone" name="telephone"  placeholder="请输入11位手机号码" type="text" required="required"></td>
+                        <td><input maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" id="telephone" name="telephone"  value="${user.telephone}" placeholder="请输入11位手机号码" type="text" required="required"></td>
                     </tr>
                 </table>
 

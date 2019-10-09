@@ -3,6 +3,8 @@ package com.lst.malls.pojo;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
 /**
  * @Author:Nibelung
@@ -17,6 +19,7 @@ public class User {
     /**
      * 用户名
      */
+    @NotBlank
     private String name;
     /**
      * 真实姓名
@@ -25,6 +28,7 @@ public class User {
     /**
      * 密码
      */
+    @NotBlank
     private String password;
     /**
      * 性别
@@ -33,6 +37,7 @@ public class User {
     /**
      * 电话
      */
+    @Size(min = 11,max = 11)
     private String telephone;
     /**
      * 地址
@@ -55,6 +60,7 @@ public class User {
     /**
      * 状态
      */
+    @NotBlank
     private Boolean status;
 
     /**

@@ -73,7 +73,7 @@
                 </tr>
                 <tr>
                     <td>电话号码</td>
-                    <td><input maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"style="border: none" type="text" id="telephone" name="telephone" value="${user.telephone}"></td>
+                    <td><input maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"style="border: none" type="text" id="telephone" placeholder="请输入11位手机号码" name="telephone" value="${user.telephone}"></td>
                 </tr>
                 <tr>
                     <td>地址</td>

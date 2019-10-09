@@ -1,5 +1,10 @@
 package com.lst.malls.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -28,18 +33,22 @@ public class Order {
     /**
      * 电话
      */
+    @Size(min = 11,max = 11)
     private String telephone;
     /**
      * 总价
      */
+    @DecimalMin("0")
     private BigDecimal price;
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date creatorTime;
     /**
      * 完成时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date finshTime;
     /**
      * 订单状态
@@ -48,6 +57,7 @@ public class Order {
     /**
      * 用户名
      */
+    @NotBlank
     private String userName;
 
     /**非数据库实体类----------------------*/

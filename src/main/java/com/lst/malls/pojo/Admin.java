@@ -1,5 +1,7 @@
 package com.lst.malls.pojo;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @Author: Nibelung
  * @Date ：Created in 14:52 2019/10/8
@@ -14,11 +16,13 @@ public class Admin {
     /**
      * 管理员名字
      */
+    @NotBlank
     private String name;
 
     /**
      * 密码
      */
+    @NotBlank
     private String password;
 
     /**

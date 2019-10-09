@@ -1,5 +1,10 @@
 package com.lst.malls.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -24,10 +29,12 @@ public class Goods {
     /**
      * 原价
      */
+    @DecimalMin("0")
     private BigDecimal originalPrice;
     /**
      * 现价
      */
+    @DecimalMin("0")
     private BigDecimal realPrice;
     /**
      * 描述
@@ -44,6 +51,7 @@ public class Goods {
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createDate;
     /**
      * 最后修改人
@@ -52,6 +60,7 @@ public class Goods {
     /**
      * 最后修改时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date finalChangeTime;
     /**
      * 附图路径
@@ -60,6 +69,7 @@ public class Goods {
     /**
      * 商品数量
      */
+    @Min(0)
     private Integer num;
 
     /**

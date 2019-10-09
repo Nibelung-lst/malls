@@ -1,6 +1,8 @@
 package com.lst.malls.pojo;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 /**
@@ -24,10 +26,12 @@ public class Category {
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
     /**
      * 最后修改时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date finalModificationTime;
     /**
      * 最后修改人

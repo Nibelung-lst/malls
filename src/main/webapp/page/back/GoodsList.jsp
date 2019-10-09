@@ -22,14 +22,14 @@
     <title>Title</title>
 </head>
 <script>
-    function undate(id,name,original_price,real_price,represent,category_name){
+    function undate(id,name,originalPrice,realPrice,represent,categoryName){
 
         document.forms[0].elements[0].value = id;
         document.forms[0].elements[1].value = name;
-        document.forms[0].elements[2].value = original_price;
-        document.forms[0].elements[3].value = real_price;
+        document.forms[0].elements[2].value = originalPrice;
+        document.forms[0].elements[3].value = realPrice;
         document.forms[0].elements[4].value = represent;
-        document.forms[0].elements[5].value = category_name;
+        document.forms[0].elements[5].value = categoryName;
         document.forms[0].action = '<c:url value="/page/back/GoodsUpdata.jsp"/>';
         document.forms[0].submit();
     }
@@ -47,10 +47,10 @@
     <form method="post">
         <input type="hidden" name="id">
         <input type="hidden" name="name">
-        <input type="hidden" name="original_price">
-        <input type="hidden" name="real_price">
+        <input type="hidden" name="originalPrice">
+        <input type="hidden" name="realPrice">
         <input type="hidden" name="represent">
-        <input type="hidden" name="category_name">
+        <input type="hidden" name="categoryName">
         <!--显示表格数据-->
         <div class="row">
             <div class="col-md-12">

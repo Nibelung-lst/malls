@@ -1,4 +1,7 @@
 package com.lst.malls.pojo;
+
+import javax.validation.constraints.Min;
+
 /**
  * @Author:Nibelung
  * @Date ：Created in 14:52 2019/10/8
@@ -20,6 +23,7 @@ public class ShoppingCar {
     /**
      * 商品数量
      */
+    @Min(0)
     private Integer numbers;
 
     /**非数据库实体类--------------------------------*/
