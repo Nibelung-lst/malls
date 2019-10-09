@@ -16,6 +16,12 @@ import java.util.List;
 public interface CategoryService {
 
     /**
+     * 根据主键查询
+     * @param id
+     * @return
+     */
+    Category selectById(Integer id);
+    /**
      * 分类查询
      * @return
      */

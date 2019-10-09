@@ -3,7 +3,9 @@ package com.lst.malls.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.lst.malls.pojo.Category;
+import com.lst.malls.pojo.Goods;
 import com.lst.malls.service.CategoryService;
+import com.lst.malls.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author :Nibelung
@@ -28,6 +32,12 @@ public class CategoryController {
      */
     @Autowired
     CategoryService categoryService;
+
+    /**
+     * 商品service
+     */
+    @Autowired
+    GoodsService goodsService;
 
 
     /**
@@ -94,6 +104,21 @@ public class CategoryController {
         return "redirect:/back/categoryList?pageNumber="+ pageNumber;
     }
 
+    /**
+     * 分类修改页面展示
+     * @param categoryId
+     * @param session
+     * @param model
+     * @return
+     */
+    @RequestMapping("updateCategory")
+    public String updateCategory(Integer categoryId, HttpSession session,Model model){
+        Category category = categoryService.selectById(categoryId);
+        model.addAttribute("category",category);
+        List<Goods> goods = goodsService.listCategory(category.getName());
+        session.setAttribute("categoryUpdateGoods",goods);
+        return "back/CategoryUpdata";
+    }
 
     /**
      * 修改分类，设置最后修改时间，分类名校验
@@ -103,11 +128,17 @@ public class CategoryController {
      * @return
      */
     @RequestMapping("categoryUpdate")
-    public String updateCategory(Category category, String pageName, Model model){
+    public String updateCategory(Category category, String pageName, Model model,HttpSession session){
         if (category == null){
             return "static_page/Error";
         }
-
+        String newCategoryName = category.getName();
+        List<Goods> goods = (List<Goods>) session.getAttribute("categoryUpdateGoods");
+        for (Goods goods1: goods){
+            goods1.setCategoryName(newCategoryName);
+            goodsService.update(goods1);
+        }
+        session.removeAttribute("categoryUpdateGoods");
         //分类名校验
         boolean checking = categoryService.exist(pageName);
         if (!checking){
@@ -117,7 +148,6 @@ public class CategoryController {
         //修改时间设置
         category.setFinalModificationTime(new Date());
         categoryService.update(category);
-
         model.addAttribute("CategoryUpdataSucceed",true);
         return "back/CategoryUpdata";
 

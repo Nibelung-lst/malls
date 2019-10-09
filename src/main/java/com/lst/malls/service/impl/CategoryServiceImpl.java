@@ -26,6 +26,17 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     /**
+     * 根据主键进行查找
+     * @param id
+     * @return
+     */
+    @Override
+    public Category selectById(Integer id) {
+        Category category = categoryMapper.selectById(id);
+        return category;
+    }
+
+    /**
      * 查询Category表里的分类数据
      *
      * @return admin

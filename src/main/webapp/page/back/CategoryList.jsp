@@ -21,17 +21,6 @@
 <head>
     <title>分类展示</title>
 </head>
-<script>
-function undate(id,name,createName){
-
-document.forms[0].elements[0].value = id;
-document.forms[0].elements[1].value = name;
-document.forms[0].elements[2].value = createName;
-document.forms[0].action = '<c:url value="/page/back/CategoryUpdata.jsp"/>';
-document.forms[0].submit();
-}
-
-</script>
 
 <body>
 <ol class="breadcrumb">
@@ -48,9 +37,6 @@ document.forms[0].submit();
         </div>
     </div>
     <form method="post">
-        <input type="hidden" name="id">
-        <input type="hidden" name="name">
-        <input type="hidden" name="createName">
         <!--显示表格数据-->
         <div class="row">
             <div class="col-md-12">
@@ -76,7 +62,7 @@ document.forms[0].submit();
                             <th><fmt:formatDate type="date" value="${category.createTime}" /></th>
                             <th>${category.finalChangeMan}</th>
                             <th><fmt:formatDate type="date" value="${category.finalModificationTime}" /></th>
-                            <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.createName}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a href="/back/updateCategory?categoryId=${category.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                             <td><a href="/back/categoryDelete?id=${category.id}&pageNumber=${CategoryPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
                         </tr>
                     </c:forEach>

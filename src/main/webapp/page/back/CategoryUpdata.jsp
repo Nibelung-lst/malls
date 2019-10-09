@@ -51,12 +51,12 @@
 
 
                 <div class="form-group">
-                    <input type="text" class="form-control" style="display:none" id="id" name="id" value="${param.id}" required="required" readonly unselectable="on">
+                    <input type="text" class="form-control" style="display:none" id="id" name="id" value="${category.id}" required="required" readonly unselectable="on">
                 </div>
 
                 <div class="form-group" style="height:51px;width:449px">
                     <label for="name">分类名</label><span class="label label-danger">必须</span>
-                    <input type="text" class="form-control" id="name" name="name" value="${param.name}" required="required">
+                    <input type="text" class="form-control" id="name" name="name" value="${category.name}" required="required">
                 </div>
 
 

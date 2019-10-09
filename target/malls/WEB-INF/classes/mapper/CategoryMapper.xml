@@ -28,7 +28,7 @@
     where name = #{name,jdbcType=VARCHAR}
   </select>
   <!--根据主键查询-->
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from t_category

@@ -12,6 +12,12 @@ import java.util.List;
  */
 public interface CategoryMapper {
     /**
+     * 根据主键查询分类
+     * @param id
+     * @return
+     */
+    Category selectById(Integer id);
+    /**
      * 按主键删除
      * @param id
      * @return
