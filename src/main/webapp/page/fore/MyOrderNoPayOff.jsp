@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: EDZ
-  Date: 2019/9/30
-  Time: 14:45
+  Date: 2019/10/10
+  Time: 10:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -27,9 +27,9 @@
 <div class="boughtDiv">
     <div class="orderType">
         <div><a orderStatus="all" href="/fore/orderInformation">所有订单</a></div>
-        <div><a  orderStatus="waitPay" href="/fore/orderReceived?status=待付款">待付款</a></div>
-        <div ><a   href="/fore/orderReceived?status=待收货">待收货</a></div>
-        <div class="selectedOrderType"><a  orderStatus="finish" href="/fore/orderReceived?status=已完成">已完成</a></div>
+        <div class="selectedOrderType"><a  orderStatus="waitPay" href="/fore/orderReceived?status=待付款">待付款</a></div>
+        <div ><a  orderStatus="waitConfirm" href="/fore/orderReceived?status=待收货">待收货</a></div>
+        <div><a  orderStatus="finish" href="/fore/orderReceived?status=已完成">已完成</a></div>
         <div class="orderTypeLastOne" style="padding-top: 22px"><a class="noRightborder"> </a></div>
     </div>
     <div style="clear:both"></div>
@@ -56,12 +56,11 @@
                     </td>
                     <td  colspan="3"></td>
                     </td>
-
                     <td  class="orderItemProductInfoPartTD" width="100px">
                         <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${o.price}" minFractionDigits="2"/></div>
                     </td>
-                    <td class="orderItemDeleteTD">
-                        <a class="deleteOrderLink" oiid="${o.orderId}" href="/fore/deleteOrder?orderId=${o.orderId}" onclick="return confirm('请确认删除');"><span  class="orderListItemDelete glyphicon glyphicon-trash"></span></a>
+                    <td>
+                        <a href="/fore/paySucceedShow?orderId=${o.orderId}"  class="label label-success">前往付款</a>
                     </td>
 
                 </tr>
@@ -83,7 +82,6 @@
                             <div class="orderListItemProductOriginalPrice">￥<fmt:formatNumber type="number" value="${oi.goods.realPrice*oi.number}" minFractionDigits="2"/></div>
                         </td>
                         <td></td>
-
                     </tr>
                 </c:forEach>
 

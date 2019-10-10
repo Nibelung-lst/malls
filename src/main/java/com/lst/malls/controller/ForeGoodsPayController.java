@@ -215,8 +215,34 @@ public class ForeGoodsPayController {
         Order order1 = foreService.creatOrder(order,orderDetails,user);
         orderService.add(order1);
         model.addAttribute("order1",order1);
-        return "fore/PayConfirm";
+        return "fore/GoodsPayOff";
     }
 
+    /**
+     * 支付页面展示
+     * @param orderId
+     * @param model
+     * @return
+     */
+    @RequestMapping("paySucceedShow")
+    public String paySucceedShow(Long orderId,Model model){
+        Order order = orderService.searchByOrderId(orderId);
+        model.addAttribute("order1",order);
+        return "fore/GoodsPayOff";
+    }
+    /**
+     * 商品支付
+     * @param orderId
+     * @param model
+     * @return
+     */
+    @RequestMapping("paySucceed")
+    public String paySucceed(Long orderId,Model model){
+        String status = "待收货";
+        orderService.changeStatus(orderId,status);
+        Order order = orderService.searchByOrderId(orderId);
+        model.addAttribute("order1",order);
+        return "fore/PayConfirm";
+    }
 
 }

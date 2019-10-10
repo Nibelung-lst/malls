@@ -67,7 +67,8 @@ public class ForeUserController {
      */
     @RequestMapping("orderReceived")
     public String orderReceived(HttpSession session,Model model,String status){
-        String status1 = "已完成";
+        String finishStatus = "已完成";
+        String noPayStatus = "待付款";
         User user = (User)session.getAttribute("user");
         if (user == null){
             return "fore/ForeRegister";
@@ -75,8 +76,11 @@ public class ForeUserController {
         List<Order> orders = orderService.searchByNameAndStatus(user.getName(),status);
         orderDetailService.searchOrderDetail(orders);
         model.addAttribute("orderInformation",orders);
-        if (status.equals(status1)){
+        if (status.equals(finishStatus)){
             return "fore/MyFinishOrder";
+        }
+        else if (status.equals(noPayStatus)){
+            return "fore/MyOrderNoPayOff";
         }
         return "fore/MyOrderNoReceived";
     }
@@ -172,7 +176,7 @@ public class ForeUserController {
      * @return
      */
     @RequestMapping("myInformationChange")
-    public String myInformationChange(User user,Model model,HttpSession session){
+    public String myInformationChange(User user,HttpSession session){
         userService.updateUser(user);
         User userUpdate = userService.searchUserById(user.getId());
         session.setAttribute("user",userUpdate);

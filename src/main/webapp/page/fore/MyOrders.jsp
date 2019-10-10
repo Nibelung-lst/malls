@@ -18,7 +18,7 @@
 <div class="boughtDiv">
     <div class="orderType">
         <div class="selectedOrderType"><a orderStatus="all" href="/fore/orderInformation">所有订单</a></div>
-        <div><a  orderStatus="waitPay" href="#nowhere">待付款</a></div>
+        <div><a  orderStatus="waitPay" href="/fore/orderReceived?status=待付款">待付款</a></div>
         <div><a  orderStatus="waitConfirm" href="/fore/orderReceived?status=待收货">待收货</a></div>
         <div><a  orderStatus="finish" href="/fore/orderReceived?status=已完成">已完成</a></div>
         <div class="orderTypeLastOne" style="padding-top: 22px"><a class="noRightborder"> </a></div>

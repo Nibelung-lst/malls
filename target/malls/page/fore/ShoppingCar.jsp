@@ -243,11 +243,6 @@
 
 <title>购物车</title>
 <div class="cartDiv">
-    <div class="cartTitle pull-right">
-        <span>已选商品</span>
-        <span class="cartTitlePrice">￥0.00</span>
-        <button class="createOrderButton" disabled="disabled">结 算</button>
-    </div>
 
     <div class="cartProductList">
         <table class="cartProductTable">

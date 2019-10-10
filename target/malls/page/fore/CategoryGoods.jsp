@@ -85,11 +85,15 @@
             </div>
 
             <div class="head2 " style="display: inline-block;cursor: pointer">
-                <span style="margin-left:50px" id="nae">该写什么</span>
+                <span style="margin-left:50px" id="nae">科幻</span>
+            </div>
+            s
+            <div class="head3" style="display: inline-block;cursor: pointer">
+                <span style="margin-left:50px" id="ds">网络小说</span>
             </div>
 
             <div class="head3" style="display: inline-block;cursor: pointer">
-                <span style="margin-left:50px" id="ds">就这样吧</span>
+                <span style="margin-left:50px" id="ds1">文学</span>
             </div>
 
         </div>
