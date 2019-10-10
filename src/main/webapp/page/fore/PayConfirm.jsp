@@ -27,7 +27,7 @@
 
         <div class="paedCheckLinkDiv">
             您可以
-            <a class="payedCheckLink" href="/page/fore/MyOrders.jsp">查看交易详情 </a>
+            <a class="payedCheckLink" href="/fore/orderInformation">查看交易详情 </a>
         </div>
 
     </div>
