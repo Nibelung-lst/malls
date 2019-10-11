@@ -168,7 +168,7 @@ public class ForeGoodsPayController {
      *购物车展示
      * @param userId 用户ID
      * @param model 传参
-     * @return
+     * @return 跳转到相应页面
      */
     @RequestMapping("shoppingCarShow")
     public String shoppingCarShow(Integer userId,Model model){
@@ -187,7 +187,7 @@ public class ForeGoodsPayController {
      * 删除某一购物车
      * @param shoppingCarId 购物车id
      * @param session 刷新session
-     * @return
+     * @return 跳转到相应页面
      */
     @RequestMapping("deleteShoppingCar")
     @ResponseBody
@@ -206,7 +206,7 @@ public class ForeGoodsPayController {
      * 创建订单
      * @param session 读取订单详情的session
      * @param order 前台传递回来的订单实体类
-     * @return
+     * @return 跳转到相应页面
      */
     @RequestMapping("creatOrder")
     public String creatOrder(HttpSession session,Order order,Model model){
@@ -225,7 +225,7 @@ public class ForeGoodsPayController {
      * 支付页面展示
      * @param orderId 支付的订单id
      * @param model 保存到model返回给前台
-     * @return
+     * @return 跳转到相应页面
      */
     @RequestMapping("paySucceedShow")
     public String paySucceedShow(Long orderId,Model model){
@@ -237,7 +237,7 @@ public class ForeGoodsPayController {
      * 商品支付
      * @param orderId 支付的订单id
      * @param model 保存到model返回给前台
-     * @return
+     * @return 跳转到相应页面
      */
     @RequestMapping("paySucceed")
     public String paySucceed(Long orderId,Model model){
