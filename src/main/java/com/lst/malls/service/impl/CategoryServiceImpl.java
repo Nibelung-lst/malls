@@ -27,8 +27,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 根据主键进行查找
-     * @param id
-     * @return
+     * @param id 分类主键
+     * @return 分类对象
      */
     @Override
     public Category selectById(Integer id) {
@@ -52,7 +52,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 添加分类
-     * @param category
+     * @param category 分类对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -63,7 +63,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 查重
-     * @param name
+     * @param name 分类名
      */
     @Override
     public boolean exist(String name) {
@@ -79,7 +79,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 按id删除
-     * @param id
+     * @param id 分类主键
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -89,7 +89,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     /**
      * 分类更新
-     * @param category
+     * @param category 分类对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override

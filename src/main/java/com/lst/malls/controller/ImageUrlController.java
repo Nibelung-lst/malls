@@ -27,10 +27,10 @@ public class ImageUrlController {
 
     /**
      * 添加附图
-     * @param imageUrl
-     * @param file
-     * @return
-     * @throws IOException
+     * @param imageUrl 前台传递回来的附图实体类
+     * @param file 前台传递回来的文件
+     * @return 跳转到相应页面
+     * @throws IOException 图片上传文件异常
      */
     @RequestMapping("imageAdd")
     public String imageAdd(ImageUrl imageUrl, MultipartFile file) throws IOException {

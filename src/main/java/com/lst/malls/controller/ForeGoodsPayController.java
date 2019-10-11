@@ -58,9 +58,9 @@ public class ForeGoodsPayController {
 
     /**
      * 前台通过分类显示相应的商品
-     * @param categoryName
-     * @param model
-     * @return
+     * @param categoryName 前台传递分类名查询相应的商品
+     * @param model 向前台传递数据
+     * @return 跳转到相应页面
      */
     @RequestMapping("categoryGoods")
     public String categoryGoods(String categoryName, Model model){
@@ -72,9 +72,9 @@ public class ForeGoodsPayController {
 
     /**
      * 通过商品名字找到相应的商品
-     * @param goodsName
-     * @param model
-     * @return
+     * @param goodsName 前台传递商品名查询相应的商品详情
+     * @param model 向前台传递数据
+     * @return 跳转到相应页面
      */
     @RequestMapping("Goods")
     public String foreGoods(String goodsName, Model model){
@@ -85,10 +85,10 @@ public class ForeGoodsPayController {
 
     /**
      * 提交购物车生成订单
-     * @param shoppingCarId
-     * @param session
-     * @param model
-     * @return
+     * @param shoppingCarId 前台传递的购物车主键
+     * @param session 刷新主页购物车的商品数量
+     * @param model 向前台传递数据
+     * @return 跳转到相应页面
      */
     @RequestMapping("shoppingCarPuy")
     public String shoppingCarPuy(String []shoppingCarId,HttpSession session,Model model){
@@ -113,10 +113,10 @@ public class ForeGoodsPayController {
 
     /**
      *立即购买
-     * @param id
-     * @param goodsNumbers
-     * @param model
-     * @return
+     * @param id 商品id
+     * @param goodsNumbers 商品数量
+     * @param model 传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("puyNow")
     public String puyNow(Integer id, Integer goodsNumbers, HttpSession session, Model model){
@@ -136,9 +136,12 @@ public class ForeGoodsPayController {
 
     /**
      * 购物车添加
-     * @param
-     *
-     * @return
+     * @param goodsId 商品id
+     * @param userId 用户id
+     * @param numbers 商品数量
+     * @param session 保存到session
+     * @return 跳转到相应页面
+     * @throws UnsupportedEncodingException 重定向中文异常
      */
     @RequestMapping("shoppingCarAdd")
     public String shoppingCarAdd(Integer goodsId,Integer userId,Integer numbers,HttpSession session) throws UnsupportedEncodingException {
@@ -163,8 +166,8 @@ public class ForeGoodsPayController {
 
     /**
      *购物车展示
-     * @param userId
-     * @param model
+     * @param userId 用户ID
+     * @param model 传参
      * @return
      */
     @RequestMapping("shoppingCarShow")
@@ -182,8 +185,8 @@ public class ForeGoodsPayController {
 
     /**
      * 删除某一购物车
-     * @param shoppingCarId
-     * @param session
+     * @param shoppingCarId 购物车id
+     * @param session 刷新session
      * @return
      */
     @RequestMapping("deleteShoppingCar")
@@ -201,8 +204,8 @@ public class ForeGoodsPayController {
 
     /**
      * 创建订单
-     * @param session
-     * @param order
+     * @param session 读取订单详情的session
+     * @param order 前台传递回来的订单实体类
      * @return
      */
     @RequestMapping("creatOrder")
@@ -220,8 +223,8 @@ public class ForeGoodsPayController {
 
     /**
      * 支付页面展示
-     * @param orderId
-     * @param model
+     * @param orderId 支付的订单id
+     * @param model 保存到model返回给前台
      * @return
      */
     @RequestMapping("paySucceedShow")
@@ -232,8 +235,8 @@ public class ForeGoodsPayController {
     }
     /**
      * 商品支付
-     * @param orderId
-     * @param model
+     * @param orderId 支付的订单id
+     * @param model 保存到model返回给前台
      * @return
      */
     @RequestMapping("paySucceed")

@@ -7,37 +7,35 @@ import java.util.List;
 /**
  * @Author    :Nibelung
  * @Date      ：Created in 10:44 2019/9/26
- * @Description :
- * @Modified By :
- * @Version : $
+ * @Description :前台功能service
  */
 public interface ForeService {
 
 
     /**
      * 立即购买
-     * @param id
-     * @param num
-     * @param goods
+     * @param goodsId 商品主键
+     * @param goodsNumber 商品数量
+     * @param goods 商品对象
      * @return
      */
-    OrderDetail puyNow(Integer id, Integer num, Goods goods);
+    OrderDetail puyNow(Integer goodsId, Integer goodsNumber, Goods goods);
 
 
     /**
      * 创建订单
-     * @param order
-     * @param orderDetails
-     * @param user
+     * @param order 订单对象
+     * @param orderDetails 订单详情对象数组
+     * @param user 用户对象
      * @return
      */
     Order creatOrder(Order order,List<OrderDetail> orderDetails, User user);
 
     /**
      *添加购物车
-     * @param userId
-     * @param goodsId
-     * @param numbers
+     * @param userId 用户ID
+     * @param goodsId 商品ID
+     * @param numbers 商品数量
      * @return
      */
     void shoppingCarAdd(Integer userId,Integer goodsId,Integer numbers);

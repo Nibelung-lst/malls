@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 展示
-     * @return
+     * @return 用户详情
      */
     @Override
     public List<User> list() {
@@ -35,8 +35,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 改变用户状态
-     * @param change
-     * @param user
+     * @param change 用户状态
+     * @param user 用户对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -53,9 +53,9 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户登录和注册
-     * @param name
-     * @param password
-     * @return
+     * @param name 用户名
+     * @param password 密码
+     * @return 用户对象
      */
     @Override
     public User get(String name, String password) {
@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户注册功能（添加）
-     * @param user
+     * @param user 用户对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -82,8 +82,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 用户名查重
-     * @param name
-     * @return
+     * @param name 用户名
+     * @return boolean
      */
     @Override
     public boolean exist(String name) {
@@ -99,8 +99,8 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 根据ID查询用户
-     * @param userId
-     * @return
+     * @param userId 用户ID
+     * @return 用户对象
      */
     @Override
     public User searchUserById(Integer userId) {
@@ -110,7 +110,7 @@ public class UserServiceImpl implements UserService {
 
     /**
      * 更新用户信息
-     * @param user
+     * @param user 用户对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override

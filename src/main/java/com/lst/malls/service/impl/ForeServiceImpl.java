@@ -40,26 +40,26 @@ public class ForeServiceImpl implements ForeService {
 
     /**
      * 立即购买
-     * @param id
-     * @param num
-     * @param goods
-     * @return
+     * @param goodsId 商品ID
+     * @param goodsNumber 商品数量
+     * @param goods 商品对象
+     * @return 订单详情对象
      */
     @Override
-    public OrderDetail puyNow(Integer id, Integer num, Goods goods) {
+    public OrderDetail puyNow(Integer goodsId, Integer goodsNumber, Goods goods) {
         OrderDetail orderDetail = new OrderDetail();
-        orderDetail.setNumber(num);
-        orderDetail.setGoodsId(id);
+        orderDetail.setNumber(goodsNumber);
+        orderDetail.setGoodsId(goodsId);
         orderDetail.setGoods(goods);
         return orderDetail;
     }
 
     /**
      * 创建订单
-     * @param order
-     * @param orderDetails
-     * @param user
-     * @return
+     * @param order 订单对象
+     * @param orderDetails 订单详情对象
+     * @param user 用户对象
+     * @return 订单对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -85,10 +85,9 @@ public class ForeServiceImpl implements ForeService {
 
     /**
      *添加购物车
-     * @param userId
-     * @param goodsId
-     * @param numbers
-     * @return
+     * @param userId 用户ID
+     * @param goodsId 商品ID
+     * @param numbers 商品数量
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -102,21 +101,20 @@ public class ForeServiceImpl implements ForeService {
 
     /**
      *根据用户名查询购物车内容
-     * @param userId
-     * @return
+     * @param userId 用户ID
+     * @return 购物车对象数组
      */
     @Override
     public List<ShoppingCar> selectShoppingByUserId(Integer userId) {
 
-        List<ShoppingCar> shoppingCars = shoppingCarMapper.selectByUserId(userId);
-        return shoppingCars;
+        return shoppingCarMapper.selectByUserId(userId);
     }
 
     /**
      * 通过用户ID和商品ID查询是否有相应的购物车商品信息存在
-     * @param userId
-     * @param goodsId
-     * @return
+     * @param userId 用户ID
+     * @param goodsId 商品ID
+     * @return boolean
      */
     @Override
     public boolean selectShoppingCarByGoodsAndUser(Integer userId, Integer goodsId) {
@@ -130,9 +128,9 @@ public class ForeServiceImpl implements ForeService {
 
     /**
      * 增加商品数量
-     * @param userId
-     * @param goodsId
-     * @param numbers
+     * @param userId 用户ID
+     * @param goodsId 商品ID
+     * @param numbers 商品数量
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -144,7 +142,7 @@ public class ForeServiceImpl implements ForeService {
 
     /**
      * 删除购物车的某一商品信息
-     * @param id
+     * @param id 商品主键
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -154,35 +152,32 @@ public class ForeServiceImpl implements ForeService {
 
     /**
      * 根据购物车主键查询购物车内容
-     * @param id
-     * @return
+     * @param id 购物车主键
+     * @return 购物车对象
      */
     @Override
     public ShoppingCar selectShoppingCar(Integer id) {
-       ShoppingCar shoppingCar = shoppingCarMapper.selectById(id);
-        return shoppingCar;
+        return shoppingCarMapper.selectById(id);
     }
 
     /**
      * 查询用户的购物车里有几件商品
-     * @param userId
-     * @return
+     * @param userId 用户ID
+     * @return 商品数量
      */
     @Override
     public Integer countShoppingCayByUser(Integer userId) {
-        Integer shoppingCarNumbers = shoppingCarMapper.countByUserId(userId);
-        return shoppingCarNumbers;
+        return shoppingCarMapper.countByUserId(userId);
     }
 
     /**
      * 根据关键字查询
-     * @param goodsName
-     * @return
+     * @param goodsName 商品名（关键字）
+     * @return 商品对象数组
      */
     @Override
     public List<Goods> searchGoodsByKeyWord(String goodsName) {
-        List<Goods> goods = goodsMapper.selectByKeyWord(goodsName);
-        return goods;
+        return goodsMapper.selectByKeyWord(goodsName);
     }
 
 

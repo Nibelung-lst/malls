@@ -32,14 +32,12 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> list() {
 
 
-        List<Order> order = orderMapper.select();
-
-        return order;
+        return orderMapper.select();
     }
 
     /**
      * 更新订单
-     * @param order
+     * @param order 订单对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -49,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 添加订单
-     * @param order
+     * @param order 订单对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -59,32 +57,30 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 根据用户名查询订单
-     * @param userName
-     * @return
+     * @param userName 用户名
+     * @return 订单对象数组
      */
     @Override
     public List<Order> searchByName(String userName) {
 
-        List<Order> orders = orderMapper.selectByUserName(userName);
-        return orders;
+        return orderMapper.selectByUserName(userName);
     }
 
     /**
      *通过状态和用户名查询订单
-     * @param userName
-     * @param status
-     * @return
+     * @param userName 用户名
+     * @param status 订单状态
+     * @return 订单对象数组
      */
     @Override
     public List<Order> searchByNameAndStatus(String userName, String status) {
-        List<Order> orders = orderMapper.selectByUserIdAndStatus(userName,status);
-        return orders;
+        return orderMapper.selectByUserIdAndStatus(userName,status);
     }
 
     /**
      * 改变订单状态
-     * @param orderId
-     * @param status
+     * @param orderId 订单编号
+     * @param status 订单状态
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -94,8 +90,8 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 更新订单完成时间
-     * @param orderId
-     * @param finishTime
+     * @param orderId 订单编号
+     * @param finishTime 完成时间
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -105,18 +101,17 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 根据订单编号查询订单
-     * @param orderId
-     * @return
+     * @param orderId 订单编号
+     * @return 完成时间
      */
     @Override
     public Order searchByOrderId(Long orderId) {
-        Order order =orderMapper.selectByOrderId(orderId);
-        return order;
+        return orderMapper.selectByOrderId(orderId);
     }
 
     /**
      * 根据订单编号删除订单
-     * @param orderId
+     * @param orderId 订单编号
      */
     @Transactional(rollbackFor = Exception.class)
     @Override

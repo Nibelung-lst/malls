@@ -24,7 +24,7 @@ public class ImageUrlServiceImpl implements ImageUrlService {
 
     /**
      * 添加附图
-     * @param imageUrl
+     * @param imageUrl 附图对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -34,13 +34,12 @@ public class ImageUrlServiceImpl implements ImageUrlService {
 
     /**
      * 显示附图
-     * @param goodsName
-     * @return
+     * @param goodsName 商品名
+     * @return 附图对象数组
      */
     @Override
     public List<ImageUrl> get(String goodsName) {
 
-        List<ImageUrl> imageUrls = imageUrlMapper.selectByGoodsName(goodsName);
-        return imageUrls;
+        return imageUrlMapper.selectByGoodsName(goodsName);
     }
 }

@@ -26,9 +26,9 @@ public class UserController {
 
     /**
      * 用户显示
-     * @param pageNumber
-     * @param model
-     * @return
+     * @param pageNumber 分页页数
+     * @param model 前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("userList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
@@ -47,10 +47,10 @@ public class UserController {
 
     /**
      * 用户状态改变
-     * @param status
-     * @param id
-     * @param pageNumber
-     * @return
+     * @param status 前台传递回来的用户状态（冻结/解冻）
+     * @param id 更改状态的用户的主键
+     * @param pageNumber 分页页数
+     * @return 跳转到相应页面
      */
     @RequestMapping("userStatus")
     public String changeStatus(boolean status, Integer id, Integer pageNumber){

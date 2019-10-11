@@ -41,7 +41,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
     @Override
     /**
      * 查询要查询订单详情的订单
-     * @param orders
+     * @param orders 订单对象数组
      */
     public void searchOrderDetail(List<Order> orders) {
         for (Order order : orders){
@@ -52,7 +52,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     /**
      * 找出相应订单下的商品
-     * @param order
+     * @param order 订单对象
      */
     @Override
     public void searchOrderDetail(Order order) {
@@ -86,7 +86,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     /**
      * 添加订单详情
-     * @param orderDetail
+     * @param orderDetail 订单详情对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -97,7 +97,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     /**
      * 根据订单编号删除订单详情
-     * @param orderId
+     * @param orderId 订单编号
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -107,7 +107,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     /**
      * 根据订单详情一个个查询商品
-     * @param orderDetails
+     * @param orderDetails 订单详情对象数组
      */
     public void searchGoods(List<OrderDetail> orderDetails){
         for (OrderDetail orderDetail:orderDetails){
@@ -117,7 +117,7 @@ public class OrderDetailServiceImpl implements OrderDetailService {
 
     /**
      * 为每个订单详情添加商品
-     * @param orderDetail
+     * @param orderDetail 订单详情对象
      */
     private void searchGoods(OrderDetail orderDetail){
         //通过主键进行查询

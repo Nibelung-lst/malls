@@ -44,9 +44,12 @@ public class ForeUserController {
      */
     @Autowired
     UserService userService;
+
     /**
      * 根据用户名查询订单信息
-     * @return
+     * @param session 读取session里的用户登录状态
+     * @param model 向后台传递参数
+     * @return 跳转到相应页面
      */
     @RequestMapping("orderInformation")
     public String orderInformation(HttpSession session, Model model){
@@ -61,9 +64,11 @@ public class ForeUserController {
     }
 
     /**
-     *显示待收货订单
-     * @param session
-     * @return
+     * 显示相应状态的订单
+     * @param session 读取用户登录状态
+     * @param model 向前台返回查询到的相应的状态的订单信息
+     * @param status 前台传递回来的状态
+     * @return 跳转到相应页面
      */
     @RequestMapping("orderReceived")
     public String orderReceived(HttpSession session,Model model,String status){
@@ -87,10 +92,10 @@ public class ForeUserController {
 
     /**
      * 确认收货
-     * @param orderId
-     * @param session
-     * @param model
-     * @return
+     * @param orderId 前台传递回来的订单编号
+     * @param session 刷新会员session更新会员的积分
+     * @param model 向前台传递信息
+     * @return 跳转到相应页面
      */
     @RequestMapping("received")
     public String received(Long orderId,HttpSession session,Model model){
@@ -113,9 +118,9 @@ public class ForeUserController {
 
     /**
      * 删除订单
-     * @param orderId
-     * @param session
-     * @return
+     * @param orderId 前台传递回来的订单编号
+     * @param session 读取session里的登录状态
+     * @return 跳转到相应页面
      */
     @RequestMapping("deleteOrder")
     public String deleteOrder(Long orderId,HttpSession session){
@@ -130,8 +135,8 @@ public class ForeUserController {
 
     /**
      * 显示个人信息
-     * @param session
-     * @return
+     * @param session 读取登录状态
+     * @return 跳转到相应页面
      */
     @RequestMapping("myInformation")
     public String myInformation(HttpSession session){
@@ -143,8 +148,8 @@ public class ForeUserController {
     }
     /**
      * 显示个人信息的修改页面
-     * @param session
-     * @return
+     * @param session 读取登录状态
+     * @return 跳转到相应页面
      */
     @RequestMapping("myInformationChangeList")
     public String myInformationChangeList(HttpSession session){
@@ -156,8 +161,10 @@ public class ForeUserController {
     }
 
     /**
-     * 显示积分详情
-     * @return
+     * 显示积分流水
+     * @param session 读取登录状态
+     * @param model 向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("myPointDetail")
     public String myPointDetail(HttpSession session,Model model){
@@ -172,8 +179,9 @@ public class ForeUserController {
 
     /**
      * 修改个人信息
-     * @param user
-     * @return
+     * @param user 前台传递回来的会员实体类
+     * @param session 刷新session里保存的信息
+     * @return 跳转到相应页面
      */
     @RequestMapping("myInformationChange")
     public String myInformationChange(User user,HttpSession session){

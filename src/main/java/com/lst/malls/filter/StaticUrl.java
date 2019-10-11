@@ -6,8 +6,8 @@ package com.lst.malls.filter;
  * @Description :路由常量
  */
 public class StaticUrl {
-    public static final String PAGE_INDEX = "page/index.jsp";
-    public static final String PAGE_LOGIN = "page/back/login.jsp";
+    static final String PAGE_INDEX = "page/index.jsp";
+    static final String PAGE_LOGIN = "page/back/login.jsp";
     public static final String ADMIN = "admin";
-    public static final String ADMIN_LOGIN = "/back/admin_login";
+    static final String ADMIN_LOGIN = "/back/adminLogin";
 }

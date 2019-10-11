@@ -13,39 +13,39 @@ import java.util.List;
 public interface CategoryMapper {
     /**
      * 根据主键查询分类
-     * @param id
-     * @return
+     * @param id 分类主键
+     * @return 分类对象
      */
     Category selectById(Integer id);
     /**
      * 按主键删除
-     * @param id
-     * @return
+     * @param id 分类主键
+     * @return 删除成功
      */
     Integer delete(Integer id);
 
     /**
      * 查询所有分类信息
-     * @return
+     * @return 分类对象数组
      */
     List<Category> select();
     /**
      * 根据分类名查询
-     * @param name
-     * @return
+     * @param name 分类名
+     * @return 分类对象数组
      */
     List<Category> selectByName(@Param("name") String name);
     /**
      * 新增一个分类对象
-     * @param record
-     * @return
+     * @param record 分类对象
+     * @return 插入成功
      */
     Integer insert(Category record);
 
     /**
      * 更新分类
-     * @param record
-     * @return
+     * @param record 分类对象
+     * @return 更新成功
      */
     Integer update(Category record);
 

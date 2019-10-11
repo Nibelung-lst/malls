@@ -32,17 +32,16 @@ public class PointServiceImpl implements PointService {
 
     /**
      * 展示
-     * @return
+     * @return 积分流水
      */
     @Override
     public List<Point> list() {
-        List<Point> points = pointMapper.select();
-        return points;
+        return pointMapper.select();
         }
 
     /**
      * 查找积分
-     * @param points
+     * @param points 积分对象数组
      */
     @Override
     public void search(List<Point> points){
@@ -53,7 +52,7 @@ public class PointServiceImpl implements PointService {
 
     /**
      * 查找积分
-     * @param point
+     * @param point 积分对象
      */
     @Override
     public void search(Point point){
@@ -63,9 +62,9 @@ public class PointServiceImpl implements PointService {
 
     /**
      * 新增积分详情
-     * @param price
-     * @param user
-     * @param orderId
+     * @param price 金额
+     * @param user 用户对象
+     * @param orderId 订单编号
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -84,8 +83,8 @@ public class PointServiceImpl implements PointService {
 
     /**
      * 根据用户id查询积分详情
-     * @param userId
-     * @return
+     * @param userId 用户ID
+     * @return 积分详情
      */
     @Override
     public List<Point> searchPointsByUserId(Integer userId) {

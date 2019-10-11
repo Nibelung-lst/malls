@@ -33,7 +33,12 @@ public class OrderController {
     @Autowired
     OrderDetailService orderDetailService;
 
-    /**在原有分页的基础上加上订单详情的查找和显示*/
+    /**
+     * 在原有分页的基础上加上订单详情的查找和显示
+     * @param pageNumber 分页页数
+     * @param model 向前台传参
+     * @return 跳转到相应页面
+     */
     @RequestMapping("orderList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
 

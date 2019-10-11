@@ -26,9 +26,9 @@ public class PointController {
 
     /**
      * 积分显示
-     * @param pageNumber
-     * @param model
-     * @return
+     * @param pageNumber 分页页数
+     * @param model 前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("pointList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){

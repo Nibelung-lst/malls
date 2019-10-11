@@ -29,8 +29,10 @@ public class AdminController {
     AdminService adminService;
 
     /**
-     * 分页处理
-     * @return
+     * 展示管理员
+     * @param pageNumber 分页页数
+     * @param model 向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("adminList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
@@ -44,8 +46,8 @@ public class AdminController {
 
     /**
      * 删除管理员
-     * @param id
-     * @return
+     * @param id 管理员的ID 通过ID删除
+     * @return 跳转到相应页面
      */
     @RequestMapping("adminDelete")
     public String deleteAdmin(Integer id){
@@ -59,10 +61,10 @@ public class AdminController {
 
     /**
      * 添加管理员
-     * @param admin
-     * @param name
-     * @param model
-     * @return
+     * @param admin 管理员实体类
+     * @param name  管理员的名字
+     * @param model model保存向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("adminAdd")
     public String addAdmin(Admin admin, String name, Model model){
@@ -84,10 +86,10 @@ public class AdminController {
 
     /**
      * 修改管理员
-     * @param admin
-     * @param name
-     * @param model
-     * @return
+     * @param admin 管理员的实体类
+     * @param name  管理员的名字
+     * @param model 前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("adminUpdate")
     public String updateAdmin(Admin admin, String name, Model model){
@@ -107,7 +109,13 @@ public class AdminController {
     }
 
 
-    /**后台管理登录*/
+    /**
+     * 后台管理登录
+     * @param name 管理员名字
+     * @param password  管理员密码
+     * @param session  session传参
+     * @return 跳转到相应页面
+     */
     @RequestMapping("adminLogin")
     public String login(String name, String password, HttpSession session)  {
         //用户名或者密码为空的话，则跳转到登录错误界面

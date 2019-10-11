@@ -51,11 +51,11 @@ public class ForePageController {
 
     /**
      * 前台登录
-     * @param name
-     * @param password
-     * @param session
-     * @param model
-     * @return
+     * @param name 会员名字
+     * @param password 会员密码
+     * @param session 登录状态保存到session
+     * @param model 验证状态
+     * @return 跳转到相应页面
      */
     @RequestMapping("foreLogin")
     public String login(String name, String password, HttpSession session, Model model)  {
@@ -87,8 +87,8 @@ public class ForePageController {
 
     /**
      * 脱出登录
-     * @param session
-     * @return
+     * @param session 清除session
+     * @return 跳转到相应页面
      */
     @RequestMapping("foreLoginOut")
     public String loginOut(HttpSession session){
@@ -99,11 +99,11 @@ public class ForePageController {
 
     /**
      * 注册
-     * @param user
-     * @param model
-     * @param name
-     * @param sexCheck
-     * @return
+     * @param user 前台传递回来的会员实体类
+     * @param model 向前台传递注册成功的信息
+     * @param name 前台传递回来的会员名用于查重
+     * @param sexCheck 前台传递回来的会员性别
+     * @return 跳转到相应页面
      */
     @RequestMapping("foreRegister")
     public String register(User user, Model model, String name, String sexCheck){
@@ -132,8 +132,8 @@ public class ForePageController {
 
     /**
      * 获取分类返回到商城主页面
-     * @param session
-     * @return
+     * @param session 将所有分类存到session
+     * @return 跳转到相应页面
      */
     @RequestMapping("foreCategoryList")
     public String categoryList(HttpSession session){
@@ -144,9 +144,9 @@ public class ForePageController {
 
     /**
      * 搜索框
-     * @param keyWord
-     * @param model
-     * @return
+     * @param keyWord 前台搜索框传递回来的关键字段
+     * @param model 向前台传递参数
+     * @return 跳转到相应页面
      */
     @RequestMapping("searchBox")
     public String searchBox(String keyWord,Model model){

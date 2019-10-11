@@ -32,9 +32,7 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Admin> list(){
 
-        List<Admin> admins = adminMapper.select();
-
-        return admins;
+        return adminMapper.select();
     }
 
 
@@ -60,7 +58,7 @@ public class AdminServiceImpl implements AdminService {
 
     /**
      *添加管理员账户
-     * @param admin
+     * @param admin 管理员对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -71,7 +69,7 @@ public class AdminServiceImpl implements AdminService {
 
     /**
      * 删除管理员账户by id
-     * @param id
+     * @param id 管理员主键
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -81,7 +79,7 @@ public class AdminServiceImpl implements AdminService {
 
     /**
      * 更新管理员
-     * @param admin
+     * @param admin 管理员对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -93,7 +91,8 @@ public class AdminServiceImpl implements AdminService {
 
     /**
      * 查重
-     * @param name
+     * @param name 管理员名字
+     * @return boolean
      */
     @Override
     public boolean exist(String name) {

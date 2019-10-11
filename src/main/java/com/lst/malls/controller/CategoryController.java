@@ -42,9 +42,9 @@ public class CategoryController {
 
     /**
      * 分页展示，方法和AdminController里的一样
-     * @param pageNumber
-     * @param model
-     * @return
+     * @param pageNumber 分页页数
+     * @param model 前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("categoryList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
@@ -63,10 +63,10 @@ public class CategoryController {
 
     /**
      * 分类添加，前端传参回来，在这里设置创建时间，并进行分类名重复的校验
-     * @param category
-     * @param name
-     * @param model
-     * @return
+     * @param category 分类实体类
+     * @param name 分类名字
+     * @param model 传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("categoryAdd")
     public String addCategory(Category category, String name, Model model){
@@ -90,9 +90,9 @@ public class CategoryController {
 
     /**
      * 删除分类
-     * @param id
-     * @param pageNumber
-     * @return
+     * @param id 分类主键
+     * @param pageNumber 分页页数
+     * @return 跳转到相应页面
      */
     @RequestMapping("categoryDelete")
     public String deleteCategory(Integer id, Integer pageNumber){
@@ -106,10 +106,10 @@ public class CategoryController {
 
     /**
      * 分类修改页面展示
-     * @param categoryId
-     * @param session
-     * @param model
-     * @return
+     * @param categoryId 分类主键
+     * @param session 保存到session传参
+     * @param model 传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("updateCategory")
     public String updateCategory(Integer categoryId, HttpSession session,Model model){
@@ -122,10 +122,10 @@ public class CategoryController {
 
     /**
      * 修改分类，设置最后修改时间，分类名校验
-     * @param category
-     * @param pageName
-     * @param model
-     * @return
+     * @param category 分类实体类
+     * @param pageName 分类名
+     * @param model 传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("categoryUpdate")
     public String updateCategory(Category category, String pageName, Model model,HttpSession session){

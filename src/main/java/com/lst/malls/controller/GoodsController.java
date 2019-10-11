@@ -43,11 +43,11 @@ public class GoodsController {
 
     /**
      * 指定分类下的商品展示
-     * @param pageNumber
-     * @param model
-     * @param categoryName
-     * @param session
-     * @return
+     * @param pageNumber 分页页数
+     * @param model 向前台传参
+     * @param categoryName 前台传递回来的分页名
+     * @param session 向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("goodsCategoryList")
     public String listCategoryGoods(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model, String categoryName, HttpSession session){
@@ -63,9 +63,9 @@ public class GoodsController {
 
     /**
      * 订单显示
-     * @param pageNumber
-     * @param model
-     * @return
+     * @param pageNumber 分页页数
+     * @param model 向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("goodsList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
@@ -79,8 +79,8 @@ public class GoodsController {
 
     /**
      * 添加商品页展示
-     * @param session
-     * @return
+     * @param session 向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("goodsAddList")
     public String goodsAddList(HttpSession session){
@@ -91,10 +91,12 @@ public class GoodsController {
 
     /**
      * 分类添加，前端传参回来，在这里设置创建时间，并进行分类名重复的校验
-     * @param
-     * @param
-     * @param
-     * @return
+     * @param goods 前台传递回来的商品实体类
+     * @param name 前台传递回来的商品名用于查重
+     * @param model 向前台传递参数
+     * @param file 前台传递回来的商品图片文件
+     * @return 跳转到相应页面
+     * @throws IOException 图片上传文件异常
      */
     @RequestMapping("goodsAdd")
     public String addGoods(Goods goods, String name, Model model, MultipartFile file) throws IOException {
@@ -132,10 +134,10 @@ public class GoodsController {
     }
 
     /**
-     * 删除分类
-     * @param id
-     * @param pageNumber
-     * @return
+     * 删除商品
+     * @param id 前台传递回来的商品主键
+     * @param pageNumber 分页页数
+     * @return 跳转到相应页面
      */
     @RequestMapping("goodsDelete")
     public String delete(Integer id, Integer pageNumber){
@@ -149,9 +151,9 @@ public class GoodsController {
 
     /**
      * 展示商品修改页面
-     * @param id
-     * @param model
-     * @return
+     * @param id 前台传递回来的商品主键
+     * @param model 向前台传参
+     * @return 跳转到相应页面
      */
     @RequestMapping("goodsUpdateList")
     public String goodsUpdateList(Integer id,Model model){
@@ -161,12 +163,14 @@ public class GoodsController {
         model.addAttribute("categories",categories);
         return "back/GoodsUpdata";
     }
+
     /**
      * 修改分类，设置最后修改时间，分类名校验
-     * @param
-     * @param
-     * @param
-     * @return
+     * @param goods 前台传递回来的商品实体类
+     * @param model 向前台传参
+     * @param file 前台传递回来的文件
+     * @return 跳转到相应页面
+     * @throws IOException 图片上传文件异常
      */
     @RequestMapping("goodsUpdate")
     public String updateGoods(Goods goods, Model model, MultipartFile file) throws IOException {

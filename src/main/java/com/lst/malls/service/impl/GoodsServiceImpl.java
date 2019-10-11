@@ -32,7 +32,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 展示
-     * @return
+     * @return 商品对象数组
      */
     @Override
     public List<Goods> list(){
@@ -44,8 +44,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 展示相应分类下的商品
-     * @param categoryName
-     * @return
+     * @param categoryName 分类名
+     * @return 商品对象数组
      */
     @Override
     public List<Goods> listCategory(String categoryName) {
@@ -57,7 +57,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 添加商品
-     * @param goods
+     * @param goods 商品对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -67,7 +67,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 根据主键进行删除
-     * @param id
+     * @param id 商品主键
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -77,8 +77,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 商品名字查重
-     * @param name
-     * @return
+     * @param name 商品名
+     * @return boolean
      */
     @Override
     public boolean exist(String name) {
@@ -94,7 +94,7 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 更新商品
-     * @param goods
+     * @param goods 商品对象
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
@@ -106,8 +106,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 通过主键进行查询
-     * @param id
-     * @return
+     * @param id 商品主键
+     * @return 商品对象
      */
     @Override
     public Goods get(Integer id) {
@@ -117,8 +117,8 @@ public class GoodsServiceImpl implements GoodsService {
 
     /**
      * 通过商品名查询商品
-     * @param goodName
-     * @return
+     * @param goodName 商品名
+     * @return 商品对象
      */
     @Override
     public Goods getByName(String goodName) {
