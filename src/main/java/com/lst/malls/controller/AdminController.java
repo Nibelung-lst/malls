@@ -136,6 +136,15 @@ public class AdminController {
         return "static_page/home";
     }
 
+    /**
+     * 登录页面跳转
+     * @return 跳转到相应页面
+     */
+    @RequestMapping("login")
+    public String login(){
+        return "back/login";
+    }
+
 
 
 }

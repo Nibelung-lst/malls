@@ -31,7 +31,7 @@
         <div class="col-md-12 column">
             <div class="jumbotron">
                 <h1>
-                    Hello, world!
+                    公告1
                 </h1>
                 <p>
                     This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
@@ -45,7 +45,7 @@
     <div class="row clearfix">
         <div class="col-md-4 column">
             <h2>
-                Heading
+                公告2
             </h2>
             <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
@@ -56,7 +56,7 @@
         </div>
         <div class="col-md-4 column">
             <h2>
-                Heading
+                公告3
             </h2>
             <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-4 column">
             <h2>
-                Heading
+                公告4
             </h2>
             <p>
                 Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.

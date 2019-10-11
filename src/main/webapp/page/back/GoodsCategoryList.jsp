@@ -22,17 +22,6 @@
     <title>Title</title>
 </head>
 <script>
-    function undate(id,name,original_price,real_price,represent,category_name){
-
-        document.forms[0].elements[0].value = id;
-        document.forms[0].elements[1].value = name;
-        document.forms[0].elements[2].value = original_price;
-        document.forms[0].elements[3].value = real_price;
-        document.forms[0].elements[4].value = represent;
-        document.forms[0].elements[5].value = category_name;
-        document.forms[0].action = '<c:url value="GoodsUpdata.jsp"/>';
-        document.forms[0].submit();
-    }
 
 </script>
 <body>
@@ -44,12 +33,6 @@
         </div>
     </div>
     <form method="post">
-        <input type="hidden" name="id">
-        <input type="hidden" name="name">
-        <input type="hidden" name="original_price">
-        <input type="hidden" name="real_price">
-        <input type="hidden" name="represent">
-        <input type="hidden" name="category_name">
         <!--显示表格数据-->
         <div class="row">
             <div class="col-md-12">
@@ -84,7 +67,7 @@
                             <th><fmt:formatDate type="date" value="${category.createDate}" /></th>
                             <th>${category.finalChanger}</th>
                             <th><fmt:formatDate type="date" value="${category.finalChangeTime}" /></th>
-                            <td><a href="javascript:void(0)" onclick="undate('${category.id}','${category.name}','${category.originalPrice}','${category.realPrice}','${category.represent}','${category.categoryName}');"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a href="/back/goodsUpdateList?id=${category.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                             <td><a href="/back/goodsDelete?id=${category.id}&pn=${GoodsPageInfo.pageNum}"  onclick="return confirm('请确认删除');"><span class="glyphicon glyphicon-trash"></span> </a> </td>
                         </tr>
                     </c:forEach>
@@ -148,7 +131,5 @@
     </div>
 </div>
 
-
-<%@include file="../static_page/page.jsp" %>
 </body>
 </html>
