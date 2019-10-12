@@ -120,6 +120,10 @@ public class ForeGoodsPayController {
      */
     @RequestMapping("puyNow")
     public String puyNow(Integer id, Integer goodsNumbers, HttpSession session, Model model){
+        User user = (User)session.getAttribute("user");
+        if (user == null){
+            return "fore/ForeRegister";
+        }
         List<OrderDetail> orderDetails = new ArrayList<>();
         //存入相应的订单详情
         Goods goods = goodsService.get(id);

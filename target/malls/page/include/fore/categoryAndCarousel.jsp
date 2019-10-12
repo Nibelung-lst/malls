@@ -65,7 +65,6 @@
             <div class="head2 " style="display: inline-block;cursor: pointer">
                 <span style="margin-left:50px" id="nae">科幻</span>
             </div>
-s
         <div class="head3" style="display: inline-block;cursor: pointer">
             <span style="margin-left:50px" id="ds">网络小说</span>
         </div>

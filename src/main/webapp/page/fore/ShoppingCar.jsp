@@ -271,7 +271,7 @@
                     </td>
                     <td>
                         <div >
-                            <a>${oi.goods.name}</a>
+                            <a >${oi.goods.name}</a>
                         </div>
                         <div>
                             <a>${oi.goods.represent}</a>
@@ -285,12 +285,12 @@
                     </td>
                     <td>
                         <div >
-                            <input pid="${oi.goods.id}" style="border: none" oiid=${oi.id}  class="orderItemNumberSetting" autocomplete="off" value="${oi.numbers}" readonly unselectable="on">
+                            <input pid="${oi.goods.id}" style="border: none;" oiid=${oi.id}  class="orderItemNumberSetting" autocomplete="off" value="${oi.numbers}" readonly unselectable="on">
                         </div>
                     </td>
 
                     <td >
-							<span class="cartProductItemSmallSumPrice" oiid=${oi.id} pid="${oi.goods.id}" >
+							<span  class="cartProductItemSmallSumPrice" oiid=${oi.id} pid="${oi.goods.id}" >
 							￥<fmt:formatNumber type="number" value="${oi.goods.realPrice*oi.numbers}" minFractionDigits="2"/>
 							</span>
                     </td>
