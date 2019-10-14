@@ -125,7 +125,6 @@ public class AdminController {
         session.setAttribute("admin",admin.getName());
         return "static_page/home";
     }
-
     /**
      * 登录页面跳转
      * @return 跳转到相应页面
@@ -134,7 +133,4 @@ public class AdminController {
     public String login(){
         return "back/login";
     }
-
-
-
 }
