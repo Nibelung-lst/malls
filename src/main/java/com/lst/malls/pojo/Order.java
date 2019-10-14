@@ -44,6 +44,7 @@ public class Order {
      * 创建时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotBlank
     private Date creatorTime;
     /**
      * 完成时间

@@ -39,6 +39,7 @@ public class Point {
      * 创建时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotBlank
     private Date createTime;
     /**非数据库实体类----------------------------------------*/
     /**

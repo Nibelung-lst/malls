@@ -1,6 +1,8 @@
 package com.lst.malls.pojo;
 
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * @Author:Nibelung
  * @Date ：Created in 14:52 2019/10/8
@@ -14,6 +16,7 @@ public class ImageUrl {
     /**
      * 商品名
      */
+    @NotBlank
     private String goodsName;
     /**
      * 图片地址

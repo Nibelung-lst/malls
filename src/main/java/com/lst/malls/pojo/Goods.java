@@ -44,6 +44,7 @@ public class Goods {
     /**
      * 分类名
      */
+    @NotBlank
     private String categoryName;
     /**
      * 创建人
@@ -54,6 +55,7 @@ public class Goods {
      * 创建时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotBlank
     private Date createDate;
     /**
      * 最后修改人

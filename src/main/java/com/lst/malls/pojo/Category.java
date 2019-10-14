@@ -30,6 +30,7 @@ public class Category {
      * 创建时间
      */
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotBlank
     private Date createTime;
     /**
      * 最后修改时间
