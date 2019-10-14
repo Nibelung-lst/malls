@@ -150,7 +150,6 @@ public class ForePageController {
      */
     @RequestMapping("searchBox")
     public String searchBox(String keyWord,Model model){
-        System.out.println(keyWord);
         List<Goods> goods = foreService.searchGoodsByKeyWord(keyWord);
         model.addAttribute("CategoryGood",goods);
         return "fore/CategoryGoods";
