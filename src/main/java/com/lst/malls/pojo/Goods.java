@@ -21,6 +21,7 @@ public class Goods {
     /**
      * 商品名
      */
+    @NotBlank
     private String name;
     /**
      * 商品图片
@@ -47,6 +48,7 @@ public class Goods {
     /**
      * 创建人
      */
+    @NotBlank
     private String creater;
     /**
      * 创建时间

@@ -3,6 +3,7 @@ package com.lst.malls.pojo;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 /**
@@ -18,10 +19,12 @@ public class Category {
     /**
      * 分类名
      */
+    @NotBlank
     private String name;
     /**
      * 创建人名
      */
+    @NotBlank
     private String createName;
     /**
      * 创建时间

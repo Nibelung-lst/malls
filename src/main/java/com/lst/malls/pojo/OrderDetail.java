@@ -16,10 +16,12 @@ public class OrderDetail {
     /**
      * 订单编号
      */
+    @NotBlank
     private Long orderId;
     /**
      * 商品编号
      */
+    @NotBlank
     private Integer goodsId;
     /**
      * 商品数量

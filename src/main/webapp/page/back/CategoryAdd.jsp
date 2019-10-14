@@ -75,7 +75,6 @@
     </div>
 </div>
 
-<%@include file="../static_page/page.jsp" %>
 </body>
 
 </html>

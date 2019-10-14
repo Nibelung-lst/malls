@@ -1,6 +1,9 @@
 package com.lst.malls.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 /**
  * @Author:Nibelung
@@ -15,6 +18,7 @@ public class Point {
     /**
      * 用户ID
      */
+    @NotBlank
     private Integer userId;
     /**
      * 得到的积分
@@ -29,10 +33,12 @@ public class Point {
     /**
      * 订单id
      */
+    @NotBlank
     private Long orderId;
     /**
      * 创建时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createTime;
     /**非数据库实体类----------------------------------------*/
     /**

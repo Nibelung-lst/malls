@@ -1,6 +1,7 @@
 package com.lst.malls.pojo;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @Author:Nibelung
@@ -15,10 +16,12 @@ public class ShoppingCar {
     /**
      * 用户ID
      */
+    @NotBlank
     private Integer userId;
     /**
      * 商品ID
      */
+    @NotBlank
     private Integer goodsId;
     /**
      * 商品数量

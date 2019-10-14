@@ -53,6 +53,7 @@ public class Order {
     /**
      * 订单状态
      */
+    @NotBlank
     private String status;
     /**
      * 用户名

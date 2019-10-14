@@ -56,6 +56,7 @@ public class User {
     /**
      * 积分
      */
+    @NotBlank
     private Integer point;
     /**
      * 状态
