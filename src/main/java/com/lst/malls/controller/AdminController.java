@@ -36,7 +36,6 @@ public class AdminController {
      */
     @RequestMapping("adminList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
-
         PageHelper.startPage(pageNumber,5);
         List<Admin> admins = adminService.list();
         PageInfo page = new PageInfo(admins,5);
