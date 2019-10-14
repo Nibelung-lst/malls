@@ -53,7 +53,6 @@ public class AdminController {
         if (id == null){
             return "static_page/Error";
         }
-
         adminService.delete(id);
         return "redirect:/back/adminList";
     }
@@ -71,13 +70,11 @@ public class AdminController {
         {
             return "static_page/Error";
         }
-
         boolean checking = adminService.exist(name);
         if (!checking){
             model.addAttribute("exist",true);
             return "back/AdminAdd";
         }
-
         adminService.add(admin);
         model.addAttribute("check",true);
         return "back/AdminAdd";
@@ -95,16 +92,13 @@ public class AdminController {
         if (admin == null){
             return "static_page/Error";
         }
-
         boolean checking = adminService.exist(name);
         if (!checking){
             model.addAttribute("checkExist",true);
             return "redirect:/back/adminList";
         }
-
         adminService.update(admin);
         return "redirect:/back/adminList";
-
     }
 
 
@@ -118,18 +112,15 @@ public class AdminController {
     @RequestMapping("adminLogin")
     public String login(String name, String password, HttpSession session)  {
         //用户名或者密码为空的话，则跳转到登录错误界面
-
         if (name == null||password ==null){
             return "static_page/Error";
         }
-
         //用户名和密码错误，跳转到提示页面
         Admin admin = adminService.get(name,password);
         if (admin == null){
             session.setAttribute("loginError",true);
             return "back/login";
         }
-
         //用户名和密码正确，向前端传参，并跳转到后台管理系统页面
         session.setAttribute("admin",admin.getName());
         return "static_page/home";
