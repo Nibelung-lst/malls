@@ -32,13 +32,10 @@ public class PointController {
      */
     @RequestMapping("pointList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
-
-
         //设置起始页，每页展示5条数据
         PageHelper.startPage(pageNumber,5);
         //将user表下的数据传入到users数组里
         java.util.List<Point> points = pointService.list();
-
         pointService.search(points);
         //使用pageInfo包装查询后的结果,只需要将pageInfo交给页面就行了
         PageInfo page = new PageInfo(points,5);

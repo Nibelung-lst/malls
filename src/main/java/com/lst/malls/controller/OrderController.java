@@ -21,7 +21,6 @@ import java.util.List;
 @Controller
 @RequestMapping("back")
 public class OrderController {
-
     /**
      * 订单service
      */
@@ -41,16 +40,11 @@ public class OrderController {
      */
     @RequestMapping("orderList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
-
         PageHelper.startPage(pageNumber,5);
         List<Order> orders = orderService.list();
-
         //查出订单详情
         orderDetailService.searchOrderDetail(orders);
-
         PageInfo page = new PageInfo(orders,5);
-
-
         model.addAttribute("OrderPageInfo",page);
         return "back/OrderList";
     }

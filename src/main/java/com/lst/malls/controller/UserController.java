@@ -32,8 +32,6 @@ public class UserController {
      */
     @RequestMapping("userList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
-
-
         //设置起始页，每页展示5条数据
         PageHelper.startPage(pageNumber,5);
         //将user表下的数据传入到users数组里

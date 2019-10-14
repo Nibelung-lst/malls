@@ -23,8 +23,6 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Autowired
     CategoryMapper categoryMapper;
-
-
     /**
      * 根据主键进行查找
      * @param id 分类主键
@@ -35,18 +33,13 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = categoryMapper.selectById(id);
         return category;
     }
-
     /**
      * 查询Category表里的分类数据
-     *
      * @return admin
      */
     @Override
     public List<Category> list() {
-
-
         List<Category> categories = categoryMapper.select();
-
         return categories;
     }
 
@@ -58,7 +51,6 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void add(Category category) {
         categoryMapper.insert(category);
-
     }
 
     /**
@@ -67,11 +59,8 @@ public class CategoryServiceImpl implements CategoryService {
      */
     @Override
     public boolean exist(String name) {
-
         List<Category> categories = categoryMapper.selectByName(name);
-
         if (categories.isEmpty()){
-
             return true;
         }
         return false;

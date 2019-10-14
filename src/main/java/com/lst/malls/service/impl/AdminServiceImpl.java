@@ -26,31 +26,25 @@ public class AdminServiceImpl implements AdminService {
 
     /**
      * 查询Admin表里的账户数据
-     *
      * @return admin
      */
     @Override
     public List<Admin> list(){
-
         return adminMapper.select();
     }
 
-
     /**
      * 判断数据里是否有和参数相同的值
-     *
-     * return:boolean
+     * @param name 用户名
+     * @param password 密码
+     * @return boolean
      */
     @Override
     public Admin get(String name, String password) {
-
         List<Admin> admins = adminMapper.selectByNameAndPassword(name,password);
-
         if (admins.isEmpty()){
             return null;
         }
-
-
         return admins.get(0);
     }
 

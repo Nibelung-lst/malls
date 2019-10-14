@@ -34,7 +34,6 @@ public class GoodsController {
      */
     @Autowired
     GoodsService goodsService;
-
     /**
      * 分类service
      */
@@ -51,7 +50,6 @@ public class GoodsController {
      */
     @RequestMapping("goodsCategoryList")
     public String listCategoryGoods(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model, String categoryName, HttpSession session){
-
         PageHelper.startPage(pageNumber,5);
         List<Goods> goods = goodsService.listCategory(categoryName);
         PageInfo page = new PageInfo(goods,5);
@@ -69,7 +67,6 @@ public class GoodsController {
      */
     @RequestMapping("goodsList")
     public String list(@RequestParam(value = "pageNumber",defaultValue = "1")Integer pageNumber, Model model){
-
         PageHelper.startPage(pageNumber,5);
         List<Goods> goods = goodsService.list();
         PageInfo page = new PageInfo(goods,5);
@@ -111,7 +108,6 @@ public class GoodsController {
             return "back/GoodsAdd";
         }
         //设置创建分类时的日期
-
         //图片上传成功后，将图片的地址写到数据库
         //保存图片的路径
         String filePath = "C:\\images";
@@ -124,8 +120,6 @@ public class GoodsController {
         //把本地文件上传到封装上传文件位置的全路径
         file.transferTo(targetFile);
         goods.setImage(newFileName);
-
-
         goods.setCreateDate(new Date());
         goodsService.add(goods);
         //返回参数 model 提示添加成功
@@ -177,10 +171,6 @@ public class GoodsController {
         if (goods == null){
             return "static_page/Error";
         }
-
-        /**
-         * 缺少名字校验
-         */
        if (!file.isEmpty()) {
            //图片上传成功后，将图片的地址写到数据库
            //保存图片的路径
@@ -195,12 +185,9 @@ public class GoodsController {
            file.transferTo(targetFile);
            goods.setImage(newFileName);
        }
-
-
         //修改时间设置
         goods.setFinalChangeTime(new Date());
         goodsService.update(goods);
-
         model.addAttribute("CategoryUpdataSucceed",true);
         return "back/GoodsUpdata";
 

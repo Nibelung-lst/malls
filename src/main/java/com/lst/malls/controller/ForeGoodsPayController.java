@@ -131,7 +131,6 @@ public class ForeGoodsPayController {
         orderDetails.add(orderDetail);
         //计算订单总额
         BigDecimal price = goods.getRealPrice().multiply(BigDecimal.valueOf(goodsNumbers));
-
         session.setAttribute("order",orderDetails);
         model.addAttribute("price",price);
 

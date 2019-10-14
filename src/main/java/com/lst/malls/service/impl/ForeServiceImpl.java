@@ -69,9 +69,7 @@ public class ForeServiceImpl implements ForeService {
         String timeStr = sdf.format(new Date());
         // 17位时间+用户id
         Long i = Long.valueOf(timeStr + user.getId());
-
         order.setOrderDetails(orderDetails);
-
         for (OrderDetail o:orderDetails) {
             o.setOrderId(i);
             orderDetailService.add(o);
@@ -79,7 +77,6 @@ public class ForeServiceImpl implements ForeService {
         //将订单ID和创建时间存入到订单中
         order.setOrderId(i);
         order.setCreatorTime(new Date());
-
         return order;
     }
 

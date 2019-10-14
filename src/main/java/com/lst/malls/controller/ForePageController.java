@@ -60,11 +60,9 @@ public class ForePageController {
     @RequestMapping("foreLogin")
     public String login(String name, String password, HttpSession session, Model model)  {
         //用户名或者密码为空的话，则跳转到登录错误界面
-
         if (name == null||password ==null){
             return "static_page/Error";
         }
-
         //用户名和密码错误，跳转到提示页面
         User user = userService.get(name,password);
         if (user == null){
@@ -75,9 +73,7 @@ public class ForePageController {
             model.addAttribute("Status",true);
             return "fore/ForeRegister";
         }
-
         //用户名和密码正确，向前端传参，并跳转到后台管理系统页面
-
         session.setAttribute("user",user);
         Integer shoppingCarNumbers = foreService.countShoppingCayByUser(user.getId());
         session.setAttribute("shoppingCarNumbers",shoppingCarNumbers);

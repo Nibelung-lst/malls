@@ -37,7 +37,6 @@ public class ImageUrlController {
         if(imageUrl == null){
             return "static_page/Error";
         }
-
         String filePath = "C:\\images";
         //获取原始图片的拓展名
         String originalFilename = file.getOriginalFilename();

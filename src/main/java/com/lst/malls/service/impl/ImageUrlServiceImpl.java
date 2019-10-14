@@ -39,7 +39,6 @@ public class ImageUrlServiceImpl implements ImageUrlService {
      */
     @Override
     public List<ImageUrl> get(String goodsName) {
-
         return imageUrlMapper.selectByGoodsName(goodsName);
     }
 }

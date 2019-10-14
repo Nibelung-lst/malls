@@ -59,14 +59,10 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User get(String name, String password) {
-
         List<User> admins = userMapper.selectByNameAndPassword(name,password);
-
         if (admins.isEmpty()){
             return null;
         }
-
-
         return admins.get(0);
     }
 
@@ -88,7 +84,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean exist(String name) {
         List<User> users = userMapper.selectByName(name);
-
         if (users.isEmpty()){
             return true;
         }
@@ -117,5 +112,4 @@ public class UserServiceImpl implements UserService {
     public void updateUser(User user) {
         userMapper.update(user);
     }
-
 }

@@ -36,9 +36,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public List<Goods> list(){
-
         List<Goods> goods = goodsMapper.select();
-
         return goods;
     }
 
@@ -49,9 +47,7 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public List<Goods> listCategory(String categoryName) {
-
         List<Goods> goods =goodsMapper.selectByCategory(categoryName);
-
         return goods;
     }
 
@@ -82,11 +78,8 @@ public class GoodsServiceImpl implements GoodsService {
      */
     @Override
     public boolean exist(String name) {
-
         Goods goods = goodsMapper.selectByName(name);
-
         if (goods == null){
-
             return true;
         }
         return false;
